@@ -1,0 +1,44 @@
+﻿<Window x:Class="BN.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BN"
+        xmlns:vm="clr-namespace:BN.ViewModels.Base"
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="616" Width="1134" ResizeMode="NoResize">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <DockPanel>
+
+        <TabControl>
+            <TabItem Header="ПТ-6">
+                <Grid>
+                    <Image Source="/Views/Window/ScreenShot.SM.18.05.03.059.png">
+                    </Image>
+                    <StatusBar VerticalAlignment="Bottom">
+                        <StatusBarItem>
+                            <TextBlock Text="{Binding Status}"></TextBlock>
+                        </StatusBarItem>
+                        <StatusBarItem>
+                            <TextBox Text="192.168.0.1"></TextBox>
+                        </StatusBarItem>
+                        <StatusBarItem>
+                            <Button Content="Подключить"></Button>
+                        </StatusBarItem>
+                    </StatusBar>
+                    <Label Content="{Binding TestSum1}"  Margin="361,248,0,0" Background="{Binding LCB}" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                    </Label>
+                </Grid>
+            </TabItem>
+
+
+            <TabItem Header="ГТ-7">
+            </TabItem>
+            <TabItem Header="ГТ-8"></TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>
+
