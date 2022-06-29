@@ -1,5 +1,6 @@
 ﻿using BN.Infrostructure.Commands;
 using BN.Models;
+using EasyModbus;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -55,14 +56,20 @@ namespace BN.ViewModels.Base
         #endregion
 
 
+        #region Первый парамет из регистра
+
+        private double _firstParmReg;
+        /// <summary></summary>
+        public double FirstParmReg
+        {
+            get => _firstParmReg;
+            set => Set(ref _firstParmReg, value);
+        }
+        #endregion
+
         Sum calculator = new Sum();
 
         #region PROPERTIES
-
-       // private string _firstNumber;
-      //  private string _secondNumber;
-      //  private string _result;
-
 
         private string _firstNumber;
         /// <summary></summary>
@@ -87,7 +94,7 @@ namespace BN.ViewModels.Base
             get => _result;
             set => Set(ref _result, value);
         }
-
+        #endregion
 
         private DateTime _datVrem;
         /// <summary></summary>
@@ -97,49 +104,19 @@ namespace BN.ViewModels.Base
             set => Set(ref _datVrem, value);
         }
 
+        private int _t;
+        /// <summary></summary>
+        public int T
+        {
+            get => _t;
+            set => Set(ref _t, value);
+        }
+        #region Комманды
         public RelayCommand CalculateButton { get; set; }
-
         public RelayCommand Day { get; set; }
+        public RelayCommand ConnectToRackSteamTurbine { get; set; }
         #endregion
 
-
-
-
-
-
-
-        private int _TestSum1;
-        /// <summary></summary>
-        public int TestSum1
-        {
-            get => _TestSum1;
-            set => Set(ref _TestSum1, value);
-        }
-
-
-        private string _LCB;
-       
-        /// <summary></summary>
-        public string LCB
-        {
-            get => _LCB;
-            set => Set(ref _LCB, value);
-        }
-
-
-        #region Комманда подключить 
-        public ICommand ConnectToRack { get; }
-
-        private bool CanConnetcToRack(object p) => true;
-        private void OnConnetcToRack(object p)
-        {
-            //BNRack SteamTurbine = new BNRack();
-            //int[] mass = SteamTurbine.ConToRack(AdressIP);
-            //_TestSum1 = mass[0];
-            // Application.
-
-        }
-        #endregion
         public MainWindowViewModel()
         {
 
@@ -160,9 +137,51 @@ namespace BN.ViewModels.Base
                 _timer.Start();
             });
 
+            //ConnectToRackSteamTurbine = new RelayCommand(o =>
+            //{
+
+            //    DispatcherTimer _timer = new DispatcherTimer(DispatcherPriority.Render);
+            //    _timer.Interval = TimeSpan.FromSeconds(1);
+            //    _timer.Tick += (sender, args) =>
+            //    {
+
+            //        BNRack SteamTurbine = new BNRack();
+            //        int[] ArrayRegistr = SteamTurbine.ConnectToRack(AdressIP);
+            //        FirstParmReg = ArrayRegistr[0];
+            //    };
+            //    _timer.Start();
+  
+            //});
 
 
 
+
+            ConnectToRackSteamTurbine = new RelayCommand(o =>
+            {
+                ModbusClient modbusClient = new ModbusClient(AdressIP, 502);
+                modbusClient.Connect();
+
+                DispatcherTimer _timer = new DispatcherTimer(DispatcherPriority.Render);
+                _timer.Interval = TimeSpan.FromSeconds(1);
+                _timer.Tick += (sender, args) =>
+                {
+                    int [] readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 3);
+                    ushort testvalue = (ushort)readHoldingRegisters[0];
+                    BNRack bnrk = new BNRack();
+                    double retva  = bnrk.Scale(testvalue);
+                    FirstParmReg = retva;
+                };
+                _timer.Start();
+
+            });
+
+           // ModbusClient modbusClient = new ModbusClient(AdressIP, 502);
+            //modbusClient.Connect();
+            //while (true)
+            //{
+            //    int[] readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 3);
+
+            _firstParmReg = 12.2664564;
             /* BNRack SteamTurbine = new BNRack();
              int[] mass = SteamTurbine.ConToRack(AdressIP);
              TestSum1 = mass[0];*/

@@ -9,23 +9,26 @@ namespace Test
 {
     internal class Program
     {
+
         static void Main(string[] args)
         {
+            //ushort _ProportionalValue = 500;
+            //ushort GatewayFullScaleValue = 16383;
+            //byte UpperMonitorRange = 1;
+            //sbyte LowerMonitorRange = -1;
+            //double result;
 
-            
-                ModbusClient modbusClient = new ModbusClient("127.0.0.1", 502);    //Ip-Address and Port of Modbus-TCP-Server
-                modbusClient.Connect();                                                    //Connect to Server
-               
-                int[] readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 3);    //Read 10 Holding Registers from Server, starting with Address 1
+            ushort _ProportionalValue = 500;
+            ushort GatewayFullScaleValue = 16383;
+            double UpperMonitorRange = 1;
+            double LowerMonitorRange = -1;
+            double result;
 
-                
+            int a = 500, b = 23;
+            double c = (double) a / b;
 
-                for (int i = 0; i < readHoldingRegisters.Length; i++)
-                    Console.WriteLine("Value of HoldingRegister " + (i + 1) + " " + readHoldingRegisters[i].ToString());
-                modbusClient.Disconnect();                                                //Disconnect from Server
-                Console.Write("Press any key to continue . . . ");
-                Console.ReadKey(true);
-            
+            result =  ((double)_ProportionalValue / GatewayFullScaleValue) * ((double) UpperMonitorRange - LowerMonitorRange) + (double) LowerMonitorRange;
+            Console.WriteLine(result);
         }
     }
 }
