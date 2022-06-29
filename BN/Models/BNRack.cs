@@ -9,13 +9,12 @@ namespace BN.Models
 {
     internal class BNRack
     {
-       // public ushort ProportionalValue { get; set; } // Это та переменная которую получаем из устройства
 
         private  ushort GatewayFullScaleValue = 16383;
         private byte UpperMonitorRange = 1;
         private sbyte LowerMonitorRange = -1;
 
-        public double[] Scale(int[] _proportionalValue)
+        public double[] Scale(ref int[] _proportionalValue)
         {
             double[] result = new double[_proportionalValue.Length];
             for (int i = 0; i < _proportionalValue.Length; i++)
@@ -29,7 +28,6 @@ namespace BN.Models
                     result[i] = 999.0;
                 }
             }
-
             return result;
         }
 

@@ -184,7 +184,7 @@ namespace BN.ViewModels.Base
                     int [] readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 3);
                     //ushort testvalue = (ushort)readHoldingRegisters[0];
                     BNRack bnrk = new BNRack();
-                    double[] retva  = bnrk.Scale(readHoldingRegisters);
+                    double[] retva  = bnrk.Scale(ref readHoldingRegisters);
                     FirstParmReg = retva[0];
                     SecondParmReg = retva[1];
                     ThirdParmReg = retva[2];
