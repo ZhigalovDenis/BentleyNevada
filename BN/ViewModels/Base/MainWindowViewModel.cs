@@ -182,10 +182,12 @@ namespace BN.ViewModels.Base
                 _timer.Tick += (sender, args) =>
                 {
                     int [] readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 3);
-                    ushort testvalue = (ushort)readHoldingRegisters[0];
+                    //ushort testvalue = (ushort)readHoldingRegisters[0];
                     BNRack bnrk = new BNRack();
-                    double retva  = bnrk.Scale(testvalue);
-                    FirstParmReg = retva;
+                    double[] retva  = bnrk.Scale(readHoldingRegisters);
+                    FirstParmReg = retva[0];
+                    SecondParmReg = retva[1];
+                    ThirdParmReg = retva[2];
                 };
                 _timer.Start();
 

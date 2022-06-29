@@ -22,8 +22,18 @@ namespace BN.Models
                 double result = ((double)_proportionalValue / GatewayFullScaleValue) * ((double)UpperMonitorRange - LowerMonitorRange) + (double)LowerMonitorRange;
                 return result;
             }
-            return 0;
+            return 999;
         }
 
+        public double[] Scale(int[] _proportionalValue)
+        {
+            double[] result = new double[_proportionalValue.Length];
+            for (int i = 0; i < _proportionalValue.Length; i++)
+            {
+
+                result[i] = ((double)_proportionalValue[i] / GatewayFullScaleValue) * ((double)UpperMonitorRange - LowerMonitorRange) + (double)LowerMonitorRange;
+            }
+            return result;
+        }
     }
 }
