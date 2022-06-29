@@ -28,15 +28,14 @@
                             <Button Content="Подключить" Command="{Binding ConnectToRackSteamTurbine}"></Button>
                         </StatusBarItem>
                     </StatusBar>
-                    <Label Content="{Binding FirstParmReg}"  Margin="361,248,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top">
-
-                    </Label>
+                    <Label Content="{Binding FirstParmReg}" ContentStringFormat="0.000" Margin="29,301,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     <TextBox HorizontalAlignment="Left" Margin="775,398,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding FirstNumber}"/>
                     <TextBox HorizontalAlignment="Left" Margin="908,398,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding SecondNumber}"/>
                     <Button Content="Button" HorizontalAlignment="Left" Margin="881,421,0,0" VerticalAlignment="Top" Command="{Binding CalculateButton}"/>
-                    <Label Content="{Binding FirstParmReg}" ContentStringFormat="0.000" HorizontalAlignment="Left" Margin="912,478,0,0" VerticalAlignment="Top"/>
+                    <Label Content="{Binding SecondParmReg}" ContentStringFormat="0.000" HorizontalAlignment="Left" Margin="29,332,0,0" VerticalAlignment="Top"/>
                     <TextBox HorizontalAlignment="Left" Margin="775,478,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding DatVrem}"/>
                     <Button Content="Дай время" HorizontalAlignment="Left" Margin="804,517,0,0" VerticalAlignment="Top" Command="{Binding Day}"/>
+                    <Label Content="{Binding ThirdParmReg}" ContentStringFormat="0.000" HorizontalAlignment="Left" Margin="29,363,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
 

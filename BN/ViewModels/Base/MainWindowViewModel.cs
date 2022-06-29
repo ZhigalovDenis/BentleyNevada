@@ -56,7 +56,7 @@ namespace BN.ViewModels.Base
         #endregion
 
 
-        #region Первый парамет из регистра
+        #region Три параметра из регистра
 
         private double _firstParmReg;
         /// <summary></summary>
@@ -64,6 +64,22 @@ namespace BN.ViewModels.Base
         {
             get => _firstParmReg;
             set => Set(ref _firstParmReg, value);
+        }
+
+        private double _secondParmReg;
+        /// <summary></summary>
+        public double SecondParmReg
+        {
+            get => _secondParmReg;
+            set => Set(ref _secondParmReg, value);
+        }
+
+        private double _thirdParmReg;
+        /// <summary></summary>
+        public double ThirdParmReg
+        {
+            get => _thirdParmReg;
+            set => Set(ref _thirdParmReg, value);
         }
         #endregion
 
