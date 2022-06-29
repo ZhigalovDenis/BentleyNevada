@@ -175,21 +175,35 @@ namespace BN.ViewModels.Base
             ConnectToRackSteamTurbine = new RelayCommand(o =>
             {
                 ModbusClient modbusClient = new ModbusClient(AdressIP, 502);
-                modbusClient.Connect();
-
-                DispatcherTimer _timer = new DispatcherTimer(DispatcherPriority.Render);
-                _timer.Interval = TimeSpan.FromSeconds(1);
-                _timer.Tick += (sender, args) =>
+                try
                 {
-                    int [] readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 3);
-                    //ushort testvalue = (ushort)readHoldingRegisters[0];
-                    BNRack bnrk = new BNRack();
-                    double[] retva  = bnrk.Scale(ref readHoldingRegisters);
-                    FirstParmReg = retva[0];
-                    SecondParmReg = retva[1];
-                    ThirdParmReg = retva[2];
-                };
-                _timer.Start();
+                    modbusClient.Connect();
+                }
+                catch (Exception )
+                { 
+                
+                    MessageBox.Show("Устройство не отвечает");
+                    return;
+                }
+                
+                          
+                    DispatcherTimer _timer = new DispatcherTimer(DispatcherPriority.Render);
+                    _timer.Interval = TimeSpan.FromSeconds(1);
+                    _timer.Tick += (sender, args) =>
+                    {
+                        int[] readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 3);
+                        //ushort testvalue = (ushort)readHoldingRegisters[0];
+                        BNRack bnrk = new BNRack();
+                        double[] retva = bnrk.Scale(ref readHoldingRegisters);
+                        FirstParmReg = retva[0];
+                        SecondParmReg = retva[1];
+                        ThirdParmReg = retva[2];
+                    };
+                    _timer.Start();
+                
+
+                
+
 
             });
 
