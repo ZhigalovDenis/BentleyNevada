@@ -15,16 +15,6 @@ namespace BN.Models
         private byte UpperMonitorRange = 1;
         private sbyte LowerMonitorRange = -1;
 
-         public double Scale(ushort _proportionalValue)
-        {
-            if (_proportionalValue > 0 && _proportionalValue <= GatewayFullScaleValue )
-            {
-                double result = ((double)_proportionalValue / GatewayFullScaleValue) * ((double)UpperMonitorRange - LowerMonitorRange) + (double)LowerMonitorRange;
-                return result;
-            }
-            return 999;
-        }
-
         public double[] Scale(int[] _proportionalValue)
         {
             double[] result = new double[_proportionalValue.Length];
