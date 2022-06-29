@@ -30,10 +30,18 @@ namespace BN.Models
             double[] result = new double[_proportionalValue.Length];
             for (int i = 0; i < _proportionalValue.Length; i++)
             {
-
-                result[i] = ((double)_proportionalValue[i] / GatewayFullScaleValue) * ((double)UpperMonitorRange - LowerMonitorRange) + (double)LowerMonitorRange;
+                if (_proportionalValue[i] >= 0 && _proportionalValue[i] <= GatewayFullScaleValue)
+                {
+                    result[i] = ((double)_proportionalValue[i] / GatewayFullScaleValue) * ((double)UpperMonitorRange - LowerMonitorRange) + (double)LowerMonitorRange;
+                }
+                else
+                {
+                    result[i] = 999.0;
+                }
             }
+
             return result;
         }
+
     }
 }
