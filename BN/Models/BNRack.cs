@@ -10,25 +10,25 @@ namespace BN.Models
     internal class BNRack
     {
 
-        private  ushort GatewayFullScaleValue = 16383;
-        private byte UpperMonitorRange = 1;
-        private sbyte LowerMonitorRange = -1;
+        private const ushort GatewayFullScaleValue = 16383;
+        private const byte UpperMonitorRange = 1;
+        private const sbyte LowerMonitorRange = -1;
 
         public double[] Scale(ref int[] _proportionalValue)
         {
-            double[] result = new double[_proportionalValue.Length];
+            double[] ScaledValue = new double[_proportionalValue.Length];
             for (int i = 0; i < _proportionalValue.Length; i++)
             {
                 if (_proportionalValue[i] >= 0 && _proportionalValue[i] <= GatewayFullScaleValue)
                 {
-                    result[i] = ((double)_proportionalValue[i] / GatewayFullScaleValue) * ((double)UpperMonitorRange - LowerMonitorRange) + (double)LowerMonitorRange;
+                    ScaledValue[i] = ((double)_proportionalValue[i] / GatewayFullScaleValue) * ((double)UpperMonitorRange - LowerMonitorRange) + (double)LowerMonitorRange;
                 }
                 else
                 {
-                    result[i] = 999.0;
+                    ScaledValue[i] = 999.0;
                 }
             }
-            return result;
+            return ScaledValue;
         }
 
     }
