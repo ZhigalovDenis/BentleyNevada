@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BN.Models
 {
-    internal class Sum
-    {   
-        public int Calculate(string first, string second)
+    internal class Clock
+    {
+        public DateTime DT()
         {
-            return Convert.ToInt32(first) + Convert.ToInt32(second);
+            var vrem = DateTime.Now;
+                return vrem;
         }
-
     }
 }

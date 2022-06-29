@@ -82,8 +82,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Infrostructure\Commands\Base\Command.cs" />
-    <Compile Include="Infrostructure\Commands\LambdaCommand.cs" />
+    <Compile Include="Infrostructure\Commands\RelayCommand.cs" />
+    <Compile Include="Models\BNRack.cs" />
+    <Compile Include="Models\Clock.cs" />
     <Compile Include="Models\Sum.cs" />
     <Compile Include="ViewModels\Base\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
@@ -133,6 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Window\ScreenShot.SM.18.05.03.059.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Infrostructure\Commands\Base\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
