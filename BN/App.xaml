@@ -7,19 +7,29 @@
         <!--Стиль для Label-->
         <!--Background="#e5e5e5"-->
             <Style x:Key="Parent_LabelOnImage" TargetType="Label">
-            <Setter Property="Background" Value="{Binding }"/>
-            <Setter Property="Foreground" Value="#008800"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="ContentStringFormat" Value="0.000 мм"/>
-            <Setter Property="BorderBrush" Value="Black"/>
-            <Setter Property="BorderThickness" Value="1.3"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Background" Value="{Binding }"/>
+                <Setter Property="Foreground" Value="#008800"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="ContentStringFormat" Value="0.000 мм"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="BorderThickness" Value="1.3"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
             </Style>
-        
-        
+                <Style x:Key="Child_LabelOnImage" TargetType="Label" BasedOn="{StaticResource Parent_LabelOnImage}">
+                <Setter Property="ContentStringFormat" Value="0.00 мк"/>
+            </Style>
+
     </Application.Resources>
 </Application>
 
 
- 
+<Style x:Key="ButtonParentStyle">
+    <Setter Property="Button.Background" Value="Black" />
+    <Setter Property="Button.Foreground" Value="White" />
+    <Setter Property="Button.FontFamily" Value="Andy" />
+</Style>
+<Style x:Key="ButtonChildStyle" BasedOn="{StaticResource ButtonParentStyle}">
+    <Setter Property="Button.BorderBrush" Value="Red" />
+    <Setter Property="Button.FontFamily" Value="Verdana" />
+</Style>
