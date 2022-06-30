@@ -56,9 +56,9 @@ namespace BN.ViewModels.Base
         #endregion
 
         #region Фон для лэйбла
-        private double _backgroundLabel;
+        private string _backgroundLabel;
         /// <summary></summary>
-        public double BackgroundLabel
+        public string BackgroundLabel
         {
             get => _backgroundLabel;
             set => Set(ref _backgroundLabel, value);
@@ -216,6 +216,8 @@ namespace BN.ViewModels.Base
 
 
             });
+
+            BackgroundLabel = "#e5e5e5";
 
            // ModbusClient modbusClient = new ModbusClient(AdressIP, 502);
             //modbusClient.Connect();

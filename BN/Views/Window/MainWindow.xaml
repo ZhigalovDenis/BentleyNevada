@@ -29,7 +29,7 @@
                         </StatusBarItem>
                     </StatusBar>
 
-                    <Label Content="{Binding FirstParmReg}"  Margin="232,292,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#008800" Background="#e5e5e5" FontWeight="Bold" ContentStringFormat="0.000 мм" BorderBrush="Black" BorderThickness="1.3" Height="30" VerticalContentAlignment="Center">
+                    <Label Content="{Binding FirstParmReg}"  Margin="232,292,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#008800" Background="{Binding BackgroundLabel}" FontWeight="Bold" ContentStringFormat="0.000 мм" BorderBrush="Black" BorderThickness="1.3" Height="30" VerticalContentAlignment="Center">
 
                     </Label>
 

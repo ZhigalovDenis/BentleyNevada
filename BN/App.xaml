@@ -6,9 +6,8 @@
     <Application.Resources>
         <!--Стиль для Label-->
         <!--Background="#e5e5e5"-->
-            <Style x:Key="Parent_LabelOnImage" TargetType="Label">
-                <Setter Property="Background" Value="{Binding }"/>
-                <Setter Property="Foreground" Value="#008800"/>
+        <Style x:Key="Parent_LabelOnImage" TargetType="Label">
+            <Setter Property="Foreground" Value="#008800"/>
                 <Setter Property="FontWeight" Value="Bold"/>
                 <Setter Property="ContentStringFormat" Value="0.000 мм"/>
                 <Setter Property="BorderBrush" Value="Black"/>
