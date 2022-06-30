@@ -55,6 +55,15 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
+        #region Фон для лэйбла
+        private double _backgroundLabel;
+        /// <summary></summary>
+        public double BackgroundLabel
+        {
+            get => _backgroundLabel;
+            set => Set(ref _backgroundLabel, value);
+        }
+        #endregion
 
         #region Три параметра из регистра
 
@@ -82,6 +91,7 @@ namespace BN.ViewModels.Base
             set => Set(ref _thirdParmReg, value);
         }
         #endregion
+
 
         Sum calculator = new Sum();
 
