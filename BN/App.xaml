@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:BN"
              StartupUri="Views/Window/MainWindow.xaml">
     <Application.Resources>
-         
+        <!--Стиль для Label-->
+        <Style x:Key="TestLabel" TargetType="Label">
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="Background" Value="Yellow"/>
+        </Style>
     </Application.Resources>
 </Application>
+
+

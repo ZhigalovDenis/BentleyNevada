@@ -11,10 +11,10 @@
         <vm:MainWindowViewModel/>
     </Window.DataContext>
     <DockPanel>
-
         <TabControl>
             <TabItem Header="ПТ-6">
                 <Grid>
+                 
                     <Image Source="/Views/Window/ScreenShot.SM.18.05.03.059.png">
                     </Image>
                     <StatusBar VerticalAlignment="Bottom">
@@ -28,15 +28,18 @@
                             <Button Content="Подключить" Command="{Binding ConnectToRackSteamTurbine}"></Button>
                         </StatusBarItem>
                     </StatusBar>
-                    <Label Content="{Binding FirstParmReg}" ContentStringFormat="0.000" Margin="29,301,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                    <Label x:Name="ty" Content="{Binding FirstParmReg}" ContentStringFormat="0.000" Margin="29,301,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" >
                         
                     </Label>
-                    <TextBox HorizontalAlignment="Left" Margin="775,398,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding FirstNumber}"/>
+
+                    <TextBox   HorizontalAlignment="Left" Margin="775,398,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding FirstNumber}">
+                    </TextBox>
                     <TextBox HorizontalAlignment="Left" Margin="908,398,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding SecondNumber}"/>
                     <Button Content="Button" HorizontalAlignment="Left" Margin="881,421,0,0" VerticalAlignment="Top" Command="{Binding CalculateButton}"/>
                     <Label Content="{Binding SecondParmReg}" ContentStringFormat="0.000" HorizontalAlignment="Left" Margin="29,332,0,0" VerticalAlignment="Top"/>
                     <TextBox HorizontalAlignment="Left" Margin="775,478,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding DatVrem}"/>
-                    <Button Content="Дай время" HorizontalAlignment="Left" Margin="804,517,0,0" VerticalAlignment="Top" Command="{Binding Day}"/>
+                    <Button  Content="Дай время" HorizontalAlignment="Left" Margin="804,517,0,0" VerticalAlignment="Top" Command="{Binding Day}"/>
                     <Label Content="{Binding ThirdParmReg}" ContentStringFormat="0.000" HorizontalAlignment="Left" Margin="29,363,0,0" VerticalAlignment="Top"/>
                
                     
