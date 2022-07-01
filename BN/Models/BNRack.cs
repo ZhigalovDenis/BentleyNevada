@@ -13,7 +13,11 @@ namespace BN.Models
         private const ushort GatewayFullScaleValue = 16383;
         private const byte UpperMonitorRange = 1;
         private const sbyte LowerMonitorRange = -1;
-
+        /// <summary>
+        ///  Метод производит шкалирование
+        /// </summary>
+        /// <param name="_proportionalValue">Массив регистров</param>
+        /// <returns>Массив шкаллированных данных</returns>
         public double[] Scale(ref int[] _proportionalValue)
         {
             double[] ScaledValue = new double[_proportionalValue.Length];
