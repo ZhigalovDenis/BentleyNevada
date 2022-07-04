@@ -17,13 +17,13 @@
                     <Image Source="/Views/Window/ST-6.png" Margin="0,-2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="545" FlowDirection="LeftToRight" UseLayoutRounding="False"/>
                     <StatusBar VerticalAlignment="Bottom" Background="{Binding BackgroundStatusBarST6}">
                         <StatusBarItem>
-                            <TextBlock Text="{Binding Status}"></TextBlock>
+                            <TextBlock Text="{Binding StatusST6}"></TextBlock>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <TextBox Text="{Binding AdressIP}"></TextBox>
+                            <TextBox Text="{Binding AdressIPST6}"></TextBox>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <Button Content="Подключить" Command="{Binding ConnectToRackSteamTurbine}"></Button>
+                            <Button Content="Подключить" Command="{Binding ConnectToRackST6}"></Button>
                         </StatusBarItem>
                     </StatusBar>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="22,205,0,0" Background="{Binding BackgroundBorder}"/>

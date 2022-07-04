@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -35,23 +36,23 @@ namespace BN.ViewModels.Base
         #region Status : string - Статус программы
 
         /// <summary>Статус программы</summary>
-        private string _Status = "Отключено"; // поле
+        private string _StatusST6 = "Отключено"; // поле
 
         /// <summary>Статус программы</summary>
-        public string Status
+        public string StatusST6
         {
-            get => _Status; //возвращает значение поля
-            set => Set(ref _Status, value);
+            get => _StatusST6; //возвращает значение поля
+            set => Set(ref _StatusST6, value);
         }
         #endregion
 
         #region IP адрес подключения
-        private string _AdressIP = "127.0.0.1";
+        private string _AdressIPST6 = "127.0.0.1";
         /// <summary>IP адрес подключения</summary>
-        public string AdressIP
+        public string AdressIPST6
         {
-            get => _AdressIP;
-            set => Set(ref _AdressIP, value);
+            get => _AdressIPST6;
+            set => Set(ref _AdressIPST6, value);
         }
         #endregion
 
@@ -104,19 +105,27 @@ namespace BN.ViewModels.Base
 
 
         #region Комманды
-        public RelayCommand ConnectToRackSteamTurbine { get; set; }
+        public RelayCommand ConnectToRackST6 { get; set; }
         #endregion
 
         public MainWindowViewModel()
         {
 
-            ConnectToRackSteamTurbine = new RelayCommand(o =>
+            ConnectToRackST6 = new RelayCommand(o =>
             {
-                ModbusClient modbusClient = new ModbusClient(AdressIP, 502);
+                ModbusClient modbusClient = new ModbusClient(AdressIPST6, 502);
+
+                var Match = Regex.IsMatch(AdressIPST6, "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
+                if (Match == false)
+                {
+                    MessageBox.Show("IP адрес не соответствуте формату IPV4");
+                    return;
+                }
+
                 try
                 {
                     modbusClient.Connect();
-                    Status = "Подключено";
+                    StatusST6 = "Подключено";
                     BackgroundStatusBarST6 = "LightGreen";
                 }
                 catch (Exception )
