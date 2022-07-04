@@ -30,8 +30,8 @@
                         </StatusBarItem>
                     </StatusBar>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="22,205,0,0" Background="{Binding BackgroundBorder}"/>
-                    <Border Style="{StaticResource BorderForLabel}"  Margin="22,247,0,0" Background="{Binding BackgroundBorder}"/>
-                    <Border Style="{StaticResource BorderForLabel}"  Margin="22,226,0,0" Background="{Binding BackgroundBorder}"/>
+                    <Border Style="{StaticResource BorderForLabel}"  Margin="22,247,0,0" />
+                    <Border Style="{StaticResource BorderForLabel}"  Margin="22,226,0,0" />
                     <Label Content="{Binding ThirdParmReg}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,241,0,0" Height="30"/>
                     <Label Content="{Binding SecondParmReg}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,220,0,0"/>
                     <Label Content="{Binding FirstParmReg}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,199,0,0"/>

@@ -161,7 +161,6 @@ namespace BN.ViewModels.Base
 
                  ModbusClient modbusClientST6 = new ModbusClient(AdressIPST6, 502);
 
-
                   var Match = Regex.IsMatch(AdressIPST6, "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
                   if (Match == false)
                   {
@@ -175,10 +174,10 @@ namespace BN.ViewModels.Base
                   }
                   catch (Exception )
                   { 
-
                       MessageBox.Show("Устройство не отвечает");
                       return;
                   }    
+
                       StatusST6 = "Подключено";
                       BackgroundStatusBarST6 = "LightGreen";
                       BtConActivST6 = false;
@@ -193,10 +192,27 @@ namespace BN.ViewModels.Base
                           if (BtDisconST6 == false)
                           {
                               int[] readHoldingRegisters = modbusClientST6.ReadHoldingRegisters(0, 3);
-                              double[] retva = bnRackST6.Scale(readHoldingRegisters);
-                              FirstParmReg = retva[0];
-                              SecondParmReg = retva[1];
-                              ThirdParmReg = retva[2];
+                              double[] returnvalue = bnRackST6.Scale(readHoldingRegisters);
+
+                              FirstParmReg = returnvalue[0];
+                              SecondParmReg = returnvalue[1];
+                              ThirdParmReg = returnvalue[2];
+
+                              BackgroundBorder = bnRackST6.LimitBrush(FirstParmReg, 
+                                                                      0.5, 0.79, -0.5, -0.79,
+                                                                      0.8, 0.99, -0.8, -0.99,
+                                                                      1, -1);
+
+
+
+
+
+                              //else
+                              //{
+                              //    BackgroundBorder = "#e5e5e5";
+                              //}
+
+
                           }
                           else
                           {
@@ -222,7 +238,11 @@ namespace BN.ViewModels.Base
 
 
 
-                BackgroundBorder = "#e5e5e5";
+
+         //   BackgroundBorder = "#e5e5e5";
+
+
+
         }
     }
 }
