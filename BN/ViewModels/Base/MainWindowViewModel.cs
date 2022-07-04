@@ -16,6 +16,8 @@ namespace BN.ViewModels.Base
 {
     internal class MainWindowViewModel : ViewModel
     {
+
+
         #region Заголовок окна
         private string _Title = "АСКВД BN";
         /// <summary>Заголовок окна</summary>
@@ -33,7 +35,7 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-        #region Status : string - Статус программы
+        #region Status : string - Статус подключения ПТ-6
 
         /// <summary>Статус программы</summary>
         private string _StatusST6 = "Отключено"; // поле
@@ -46,7 +48,7 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-        #region IP адрес подключения
+        #region IP адрес подключения ПТ-6
         private string _AdressIPST6 = "127.0.0.1";
         /// <summary>IP адрес подключения</summary>
         public string AdressIPST6
@@ -73,6 +75,26 @@ namespace BN.ViewModels.Base
         {
             get => _backgroundStatusBarST6;
             set => Set(ref _backgroundStatusBarST6, value);
+        }
+        #endregion
+
+        #region Активность ввода IP адреса 
+        private bool _tbIPAdrrActST6 = true;
+        /// <summary></summary>
+        public bool TbIPAdrrActST6
+        {
+            get => _tbIPAdrrActST6;
+            set => Set(ref _tbIPAdrrActST6, value);
+        }
+        #endregion
+
+        #region Активность кнопки подключения для ПТ-6 
+        private bool _btConST6 = true;
+        /// <summary></summary>
+        public bool BtConST6
+        {
+            get => _btConST6;
+            set => Set(ref _btConST6, value);
         }
         #endregion
 
@@ -106,6 +128,7 @@ namespace BN.ViewModels.Base
 
         #region Комманды
         public RelayCommand ConnectToRackST6 { get; set; }
+        public RelayCommand DisconnectToRackST6 { get; set; }
         #endregion
 
         public MainWindowViewModel()
@@ -113,8 +136,8 @@ namespace BN.ViewModels.Base
 
             ConnectToRackST6 = new RelayCommand(o =>
             {
-                ModbusClient modbusClient = new ModbusClient(AdressIPST6, 502);
-
+                ModbusClient modbusClientST6 = new ModbusClient(AdressIPST6, 502);
+           
                 var Match = Regex.IsMatch(AdressIPST6, "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
                 if (Match == false)
                 {
@@ -124,32 +147,50 @@ namespace BN.ViewModels.Base
 
                 try
                 {
-                    modbusClient.Connect();
-                    StatusST6 = "Подключено";
-                    BackgroundStatusBarST6 = "LightGreen";
+                    modbusClientST6.Connect();
                 }
                 catch (Exception )
                 { 
                 
                     MessageBox.Show("Устройство не отвечает");
                     return;
-                }       
-                    DispatcherTimer _timer = new DispatcherTimer(DispatcherPriority.Render);
-                    _timer.Interval = TimeSpan.FromSeconds(1);
-                    _timer.Tick += (sender, args) =>
+                }    
+                    StatusST6 = "Подключено";
+                    BackgroundStatusBarST6 = "LightGreen";
+                    BtConST6 = false;
+                    TbIPAdrrActST6 = false;    
+
+                    BNRack bnRackST6 = new BNRack();
+                    DispatcherTimer _timerST6 = new DispatcherTimer(DispatcherPriority.Render);
+
+                    _timerST6.Interval = TimeSpan.FromSeconds(1);
+                    _timerST6.Tick += (sender, args) =>
                     {
-                        int[] readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 3);
-                        //ushort testvalue = (ushort)readHoldingRegisters[0];
-                        BNRack bnrk = new BNRack();
-                        double[] retva = bnrk.Scale(ref readHoldingRegisters);
+                        DisconnectToRackST6 = new RelayCommand(o1 =>
+                        {
+                            MessageBox.Show("Устройство не отвечает");
+                        });
+
+                        int[] readHoldingRegisters = modbusClientST6.ReadHoldingRegisters(0, 3);
+                        double[] retva = bnRackST6.Scale(ref readHoldingRegisters);
                         FirstParmReg = retva[0];
                         SecondParmReg = retva[1];
                         ThirdParmReg = retva[2];
                     };
-                    _timer.Start();
+                _timerST6.Start();
+
             });
 
-            BackgroundBorder = "#e5e5e5";
+            DisconnectToRackST6 = new RelayCommand(o =>
+            {
+
+
+            });
+
+
+
+
+                BackgroundBorder = "#e5e5e5";
         }
     }
 }
