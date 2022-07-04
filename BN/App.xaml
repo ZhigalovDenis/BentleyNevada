@@ -4,19 +4,31 @@
              xmlns:local="clr-namespace:BN"
              StartupUri="Views/Window/MainWindow.xaml">
     <Application.Resources>
+        <!--Стиль для Border-->
+        <Style x:Key="BorderForLabel" TargetType="Border">
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height"   Value="20" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
         <!--Стиль для Label-->
-        <!--Background="#e5e5e5"-->
         <Style x:Key="Parent_LabelOnImage" TargetType="Label">
             <Setter Property="Foreground" Value="#008800"/>
-                <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="ContentStringFormat" Value="0.000 мм"/>
-                <Setter Property="BorderBrush" Value="Black"/>
-                <Setter Property="BorderThickness" Value="1.3"/>
-                <Setter Property="Height" Value="30"/>
-                <Setter Property="VerticalContentAlignment" Value="Center"/>
-            </Style>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="ContentStringFormat" Value="0.000 мм"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
                 <Style x:Key="Child_LabelOnImage" TargetType="Label" BasedOn="{StaticResource Parent_LabelOnImage}">
                 <Setter Property="ContentStringFormat" Value="0.00 мк"/>
             </Style>
     </Application.Resources>
 </Application>
+

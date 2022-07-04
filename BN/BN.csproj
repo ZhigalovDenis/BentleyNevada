@@ -133,10 +133,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Views\Window\ScreenShot.SM.18.05.03.059.png" />
+    <Folder Include="Infrostructure\Commands\Base\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Infrostructure\Commands\Base\" />
+    <Resource Include="Views\Window\ST-6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

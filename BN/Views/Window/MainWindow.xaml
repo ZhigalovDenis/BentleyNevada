@@ -14,9 +14,7 @@
         <TabControl>
             <TabItem Header="ПТ-6">
                 <Grid>
-
-                    <Image Source="/Views/Window/ScreenShot.SM.18.05.03.059.png">
-                    </Image>
+                    <Image Source="/Views/Window/ST-6.png" Margin="0,-2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="545" FlowDirection="LeftToRight" UseLayoutRounding="False"/>
                     <StatusBar VerticalAlignment="Bottom">
                         <StatusBarItem>
                             <TextBlock Text="{Binding Status}"></TextBlock>
@@ -28,27 +26,20 @@
                             <Button Content="Подключить" Command="{Binding ConnectToRackSteamTurbine}"></Button>
                         </StatusBarItem>
                     </StatusBar>
-
-                    <Label Content="{Binding FirstParmReg}"  Margin="232,292,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#008800" Background="{Binding BackgroundLabel}" FontWeight="Bold" ContentStringFormat="0.000 мм" BorderBrush="Black" BorderThickness="1.3" Height="30" VerticalContentAlignment="Center">
-
-                    </Label>
-
                     <TextBox   HorizontalAlignment="Left" Margin="775,398,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding FirstNumber}">
                     </TextBox>
                     <TextBox HorizontalAlignment="Left" Margin="908,398,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding SecondNumber}"/>
                     <Button Content="Button" HorizontalAlignment="Left" Margin="881,421,0,0" VerticalAlignment="Top" Command="{Binding CalculateButton}"/>
-                    <Label Content="{Binding SecondParmReg}" ContentStringFormat="0.000" HorizontalAlignment="Left" Margin="29,332,0,0" VerticalAlignment="Top"/>
                     <TextBox HorizontalAlignment="Left" Margin="775,478,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding DatVrem}"/>
                     <Button  Content="Дай время" HorizontalAlignment="Left" Margin="804,517,0,0" VerticalAlignment="Top" Command="{Binding Day}"/>
-                    <Label Content="{Binding ThirdParmReg}" ContentStringFormat="0.000" HorizontalAlignment="Left" Margin="29,363,0,0" VerticalAlignment="Top"/>
-
-
-
-
+                    <Border Style="{StaticResource BorderForLabel}"  Margin="22,205,0,0" Background="{Binding BackgroundBorder}"/>
+                    <Border Style="{StaticResource BorderForLabel}"  Margin="22,247,0,0" Background="{Binding BackgroundBorder}"/>
+                    <Border Style="{StaticResource BorderForLabel}"  Margin="22,226,0,0" Background="{Binding BackgroundBorder}"/>
+                    <Label Content="{Binding FirstParmReg}" Style="{StaticResource Parent_LabelOnImage }" Margin="27,241,0,0" Height="30"/>
+                    <Label Content="{Binding FirstParmReg}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,220,0,0"/>
+                    <Label Content="{Binding FirstParmReg}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,199,0,0"/>
                 </Grid>
             </TabItem>
-
-
             <TabItem Header="ГТ-7">
             </TabItem>
             <TabItem Header="ГТ-8"></TabItem>
