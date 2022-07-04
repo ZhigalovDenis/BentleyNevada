@@ -84,8 +84,6 @@
     </Compile>
     <Compile Include="Infrostructure\Commands\RelayCommand.cs" />
     <Compile Include="Models\BNRack.cs" />
-    <Compile Include="Models\Clock.cs" />
-    <Compile Include="Models\Sum.cs" />
     <Compile Include="ViewModels\Base\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="Views\Window\MainWindow.xaml.cs">

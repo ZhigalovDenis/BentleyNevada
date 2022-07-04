@@ -93,94 +93,12 @@ namespace BN.ViewModels.Base
         #endregion
 
 
-        Sum calculator = new Sum();
-
-        #region PROPERTIES
-
-        private string _firstNumber;
-        /// <summary></summary>
-        public string FirstNumber
-        {
-            get => _firstNumber;
-            set => Set(ref _firstNumber, value);
-        }
-
-        private string _secondNumber;
-        /// <summary></summary>
-        public string SecondNumber
-        {
-            get => _secondNumber;
-            set => Set(ref _secondNumber, value);
-        }
-
-        private string _result;
-        /// <summary></summary>
-        public string Result
-        {
-            get => _result;
-            set => Set(ref _result, value);
-        }
-        #endregion
-
-        private DateTime _datVrem;
-        /// <summary></summary>
-        public DateTime DatVrem
-        {
-            get => _datVrem;
-            set => Set(ref _datVrem, value);
-        }
-
-        private int _t;
-        /// <summary></summary>
-        public int T
-        {
-            get => _t;
-            set => Set(ref _t, value);
-        }
         #region Комманды
-        public RelayCommand CalculateButton { get; set; }
-        public RelayCommand Day { get; set; }
         public RelayCommand ConnectToRackSteamTurbine { get; set; }
         #endregion
 
         public MainWindowViewModel()
         {
-
-            CalculateButton = new RelayCommand(o => {
-                Result = calculator.Calculate(FirstNumber, SecondNumber).ToString();
-            });
-
-            Day = new RelayCommand(o =>
-            {
-
-                DispatcherTimer _timer = new DispatcherTimer(DispatcherPriority.Render);
-                _timer.Interval = TimeSpan.FromSeconds(1);
-                _timer.Tick += (sender, args) =>
-                {
-                    Clock cl = new Clock();
-                    DatVrem = cl.DT();
-                };
-                _timer.Start();
-            });
-
-            //ConnectToRackSteamTurbine = new RelayCommand(o =>
-            //{
-
-            //    DispatcherTimer _timer = new DispatcherTimer(DispatcherPriority.Render);
-            //    _timer.Interval = TimeSpan.FromSeconds(1);
-            //    _timer.Tick += (sender, args) =>
-            //    {
-
-            //        BNRack SteamTurbine = new BNRack();
-            //        int[] ArrayRegistr = SteamTurbine.ConnectToRack(AdressIP);
-            //        FirstParmReg = ArrayRegistr[0];
-            //    };
-            //    _timer.Start();
-  
-            //});
-
-
-
 
             ConnectToRackSteamTurbine = new RelayCommand(o =>
             {
@@ -194,9 +112,7 @@ namespace BN.ViewModels.Base
                 
                     MessageBox.Show("Устройство не отвечает");
                     return;
-                }
-                
-                          
+                }       
                     DispatcherTimer _timer = new DispatcherTimer(DispatcherPriority.Render);
                     _timer.Interval = TimeSpan.FromSeconds(1);
                     _timer.Tick += (sender, args) =>
@@ -210,44 +126,9 @@ namespace BN.ViewModels.Base
                         ThirdParmReg = retva[2];
                     };
                     _timer.Start();
-                
-
-                
-
-
             });
 
             BackgroundBorder = "#e5e5e5";
-
-           // ModbusClient modbusClient = new ModbusClient(AdressIP, 502);
-            //modbusClient.Connect();
-            //while (true)
-            //{
-            //    int[] readHoldingRegisters = modbusClient.ReadHoldingRegisters(0, 3);
-
-            _firstParmReg = 12.2664564;
-            /* BNRack SteamTurbine = new BNRack();
-             int[] mass = SteamTurbine.ConToRack(AdressIP);
-             TestSum1 = mass[0];*/
-
-
-
-            // _TestSum1 = mass
-
-            //  Sum ss = new Sum();
-            // ss.Number1 = 5;
-            //ss.Number2 = 9;
-            // ss.Calc(ss.Number1 = 6, );
-            //TestSum1 = ss.Calc(5, 9);
-
-            //if (_TestSum1 > 10)
-            //{
-
-            //    _LCB = "Yellow";
-            //}
-
-
-
         }
     }
 }
