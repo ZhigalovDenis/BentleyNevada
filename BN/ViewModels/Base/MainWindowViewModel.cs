@@ -65,6 +65,16 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
+        #region Фон для StatusBarST6 
+        private string _backgroundStatusBarST6 = "Coral";
+        /// <summary></summary>
+        public string BackgroundStatusBarST6
+        {
+            get => _backgroundStatusBarST6;
+            set => Set(ref _backgroundStatusBarST6, value);
+        }
+        #endregion
+
         #region Три параметра из регистра
 
         private double _firstParmReg;
@@ -106,6 +116,8 @@ namespace BN.ViewModels.Base
                 try
                 {
                     modbusClient.Connect();
+                    Status = "Подключено";
+                    BackgroundStatusBarST6 = "LightGreen";
                 }
                 catch (Exception )
                 { 
