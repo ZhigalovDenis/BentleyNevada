@@ -18,7 +18,10 @@ namespace BN.Models
         /// </summary>
         /// <param name="_proportionalValue">Массив регистров</param>
         /// <returns>Массив шкаллированных данных</returns>
-        public double[] Scale(ref int[] _proportionalValue)
+        /// 
+
+
+        public double[] Scale( int[] _proportionalValue)
         {
             double[] ScaledValue = new double[_proportionalValue.Length];
             for (int i = 0; i < _proportionalValue.Length; i++)
@@ -29,7 +32,7 @@ namespace BN.Models
                 }
                 else
                 {
-                    ScaledValue[i] = 999.0;
+                    ScaledValue[i] = 99.999;
                 }
             }
             return ScaledValue;

@@ -23,14 +23,17 @@
                             <TextBox Text="{Binding AdressIPST6}" IsEnabled="{Binding TbIPAdrrActST6}"></TextBox>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <Button Content="Подключить" Command="{Binding ConnectToRackST6}" IsEnabled="{Binding BtConST6}"></Button>
+                            <Button Content="Подключить" Command="{Binding ConnectToRackST6}" IsEnabled="{Binding BtConActivST6}"></Button>
+                        </StatusBarItem>
+                        <StatusBarItem>
+                            <Button Content="Отключить" Command="{Binding DisconnectToRackST6}" IsEnabled="{Binding BtDisconActivST6}"></Button>
                         </StatusBarItem>
                     </StatusBar>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="22,205,0,0" Background="{Binding BackgroundBorder}"/>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="22,247,0,0" Background="{Binding BackgroundBorder}"/>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="22,226,0,0" Background="{Binding BackgroundBorder}"/>
-                    <Label Content="{Binding FirstParmReg}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,241,0,0" Height="30"/>
-                    <Label Content="{Binding FirstParmReg}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,220,0,0"/>
+                    <Label Content="{Binding ThirdParmReg}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,241,0,0" Height="30"/>
+                    <Label Content="{Binding SecondParmReg}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,220,0,0"/>
                     <Label Content="{Binding FirstParmReg}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,199,0,0"/>
                 </Grid>
             </TabItem>

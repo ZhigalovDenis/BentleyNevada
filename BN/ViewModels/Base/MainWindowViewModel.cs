@@ -35,7 +35,7 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-        #region Status : string - Статус подключения ПТ-6
+        #region Статус подключения ПТ-6
 
         /// <summary>Статус программы</summary>
         private string _StatusST6 = "Отключено"; // поле
@@ -78,7 +78,7 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-        #region Активность ввода IP адреса 
+        #region Активность ввода адреса для ПТ-6 
         private bool _tbIPAdrrActST6 = true;
         /// <summary></summary>
         public bool TbIPAdrrActST6
@@ -88,13 +88,33 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-        #region Активность кнопки подключения для ПТ-6 
-        private bool _btConST6 = true;
+        #region Активность кнопки подключить для ПТ-6 
+        private bool _btConActivST6 = true;
         /// <summary></summary>
-        public bool BtConST6
+        public bool BtConActivST6
         {
-            get => _btConST6;
-            set => Set(ref _btConST6, value);
+            get => _btConActivST6;
+            set => Set(ref _btConActivST6, value);
+        }
+        #endregion
+
+        #region Кнопка отключить для ПТ-6
+        private bool _btDisconST6;
+        /// <summary></summary>
+        public bool BtDisconST6
+        {
+            get => _btDisconST6;
+            set => Set(ref _btDisconST6, value);
+        }
+        #endregion
+
+        #region Активность кнопки отключить для ПТ-6 
+        private bool _btDisconActivST6 = false;
+        /// <summary></summary>
+        public bool BtDisconActivST6
+        {
+            get => _btDisconActivST6;
+            set => Set(ref _btDisconActivST6, value);
         }
         #endregion
 
@@ -136,54 +156,66 @@ namespace BN.ViewModels.Base
 
             ConnectToRackST6 = new RelayCommand(o =>
             {
-                ModbusClient modbusClientST6 = new ModbusClient(AdressIPST6, 502);
-           
-                var Match = Regex.IsMatch(AdressIPST6, "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
-                if (Match == false)
-                {
-                    MessageBox.Show("IP адрес не соответствуте формату IPV4");
-                    return;
-                }
+                BtDisconST6 = false;
+                BtDisconActivST6 = true;
 
-                try
-                {
-                    modbusClientST6.Connect();
-                }
-                catch (Exception )
-                { 
-                
-                    MessageBox.Show("Устройство не отвечает");
-                    return;
-                }    
-                    StatusST6 = "Подключено";
-                    BackgroundStatusBarST6 = "LightGreen";
-                    BtConST6 = false;
-                    TbIPAdrrActST6 = false;    
+                 ModbusClient modbusClientST6 = new ModbusClient(AdressIPST6, 502);
 
-                    BNRack bnRackST6 = new BNRack();
-                    DispatcherTimer _timerST6 = new DispatcherTimer(DispatcherPriority.Render);
 
-                    _timerST6.Interval = TimeSpan.FromSeconds(1);
-                    _timerST6.Tick += (sender, args) =>
-                    {
-                        DisconnectToRackST6 = new RelayCommand(o1 =>
-                        {
-                            MessageBox.Show("Устройство не отвечает");
-                        });
+                  var Match = Regex.IsMatch(AdressIPST6, "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
+                  if (Match == false)
+                  {
+                      MessageBox.Show("IP адрес не соответствуте формату IPV4");
+                      return;
+                  }
 
-                        int[] readHoldingRegisters = modbusClientST6.ReadHoldingRegisters(0, 3);
-                        double[] retva = bnRackST6.Scale(ref readHoldingRegisters);
-                        FirstParmReg = retva[0];
-                        SecondParmReg = retva[1];
-                        ThirdParmReg = retva[2];
-                    };
-                _timerST6.Start();
+                  try
+                  {
+                      modbusClientST6.Connect();
+                  }
+                  catch (Exception )
+                  { 
+
+                      MessageBox.Show("Устройство не отвечает");
+                      return;
+                  }    
+                      StatusST6 = "Подключено";
+                      BackgroundStatusBarST6 = "LightGreen";
+                      BtConActivST6 = false;
+                      TbIPAdrrActST6 = false;    
+
+                      BNRack bnRackST6 = new BNRack();
+                      DispatcherTimer _timerST6 = new DispatcherTimer(DispatcherPriority.Render);
+
+                      _timerST6.Interval = TimeSpan.FromSeconds(1);
+                      _timerST6.Tick += (sender, args) =>
+                      {
+                          if (BtDisconST6 == false)
+                          {
+                              int[] readHoldingRegisters = modbusClientST6.ReadHoldingRegisters(0, 3);
+                              double[] retva = bnRackST6.Scale(readHoldingRegisters);
+                              FirstParmReg = retva[0];
+                              SecondParmReg = retva[1];
+                              ThirdParmReg = retva[2];
+                          }
+                          else
+                          {
+                              modbusClientST6.Disconnect();
+                              _timerST6.Stop();
+                              StatusST6 = "Отключено";
+                              BackgroundStatusBarST6 = "Coral";
+                              BtConActivST6 = true;
+                              TbIPAdrrActST6 = true;
+                              BtDisconActivST6 = false;
+                          }
+                      };
+                  _timerST6.Start();
 
             });
 
             DisconnectToRackST6 = new RelayCommand(o =>
             {
-
+                BtDisconST6 = true;
 
             });
 
