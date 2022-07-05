@@ -292,11 +292,16 @@ namespace BN.ViewModels.Base
                                                                                         WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
                                                                                         AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
                                                                                         UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);*/
-                                prm_10MAD10CY011 = rtrn_prm_st6_gr0[0];
+                               prm_10MAD10CY011 = rtrn_prm_st6_gr0[0];
                                prm_10MAD10CY012 = rtrn_prm_st6_gr0[2];
 
                                bckgrd_10MAD10CY011 = bckgrd_st6_gr0[0];
                                bckgrd_10MAD10CY012 = bckgrd_st6_gr0[2];
+
+
+
+
+
                             }
                             else
                             {
