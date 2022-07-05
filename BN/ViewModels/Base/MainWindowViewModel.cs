@@ -259,7 +259,7 @@ namespace BN.ViewModels.Base
                         bt_DisconAct_ST6 = true;
                     
 
-                       /* var timer_ST6 = new DispatcherTimer(DispatcherPriority.Render);
+                        var timer_ST6 = new DispatcherTimer(DispatcherPriority.Render);
                         timer_ST6.Interval = TimeSpan.FromSeconds(1);
                         timer_ST6.Tick += (sender, args) =>
                        {
@@ -328,7 +328,7 @@ namespace BN.ViewModels.Base
 
                         }
                      };
-                     timer_ST6.Start();*/
+                     timer_ST6.Start();
                     }
                     else
                     {

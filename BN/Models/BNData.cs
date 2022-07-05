@@ -46,7 +46,11 @@ namespace BN.Models
             return IsEnable;
         }
 
-        
+        public int[] ReadData(int StartingAdress, int Quantity)
+        {
+            modbusClient_ST6.ReadHoldingRegisters(StartingAdress, Quantity);
+            return modbusClient_ST6.ReadHoldingRegisters(StartingAdress, Quantity); 
+        }
 
 
 public double[] Scale(int[] ProportionalValue, ushort GatewayFullScaleValue, short LowerMonitorRange, short UpperMonitorRange, double FaultReplace)
