@@ -204,12 +204,12 @@ namespace BN.ViewModels.Base
                               prm_10MAD10CG012 = rtrn_prm_st6_gr0[2];
 
                               var visualEffects = new VisualEffects();
-                              bckgrd_10MAD10CG010 = visualEffects.LimitBrush(prm_10MAD10CG010, WH_Y_0_ST6_gr0, WH_Y_1_ST6_gr0,
+                              string [] bckgrd_gr0 = visualEffects.LimitBrush(rtrn_prm_st6_gr0, WH_Y_0_ST6_gr0, WH_Y_1_ST6_gr0,
                                                                               WL_Y_0_ST6_gr0, WL_Y_1_ST6_gr0, AH_R_0_ST6_gr0,
                                                                               AH_R_1_ST6_gr0, AL_R_0_ST6_gr0, AL_R_1_ST6_gr0,
                                                                               Fault_0_ST6_gr0, Fault_1_ST6_gr0);
 
-
+                              bckgrd_10MAD10CG010  = bckgrd_gr0[0];
 
 
     }
