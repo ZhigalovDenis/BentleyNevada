@@ -263,7 +263,20 @@ namespace BN.ViewModels.Base
                                double[] rtrn_prm_st6_gr0 = bnRack_ST6.Scale(prm_st6_gr0, GatewayFullScaleValue_ST6,
                                                                            LowerMonitorRange_ST6_gr0, UpperMonitorRange_ST6_gr0,
                                                                            FaultReplace_1);
-                               var visualEffects_ST6 = new VisualEffects();
+                               int[] prm_st6_gr1 = bnRack_ST6.ReadData(5024, 2);
+                               double[] rtrn_prm_st6_gr1 = bnRack_ST6.Scale(prm_st6_gr1, GatewayFullScaleValue_ST6,
+                                                                           LowerMonitorRange_ST6_gr1, UpperMonitorRange_ST6_gr1,
+                                                                           FaultReplace_0);
+                               int[] prm_st6_gr5 = bnRack_ST6.ReadData(5042, 1);
+                               double[] rtrn_prm_st6_gr5 = bnRack_ST6.Scale(prm_st6_gr5, GatewayFullScaleValue_ST6,
+                                                                            LowerMonitorRange_ST6_gr5, UpperMonitorRange_ST6_gr5,
+                                                                            FaultReplace_0);
+                               int[] prm_st6_gr7 = bnRack_ST6.ReadData(5047, 1);
+                               double[] rtrn_prm_st6_gr7 = bnRack_ST6.Scale(prm_st6_gr7, GatewayFullScaleValue_ST6,
+                                                                            LowerMonitorRange_ST6_gr1, UpperMonitorRange_ST6_gr1,
+                                                                            FaultReplace_0);
+
+                                var visualEffects_ST6 = new VisualEffects();
                                string[] bckgrd_st6_gr0 = visualEffects_ST6.LimitBrush_1(rtrn_prm_st6_gr0, WH_Y_0_ST6_gr0, WH_Y_1_ST6_gr0,
                                                                                AH_R_0_ST6_gr0, AH_R_1_ST6_gr0,
                                                                                UpperMonitorRange_ST6_gr0, LowerMonitorRange_ST6_gr0);
