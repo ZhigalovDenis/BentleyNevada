@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BN.Models
 {
-    internal class BNRack
+    internal class BNData
     {
 
         /// <summary>

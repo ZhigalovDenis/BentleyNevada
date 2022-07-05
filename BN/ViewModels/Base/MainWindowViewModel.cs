@@ -272,7 +272,7 @@ namespace BN.ViewModels.Base
                       tb_IPAdrrAct_ST6 = false;
                       bt_DisconAct_ST6 = true;
 
-                var bnRack_ST6 = new BNRack();
+                      var bnRack_ST6 = new BNData();
                       var timer_ST6 = new DispatcherTimer(DispatcherPriority.Render);              
                        timer_ST6.Interval = TimeSpan.FromSeconds(1);
                        timer_ST6.Tick += (sender, args) =>
@@ -299,19 +299,19 @@ namespace BN.ViewModels.Base
                               var visualEffects = new VisualEffects();
                               string[] bckgrd_gr0 = visualEffects.LimitBrush_1(rtrn_prm_st6_gr0, WH_Y_0_ST6_gr0, WH_Y_1_ST6_gr0,
                                                                                 AH_R_0_ST6_gr0, AH_R_1_ST6_gr0,
-                                                                                 UpperMonitorRange_ST6_gr0, LowerMonitorRange_ST6_gr0);
+                                                                                UpperMonitorRange_ST6_gr0, LowerMonitorRange_ST6_gr0);
                               string[] bckgrd_gr1 = visualEffects.LimitBrush_0(rtrn_prm_st6_gr1, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
-                                                                              WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
-                                                                              AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
-                                                                              UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);
+                                                                                WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
+                                                                                AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
+                                                                                UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);
                               string[] bckgrd_gr5 = visualEffects.LimitBrush_0(rtrn_prm_st6_gr5, WH_Y_0_ST6_gr5, WH_Y_1_ST6_gr5,
-                                                                              WL_Y_0_ST6_gr5, WL_Y_1_ST6_gr5, AH_R_0_ST6_gr5,
-                                                                              AH_R_1_ST6_gr5, AL_R_0_ST6_gr5, AL_R_1_ST6_gr5,
-                                                                              UpperMonitorRange_ST6_gr5, LowerMonitorRange_ST6_gr5);
+                                                                                WL_Y_0_ST6_gr5, WL_Y_1_ST6_gr5, AH_R_0_ST6_gr5,
+                                                                                AH_R_1_ST6_gr5, AL_R_0_ST6_gr5, AL_R_1_ST6_gr5,
+                                                                                UpperMonitorRange_ST6_gr5, LowerMonitorRange_ST6_gr5);
                               string[] bckgrd_gr7 = visualEffects.LimitBrush_0(rtrn_prm_st6_gr7, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
-                                                WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
-                                                AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
-                                                UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);
+                                                                                WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
+                                                                                AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
+                                                                                UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);
 
                               prm_10MAD10CY011 = rtrn_prm_st6_gr0[0];
                               prm_10MAD10CY012 = rtrn_prm_st6_gr0[2];
@@ -339,8 +339,9 @@ namespace BN.ViewModels.Base
                               bt_ConAct_ST6 = true;
                               tb_IPAdrrAct_ST6 = true;
                               bt_DisconAct_ST6 = false;
+
                           }
-                      };
+};
                    timer_ST6.Start();
 
             });
