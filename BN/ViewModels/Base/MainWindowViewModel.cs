@@ -296,19 +296,19 @@ namespace BN.ViewModels.Base
                                                                             LowerMonitorRange_ST6_gr1, UpperMonitorRange_ST6_gr1,
                                                                             FaultReplace_0);
 
-                              var visualEffects = new VisualEffects();
-                              string[] bckgrd_gr0 = visualEffects.LimitBrush_1(rtrn_prm_st6_gr0, WH_Y_0_ST6_gr0, WH_Y_1_ST6_gr0,
+                              var visualEffects_ST6 = new VisualEffects();
+                              string[] bckgrd_gr0 = visualEffects_ST6.LimitBrush_1(rtrn_prm_st6_gr0, WH_Y_0_ST6_gr0, WH_Y_1_ST6_gr0,
                                                                                 AH_R_0_ST6_gr0, AH_R_1_ST6_gr0,
                                                                                 UpperMonitorRange_ST6_gr0, LowerMonitorRange_ST6_gr0);
-                              string[] bckgrd_gr1 = visualEffects.LimitBrush_0(rtrn_prm_st6_gr1, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
+                              string[] bckgrd_gr1 = visualEffects_ST6.LimitBrush_0(rtrn_prm_st6_gr1, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
                                                                                 WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
                                                                                 AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
                                                                                 UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);
-                              string[] bckgrd_gr5 = visualEffects.LimitBrush_0(rtrn_prm_st6_gr5, WH_Y_0_ST6_gr5, WH_Y_1_ST6_gr5,
+                              string[] bckgrd_gr5 = visualEffects_ST6.LimitBrush_0(rtrn_prm_st6_gr5, WH_Y_0_ST6_gr5, WH_Y_1_ST6_gr5,
                                                                                 WL_Y_0_ST6_gr5, WL_Y_1_ST6_gr5, AH_R_0_ST6_gr5,
                                                                                 AH_R_1_ST6_gr5, AL_R_0_ST6_gr5, AL_R_1_ST6_gr5,
                                                                                 UpperMonitorRange_ST6_gr5, LowerMonitorRange_ST6_gr5);
-                              string[] bckgrd_gr7 = visualEffects.LimitBrush_0(rtrn_prm_st6_gr7, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
+                              string[] bckgrd_gr7 = visualEffects_ST6.LimitBrush_0(rtrn_prm_st6_gr7, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
                                                                                 WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
                                                                                 AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
                                                                                 UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);
