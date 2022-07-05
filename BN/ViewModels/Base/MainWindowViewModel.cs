@@ -262,16 +262,6 @@ namespace BN.ViewModels.Base
 
 
 
-
-                    // Проверка валидности IP адреса
-                    //var Match = Regex.IsMatch(tb_AdressIP_ST6, "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
-                    //if (Match == false)
-                    //{
-                    //    MessageBox.Show("IP адрес не соответствуте формату IPV4");
-                    //    return;
-                    //}
-
-
                     tbl_Status_ST6 = "Подключено";
                     sb_Bckgrnd_ST6 = "LightGreen";
                     bt_ConAct_ST6 = false;
