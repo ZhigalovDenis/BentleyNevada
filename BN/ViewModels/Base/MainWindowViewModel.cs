@@ -240,7 +240,7 @@ namespace BN.ViewModels.Base
             {
                 bt_Discon_ST6 = false;
 
-                var bnRack_ST6 = new BNData();
+                var bnRack_ST6 = new BNRack();
 
                 if (bnRack_ST6.ValidIPV4(tb_AdressIP_ST6) == true)
                 {
@@ -291,21 +291,25 @@ namespace BN.ViewModels.Base
                                string[] bckgrd_st6_gr7 = visualEffects_ST6.LimitBrush_0(rtrn_prm_st6_gr7, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
                                                                                         WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
                                                                                         AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
-                                                                                        UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);*/
+                                                                                        UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);
                                prm_10MAD10CY011 = rtrn_prm_st6_gr0[0];
                                prm_10MAD10CY012 = rtrn_prm_st6_gr0[2];
+                               prm_10MAD10CG010 = rtrn_prm_st6_gr1[0];
+                               prm_10MAD10CG011 = rtrn_prm_st6_gr1[1];
+                               prm_10MAD20CG010 = rtrn_prm_st6_gr5[0];
+                               prm_10MAD10CG012 = rtrn_prm_st6_gr7[0];
 
                                bckgrd_10MAD10CY011 = bckgrd_st6_gr0[0];
                                bckgrd_10MAD10CY012 = bckgrd_st6_gr0[2];
-
-
-
-
+                               bckgrd_10MAD10CG010 = bckgrd_st6_gr1[0];
+                               bckgrd_10MAD10CG011 = bckgrd_st6_gr1[1];
+                               bckgrd_10MAD20CG010 = bckgrd_st6_gr5[0];
+                               bckgrd_10MAD10CG012 = bckgrd_st6_gr7[0];
 
                             }
                             else
                             {
-                               //  modbusClient_ST6.Disconnect();
+                               bnRack_ST6.Disconnection();
                                timer_ST6.Stop();
                                tbl_Status_ST6 = "Отключено";
                                sb_Bckgrnd_ST6 = "Coral";

@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace BN.Models
 {
-    internal class BNData
+    internal class BNRack
     {
         ModbusClient modbusClient_ST6 = new ModbusClient();
 
@@ -44,6 +44,11 @@ namespace BN.Models
                 IsEnable = false;
             }
             return IsEnable;
+        }
+         
+        public void Disconnection()
+        {
+            modbusClient_ST6.Disconnect();  
         }
 
         public int[] ReadData(int StartingAdress, int Quantity)

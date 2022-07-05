@@ -83,7 +83,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Infrostructure\Commands\RelayCommand.cs" />
-    <Compile Include="Models\BNData.cs" />
+    <Compile Include="Models\BNRack.cs" />
     <Compile Include="Models\VisualEffects.cs" />
     <Compile Include="ViewModels\Base\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
