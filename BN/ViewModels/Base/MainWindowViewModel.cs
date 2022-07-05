@@ -19,11 +19,11 @@ namespace BN.ViewModels.Base
 
 
         #region Заголовок окна
-        private string _Title = "АСКВД BN";
+        private string _wnd_Title = "АСКВД BN";
         /// <summary>Заголовок окна</summary>
-        public string Title
+        public string wnd_Title
         {
-            get => _Title;
+            get => _wnd_Title;
             //{
             //    //if (Equals(_Title, value)) return;
             //    //_Title = value; 
@@ -31,20 +31,20 @@ namespace BN.ViewModels.Base
 
             //    Set(ref _Title, value); 
             //}
-            set => Set(ref _Title, value);
+            set => Set(ref _wnd_Title, value);
         }
         #endregion
 
         #region Статус подключения ПТ-6
 
         /// <summary>Статус программы</summary>
-        private string _StatusST6 = "Отключено"; // поле
+        private string _tbl_StatusST6 = "Отключено"; // поле
 
         /// <summary>Статус программы</summary>
-        public string StatusST6
+        public string tbl_StatusST6
         {
-            get => _StatusST6; //возвращает значение поля
-            set => Set(ref _StatusST6, value);
+            get => _tbl_StatusST6; //возвращает значение поля
+            set => Set(ref _tbl_StatusST6, value);
         }
         #endregion
 
@@ -58,7 +58,7 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-        #region Фон для Border
+        #region Фон для Border ПТ-6
         private string _backgroundBorder;
         /// <summary></summary>
         public string BackgroundBorder
@@ -148,7 +148,7 @@ namespace BN.ViewModels.Base
 
         #region Комманды
         public RelayCommand ConnectToRackST6 { get; set; }
-        public RelayCommand DisconnectToRackST6 { get; set; }
+        public RelayCommand DisconnectFromRackST6 { get; set; }
         #endregion
 
         public MainWindowViewModel()
@@ -178,7 +178,7 @@ namespace BN.ViewModels.Base
                       return;
                   }    
 
-                      StatusST6 = "Подключено";
+                      tbl_StatusST6 = "Подключено";
                       BackgroundStatusBarST6 = "LightGreen";
                       BtConActivST6 = false;
                       TbIPAdrrActST6 = false;    
@@ -203,22 +203,12 @@ namespace BN.ViewModels.Base
                                                                       0.8, 0.99, -0.8, -0.99,
                                                                       1, -1);
 
-
-
-
-
-                              //else
-                              //{
-                              //    BackgroundBorder = "#e5e5e5";
-                              //}
-
-
                           }
                           else
                           {
                               modbusClientST6.Disconnect();
                               _timerST6.Stop();
-                              StatusST6 = "Отключено";
+                              tbl_StatusST6 = "Отключено";
                               BackgroundStatusBarST6 = "Coral";
                               BtConActivST6 = true;
                               TbIPAdrrActST6 = true;
@@ -229,7 +219,7 @@ namespace BN.ViewModels.Base
 
             });
 
-            DisconnectToRackST6 = new RelayCommand(o =>
+            DisconnectFromRackST6 = new RelayCommand(o =>
             {
                 BtDisconST6 = true;
 

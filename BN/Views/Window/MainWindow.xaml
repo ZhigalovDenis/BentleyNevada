@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BN"
         xmlns:vm="clr-namespace:BN.ViewModels.Base"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="616" Width="1134" ResizeMode="NoResize">
+        Title="{Binding wnd_Title}" Height="616" Width="1134" ResizeMode="NoResize">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -17,7 +17,7 @@
                     <Image Source="/Views/Window/ST-6.png" Margin="0,-2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="545" FlowDirection="LeftToRight" UseLayoutRounding="False"/>
                     <StatusBar VerticalAlignment="Bottom" Background="{Binding BackgroundStatusBarST6}">
                         <StatusBarItem>
-                            <TextBlock Text="{Binding StatusST6}"></TextBlock>
+                            <TextBlock Text="{Binding tbl_StatusST6}"></TextBlock>
                         </StatusBarItem>
                         <StatusBarItem>
                             <TextBox Text="{Binding AdressIPST6}" IsEnabled="{Binding TbIPAdrrActST6}"></TextBox>
@@ -26,7 +26,7 @@
                             <Button Content="Подключить" Command="{Binding ConnectToRackST6}" IsEnabled="{Binding BtConActivST6}"></Button>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <Button Content="Отключить" Command="{Binding DisconnectToRackST6}" IsEnabled="{Binding BtDisconActivST6}"></Button>
+                            <Button Content="Отключить" Command="{Binding DisconnectFromRackST6}" IsEnabled="{Binding BtDisconActivST6}"></Button>
                         </StatusBarItem>
                     </StatusBar>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="22,205,0,0" Background="{Binding BackgroundBorder}"/>
