@@ -256,7 +256,7 @@ namespace BN.ViewModels.Base
                         timer_ST6.Interval = TimeSpan.FromSeconds(1);
                         timer_ST6.Tick += (sender, args) =>
                         {
-                            чсмисчмичсм
+
                             if (bt_Discon_ST6 == false)
                             { 
                                int[] prm_st6_gr0 = bnRack_ST6.ReadData(5000, 23);
