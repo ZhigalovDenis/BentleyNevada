@@ -10,57 +10,30 @@ namespace BN.Models
     internal class BNRack
     {
 
-        private const ushort GatewayFullScaleValue = 16383;
-        private const byte UpperMonitorRange = 1;
-        private const sbyte LowerMonitorRange = -1;
+        //private const ushort GatewayFullScaleValue = 16383;
+        //private const byte UpperMonitorRange = 1;
+        //private const sbyte LowerMonitorRange = -1;
+
         /// <summary>
-        ///  Метод производит шкалирование
+        ///  Метод производит шкалирование параметров
         /// </summary>
-        /// <param name="_proportionalValue">Массив регистров</param>
+        /// <param name="ProportionalValue">Массив не шкалированных параметров</param>
         /// <returns>Массив шкаллированных данных</returns>
-        public double[] Scale( int[] _proportionalValue)
+        public double[] Scale(int[] ProportionalValue, ushort GatewayFullScaleValue, sbyte LowerMonitorRange, sbyte UpperMonitorRange, double FaultReplace)
         {
-            double[] ScaledValue = new double[_proportionalValue.Length];
-            for (int i = 0; i < _proportionalValue.Length; i++)
+            double[] ScaledValue = new double[ProportionalValue.Length];
+            for (int i = 0; i < ProportionalValue.Length; i++)
             {
-                if (_proportionalValue[i] >= 0 && _proportionalValue[i] <= GatewayFullScaleValue)
+                if (ProportionalValue[i] >= 0 && ProportionalValue[i] <= GatewayFullScaleValue)
                 {
-                    ScaledValue[i] = ((double)_proportionalValue[i] / GatewayFullScaleValue) * ((double)UpperMonitorRange - LowerMonitorRange) + (double)LowerMonitorRange;
+                    ScaledValue[i] = ((double)ProportionalValue[i] / GatewayFullScaleValue) * ((double)UpperMonitorRange - LowerMonitorRange) + (double)LowerMonitorRange;
                 }
                 else
                 {
-                    ScaledValue[i] = 99.999;
+                    ScaledValue[i] = FaultReplace;
                 }
             }
             return ScaledValue;
-        }
-
-        public string LimitBrush(double _paramValue, 
-                                 double _why0, double _why1, double _wly0, double _wly1, 
-                                 double _ahy0, double _ahy1, double _aly0, double _aly1,
-                                 double _flt0, double _flt1)
-        { 
-            string BackgroundBorder;
-            if ((_paramValue >= _why0 && _paramValue <= _why1) || (_paramValue <= _wly0 && _paramValue >= _wly1))
-                {
-                  BackgroundBorder = "Yellow";
-                }
-            else
-                {
-                  BackgroundBorder = "#e5e5e5";
-                }
-
-            if ((_paramValue >= _ahy0 && _paramValue <= _ahy1) || (_paramValue <= _aly0 && _paramValue >= _aly1))
-                {
-                 BackgroundBorder = "Red";
-                }
-
-            if ((_paramValue > _flt0) || (_paramValue < _flt1))
-                {
-                  BackgroundBorder = "Blue";  
-                }   
-            
-            return BackgroundBorder;
         }
 
     }

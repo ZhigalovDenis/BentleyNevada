@@ -15,26 +15,26 @@
             <TabItem Header="ПТ-6">
                 <Grid>
                     <Image Source="/Views/Window/ST-6.png" Margin="0,-2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="545" FlowDirection="LeftToRight" UseLayoutRounding="False"/>
-                    <StatusBar VerticalAlignment="Bottom" Background="{Binding BackgroundStatusBarST6}">
+                    <StatusBar VerticalAlignment="Bottom" Background="{Binding sb_Bckgrnd_ST6}">
                         <StatusBarItem>
-                            <TextBlock Text="{Binding tbl_StatusST6}"></TextBlock>
+                            <TextBlock Text="{Binding tbl_Status_ST6}"></TextBlock>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <TextBox Text="{Binding AdressIPST6}" IsEnabled="{Binding TbIPAdrrActST6}"></TextBox>
+                            <TextBox Text="{Binding tb_AdressIP_ST6}" IsEnabled="{Binding tb_IPAdrrAct_ST6}"></TextBox>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <Button Content="Подключить" Command="{Binding ConnectToRackST6}" IsEnabled="{Binding BtConActivST6}"></Button>
+                            <Button Content="Подключить" Command="{Binding cmd_ConToRack_ST6}" IsEnabled="{Binding bt_ConAct_ST6}"></Button>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <Button Content="Отключить" Command="{Binding DisconnectFromRackST6}" IsEnabled="{Binding BtDisconActivST6}"></Button>
+                            <Button Content="Отключить" Command="{Binding cmd_DisconFromRack_ST6}" IsEnabled="{Binding bt_DisconAct_ST6}"></Button>
                         </StatusBarItem>
                     </StatusBar>
-                    <Border Style="{StaticResource BorderForLabel}"  Margin="22,205,0,0" Background="{Binding BackgroundBorder}"/>
+                    <Border Style="{StaticResource BorderForLabel}"  Margin="22,205,0,0" Background="{Binding bckgrd_10MAD10CG010}"/>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="22,247,0,0" />
                     <Border Style="{StaticResource BorderForLabel}"  Margin="22,226,0,0" />
-                    <Label Content="{Binding ThirdParmReg}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,241,0,0" Height="30"/>
-                    <Label Content="{Binding SecondParmReg}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,220,0,0"/>
-                    <Label Content="{Binding FirstParmReg}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,199,0,0"/>
+                    <Label Content="{Binding prm_10MAD10CG012}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,241,0,0" Height="30"/>
+                    <Label Content="{Binding prm_10MAD10CG011}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,220,0,0"/>
+                    <Label Content="{Binding prm_10MAD10CG010}" Style="{StaticResource Parent_LabelOnImage}" Margin="27,199,0,0"/>
                 </Grid>
             </TabItem>
             <TabItem Header="ГТ-7">

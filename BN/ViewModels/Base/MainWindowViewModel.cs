@@ -16,11 +16,25 @@ namespace BN.ViewModels.Base
 {
     internal class MainWindowViewModel : ViewModel
     {
+        private const ushort GatewayFullScaleValue_ST6 = 16383;
+        private const sbyte UpperMonitorRange_ST6_gr0 = 1;
+        private const sbyte LowerMonitorRange_ST6_gr0 = -1;
+        private const double FaultReplace_ST6_gr0 = 99.999;
+
+        private const double WH_Y_0_ST6_gr0 = 0.5;
+        private const double WH_Y_1_ST6_gr0 = 0.79;
+        private const double WL_Y_0_ST6_gr0 = -0.5;
+        private const double WL_Y_1_ST6_gr0 = -0.79;
+        private const double AH_R_0_ST6_gr0 = 0.8;
+        private const double AH_R_1_ST6_gr0 = 0.99;
+        private const double AL_R_0_ST6_gr0 = -0.8;
+        private const double AL_R_1_ST6_gr0 = -0.99;
+        private const double Fault_0_ST6_gr0 = 1;
+        private const double Fault_1_ST6_gr0 = -1;
 
 
         #region Заголовок окна
         private string _wnd_Title = "АСКВД BN";
-        /// <summary>Заголовок окна</summary>
         public string wnd_Title
         {
             get => _wnd_Title;
@@ -36,132 +50,122 @@ namespace BN.ViewModels.Base
         #endregion
 
         #region Статус подключения ПТ-6
-
-        /// <summary>Статус программы</summary>
-        private string _tbl_StatusST6 = "Отключено"; // поле
-
-        /// <summary>Статус программы</summary>
-        public string tbl_StatusST6
+        private string _tbl_Status_ST6 = "Отключено"; // поле
+        public string tbl_Status_ST6
         {
-            get => _tbl_StatusST6; //возвращает значение поля
-            set => Set(ref _tbl_StatusST6, value);
+            get => _tbl_Status_ST6; //возвращает значение поля
+            set => Set(ref _tbl_Status_ST6, value);
         }
         #endregion
 
         #region IP адрес подключения ПТ-6
-        private string _AdressIPST6 = "127.0.0.1";
-        /// <summary>IP адрес подключения</summary>
-        public string AdressIPST6
+        private string _tb_AdressIP_ST6 = "127.0.0.1";
+        public string tb_AdressIP_ST6
         {
-            get => _AdressIPST6;
-            set => Set(ref _AdressIPST6, value);
+            get => _tb_AdressIP_ST6;
+            set => Set(ref _tb_AdressIP_ST6, value);
         }
         #endregion
 
-        #region Фон для Border ПТ-6
-        private string _backgroundBorder;
-        /// <summary></summary>
-        public string BackgroundBorder
+        #region Фон для параметров ПТ-6 надо делать
+        private string _bckgrd_10MAD10CG010;
+        public string bckgrd_10MAD10CG010
         {
-            get => _backgroundBorder;
-            set => Set(ref _backgroundBorder, value);
+            get => _bckgrd_10MAD10CG010;
+            set => Set(ref _bckgrd_10MAD10CG010, value);
         }
         #endregion
 
         #region Фон для StatusBarST6 
-        private string _backgroundStatusBarST6 = "Coral";
-        /// <summary></summary>
-        public string BackgroundStatusBarST6
+        private string _sb_Bckgrnd_ST6 = "Coral";
+        public string sb_Bckgrnd_ST6
         {
-            get => _backgroundStatusBarST6;
-            set => Set(ref _backgroundStatusBarST6, value);
+            get => _sb_Bckgrnd_ST6;
+            set => Set(ref _sb_Bckgrnd_ST6, value);
         }
         #endregion
 
         #region Активность ввода адреса для ПТ-6 
-        private bool _tbIPAdrrActST6 = true;
-        /// <summary></summary>
-        public bool TbIPAdrrActST6
+        private bool _tb_IPAdrrAct_ST6 = true;
+        public bool tb_IPAdrrAct_ST6
         {
-            get => _tbIPAdrrActST6;
-            set => Set(ref _tbIPAdrrActST6, value);
+            get => _tb_IPAdrrAct_ST6;
+            set => Set(ref _tb_IPAdrrAct_ST6, value);
         }
         #endregion
 
         #region Активность кнопки подключить для ПТ-6 
-        private bool _btConActivST6 = true;
-        /// <summary></summary>
-        public bool BtConActivST6
+        private bool _bt_ConAct_ST6 = true;
+        public bool bt_ConAct_ST6
         {
-            get => _btConActivST6;
-            set => Set(ref _btConActivST6, value);
+            get => _bt_ConAct_ST6;
+            set => Set(ref _bt_ConAct_ST6, value);
         }
         #endregion
 
         #region Кнопка отключить для ПТ-6
-        private bool _btDisconST6;
-        /// <summary></summary>
-        public bool BtDisconST6
+        private bool _bt_Discon_ST6;
+        public bool bt_Discon_ST6
         {
-            get => _btDisconST6;
-            set => Set(ref _btDisconST6, value);
+            get => _bt_Discon_ST6;
+            set => Set(ref _bt_Discon_ST6, value);
         }
         #endregion
 
         #region Активность кнопки отключить для ПТ-6 
-        private bool _btDisconActivST6 = false;
-        /// <summary></summary>
-        public bool BtDisconActivST6
+        private bool _bt_DisconAct_ST6 = false;
+        public bool bt_DisconAct_ST6
         {
-            get => _btDisconActivST6;
-            set => Set(ref _btDisconActivST6, value);
+            get => _bt_DisconAct_ST6;
+            set => Set(ref _bt_DisconAct_ST6, value);
         }
         #endregion
 
-        #region Три параметра из регистра
-
-        private double _firstParmReg;
-        /// <summary></summary>
-        public double FirstParmReg
+        #region Измеряемые велечины
+        private double _prm_10MAD10CG010;
+        public double prm_10MAD10CG010
         {
-            get => _firstParmReg;
-            set => Set(ref _firstParmReg, value);
+            get => _prm_10MAD10CG010;
+            set => Set(ref _prm_10MAD10CG010, value);
         }
 
-        private double _secondParmReg;
-        /// <summary></summary>
-        public double SecondParmReg
+        private double _prm_10MAD10CG011;
+        public double prm_10MAD10CG011
         {
-            get => _secondParmReg;
-            set => Set(ref _secondParmReg, value);
+            get => _prm_10MAD10CG011;
+            set => Set(ref _prm_10MAD10CG011, value);
         }
 
-        private double _thirdParmReg;
-        /// <summary></summary>
-        public double ThirdParmReg
+        private double _prm_10MAD10CG012;
+        public double prm_10MAD10CG012
         {
-            get => _thirdParmReg;
-            set => Set(ref _thirdParmReg, value);
+            get => _prm_10MAD10CG012;
+            set => Set(ref _prm_10MAD10CG012, value);
         }
         #endregion
+
+
+
+
 
 
         #region Комманды
-        public RelayCommand ConnectToRackST6 { get; set; }
-        public RelayCommand DisconnectFromRackST6 { get; set; }
+        public RelayCommand cmd_ConToRack_ST6 { get; set; }
+        public RelayCommand cmd_DisconFromRack_ST6 { get; set; }
         #endregion
 
         public MainWindowViewModel()
         {
 
-            ConnectToRackST6 = new RelayCommand(o =>
+            cmd_ConToRack_ST6 = new RelayCommand(o =>
             {
-                BtDisconST6 = false;
-                BtDisconActivST6 = true;
+                bt_Discon_ST6 = false;
+                bt_DisconAct_ST6 = true;
 
-                 ModbusClient modbusClientST6 = new ModbusClient(AdressIPST6, 502);
+                 var modbusClient_ST6 = new ModbusClient(tb_AdressIP_ST6, 502);
 
-                  var Match = Regex.IsMatch(AdressIPST6, "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
+                  // Проверка валидности IP адреса
+                  var Match = Regex.IsMatch(tb_AdressIP_ST6, "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
                   if (Match == false)
                   {
                       MessageBox.Show("IP адрес не соответствуте формату IPV4");
@@ -170,7 +174,7 @@ namespace BN.ViewModels.Base
 
                   try
                   {
-                      modbusClientST6.Connect();
+                      modbusClient_ST6.Connect();
                   }
                   catch (Exception )
                   { 
@@ -178,50 +182,55 @@ namespace BN.ViewModels.Base
                       return;
                   }    
 
-                      tbl_StatusST6 = "Подключено";
-                      BackgroundStatusBarST6 = "LightGreen";
-                      BtConActivST6 = false;
-                      TbIPAdrrActST6 = false;    
+                      tbl_Status_ST6 = "Подключено";
+                      sb_Bckgrnd_ST6 = "LightGreen";
+                      bt_ConAct_ST6 = false;
+                      tb_IPAdrrAct_ST6 = false;    
 
-                      BNRack bnRackST6 = new BNRack();
-                      DispatcherTimer _timerST6 = new DispatcherTimer(DispatcherPriority.Render);
-
-                      _timerST6.Interval = TimeSpan.FromSeconds(1);
-                      _timerST6.Tick += (sender, args) =>
+                      var bnRack_ST6 = new BNRack();
+                      var timer_ST6 = new DispatcherTimer(DispatcherPriority.Render);              
+                       timer_ST6.Interval = TimeSpan.FromSeconds(1);
+                       timer_ST6.Tick += (sender, args) =>
                       {
-                          if (BtDisconST6 == false)
+                          if (bt_Discon_ST6 == false)
                           {
-                              int[] readHoldingRegisters = modbusClientST6.ReadHoldingRegisters(0, 3);
-                              double[] returnvalue = bnRackST6.Scale(readHoldingRegisters);
+                              int[] prm_st6_gr0 = modbusClient_ST6.ReadHoldingRegisters(0, 3);
+                              double [] rtrn_prm_st6_gr0 = bnRack_ST6.Scale(prm_st6_gr0, GatewayFullScaleValue_ST6, 
+                                                                            LowerMonitorRange_ST6_gr0, UpperMonitorRange_ST6_gr0,
+                                                                            FaultReplace_ST6_gr0);
 
-                              FirstParmReg = returnvalue[0];
-                              SecondParmReg = returnvalue[1];
-                              ThirdParmReg = returnvalue[2];
+                              prm_10MAD10CG010 = rtrn_prm_st6_gr0[0];
+                              prm_10MAD10CG011 = rtrn_prm_st6_gr0[1];
+                              prm_10MAD10CG012 = rtrn_prm_st6_gr0[2];
 
-                              BackgroundBorder = bnRackST6.LimitBrush(FirstParmReg, 
-                                                                      0.5, 0.79, -0.5, -0.79,
-                                                                      0.8, 0.99, -0.8, -0.99,
-                                                                      1, -1);
+                              var visualEffects = new VisualEffects();
+                              bckgrd_10MAD10CG010 = visualEffects.LimitBrush(prm_10MAD10CG010, WH_Y_0_ST6_gr0, WH_Y_1_ST6_gr0,
+                                                                              WL_Y_0_ST6_gr0, WL_Y_1_ST6_gr0, AH_R_0_ST6_gr0,
+                                                                              AH_R_1_ST6_gr0, AL_R_0_ST6_gr0, AL_R_1_ST6_gr0,
+                                                                              Fault_0_ST6_gr0, Fault_1_ST6_gr0);
 
-                          }
+
+
+
+    }
                           else
                           {
-                              modbusClientST6.Disconnect();
-                              _timerST6.Stop();
-                              tbl_StatusST6 = "Отключено";
-                              BackgroundStatusBarST6 = "Coral";
-                              BtConActivST6 = true;
-                              TbIPAdrrActST6 = true;
-                              BtDisconActivST6 = false;
+                              modbusClient_ST6.Disconnect();
+                              timer_ST6.Stop();
+                              tbl_Status_ST6 = "Отключено";
+                              sb_Bckgrnd_ST6 = "Coral";
+                              bt_ConAct_ST6 = true;
+                              tb_IPAdrrAct_ST6 = true;
+                              bt_DisconAct_ST6 = false;
                           }
                       };
-                  _timerST6.Start();
+                   timer_ST6.Start();
 
             });
 
-            DisconnectFromRackST6 = new RelayCommand(o =>
+            cmd_DisconFromRack_ST6 = new RelayCommand(o =>
             {
-                BtDisconST6 = true;
+                bt_Discon_ST6 = true;
 
             });
 
