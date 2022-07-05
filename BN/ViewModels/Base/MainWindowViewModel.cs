@@ -260,7 +260,7 @@ namespace BN.ViewModels.Base
                         return;
                     }
 
-
+                    1111111111111
 
                     tbl_Status_ST6 = "Подключено";
                     sb_Bckgrnd_ST6 = "LightGreen";
