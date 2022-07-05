@@ -16,22 +16,42 @@ namespace BN.ViewModels.Base
 {
     internal class MainWindowViewModel : ViewModel
     {
+        //Замена если вышло за границы
+        private const double FaultReplace_0 = 999.999; 
+        private const double FaultReplace_1 = 999.9;
+
+        #region Параметры для шкалирования ПТ-6
         private const ushort GatewayFullScaleValue_ST6 = 16383;
-        private const sbyte UpperMonitorRange_ST6_gr0 = 1;
-        private const sbyte LowerMonitorRange_ST6_gr0 = -1;
-        private const double FaultReplace_ST6_gr0 = 99.999;
 
-        private const double WH_Y_0_ST6_gr0 = 0.5;
-        private const double WH_Y_1_ST6_gr0 = 0.79;
-        private const double WL_Y_0_ST6_gr0 = -0.5;
-        private const double WL_Y_1_ST6_gr0 = -0.79;
-        private const double AH_R_0_ST6_gr0 = 0.8;
-        private const double AH_R_1_ST6_gr0 = 0.99;
-        private const double AL_R_0_ST6_gr0 = -0.8;
-        private const double AL_R_1_ST6_gr0 = -0.99;
-        private const double Fault_0_ST6_gr0 = 1;
-        private const double Fault_1_ST6_gr0 = -1;
+        private const short LowerMonitorRange_ST6_gr0 = 0;
+        private const short UpperMonitorRange_ST6_gr0 = 200;
 
+        private const short LowerMonitorRange_ST6_gr1 = -1;
+        private const short UpperMonitorRange_ST6_gr1 = 1;
+
+        private const short LowerMonitorRange_ST6_gr5 = -6;
+        private const short UpperMonitorRange_ST6_gr5 = 4;
+        #endregion
+
+        #region Аварийные и предупредительные границы ПТ-6
+        private const double WH_Y_0_ST6_gr1 = 0.5;
+        private const double WH_Y_1_ST6_gr1 = 0.79;
+        private const double WL_Y_0_ST6_gr1 = -0.5;
+        private const double WL_Y_1_ST6_gr1 = -0.79;
+        private const double AH_R_0_ST6_gr1 = 0.8;
+        private const double AH_R_1_ST6_gr1 = 1;
+        private const double AL_R_0_ST6_gr1 = -0.8;
+        private const double AL_R_1_ST6_gr1 = -1;
+
+        private const double WH_Y_0_ST6_gr5 = 0.5;
+        private const double WH_Y_1_ST6_gr5 = 1.99;
+        private const double WL_Y_0_ST6_gr5 = -2.5;
+        private const double WL_Y_1_ST6_gr5 = -3.99;
+        private const double AH_R_0_ST6_gr5 = 2;
+        private const double AH_R_1_ST6_gr5 = 4;
+        private const double AL_R_0_ST6_gr5 = -4.0;
+        private const double AL_R_1_ST6_gr5 = -6;
+        #endregion
 
         #region Заголовок окна
         private string _wnd_Title = "АСКВД BN";
@@ -67,12 +87,47 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-        #region Фон для параметров ПТ-6 надо делать
+        #region Фон для параметров ПТ-6
         private string _bckgrd_10MAD10CG010;
         public string bckgrd_10MAD10CG010
         {
             get => _bckgrd_10MAD10CG010;
             set => Set(ref _bckgrd_10MAD10CG010, value);
+        }
+
+        private string _bckgrd_10MAD10CG011;
+        public string bckgrd_10MAD10CG011
+        {
+            get => _bckgrd_10MAD10CG011;
+            set => Set(ref _bckgrd_10MAD10CG011, value);
+        }
+
+        private string _bckgrd_10MAD10CG012;
+        public string bckgrd_10MAD10CG012
+        {
+            get => _bckgrd_10MAD10CG012;
+            set => Set(ref _bckgrd_10MAD10CG012, value);
+        }
+
+        private string _bckgrd_10MAD20CG010;
+        public string bckgrd_10MAD20CG010
+        {
+            get => _bckgrd_10MAD20CG010;
+            set => Set(ref _bckgrd_10MAD20CG010, value);
+        }
+
+        private string _bckgrd_10MAD10CY011;
+        public string bckgrd_10MAD10CY011
+        {
+            get => _bckgrd_10MAD10CY011;
+            set => Set(ref _bckgrd_10MAD10CY011, value);
+        }
+
+        private string _bckgrd_10MAD10CY012;
+        public string bckgrd_10MAD10CY012
+        {
+            get => _bckgrd_10MAD10CY012;
+            set => Set(ref _bckgrd_10MAD10CY012, value);
         }
         #endregion
 
@@ -121,7 +176,7 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-        #region Измеряемые велечины
+        #region Измеряемые велечины ПТ-6
         private double _prm_10MAD10CG010;
         public double prm_10MAD10CG010
         {
@@ -142,6 +197,30 @@ namespace BN.ViewModels.Base
             get => _prm_10MAD10CG012;
             set => Set(ref _prm_10MAD10CG012, value);
         }
+
+        private double _prm_10MAD20CG010;
+        public double prm_10MAD20CG010
+        {
+            get => _prm_10MAD20CG010;
+            set => Set(ref _prm_10MAD20CG010, value);
+        }
+
+        private double _prm_10MAD10CY011;
+        public double prm_10MAD10CY011
+        {
+            get => _prm_10MAD10CY011;
+            set => Set(ref _prm_10MAD10CY011, value);
+        }
+
+        private double _prm_10MAD10CY012;
+        public double prm_10MAD10CY012
+        {
+            get => _prm_10MAD10CY012;
+            set => Set(ref _prm_10MAD10CY012, value);
+        }
+
+
+
         #endregion
 
 
@@ -160,7 +239,6 @@ namespace BN.ViewModels.Base
             cmd_ConToRack_ST6 = new RelayCommand(o =>
             {
                 bt_Discon_ST6 = false;
-                bt_DisconAct_ST6 = true;
 
                  var modbusClient_ST6 = new ModbusClient(tb_AdressIP_ST6, 502);
 
@@ -185,34 +263,62 @@ namespace BN.ViewModels.Base
                       tbl_Status_ST6 = "Подключено";
                       sb_Bckgrnd_ST6 = "LightGreen";
                       bt_ConAct_ST6 = false;
-                      tb_IPAdrrAct_ST6 = false;    
+                      tb_IPAdrrAct_ST6 = false;
+                      bt_DisconAct_ST6 = true;
 
-                      var bnRack_ST6 = new BNRack();
+                var bnRack_ST6 = new BNRack();
                       var timer_ST6 = new DispatcherTimer(DispatcherPriority.Render);              
                        timer_ST6.Interval = TimeSpan.FromSeconds(1);
                        timer_ST6.Tick += (sender, args) =>
                       {
                           if (bt_Discon_ST6 == false)
                           {
-                              int[] prm_st6_gr0 = modbusClient_ST6.ReadHoldingRegisters(0, 3);
-                              double [] rtrn_prm_st6_gr0 = bnRack_ST6.Scale(prm_st6_gr0, GatewayFullScaleValue_ST6, 
+                              int[] prm_st6_gr0 = modbusClient_ST6.ReadHoldingRegisters(5000, 23);
+                              double[] rtrn_prm_st6_gr0 = bnRack_ST6.Scale(prm_st6_gr0, GatewayFullScaleValue_ST6,
                                                                             LowerMonitorRange_ST6_gr0, UpperMonitorRange_ST6_gr0,
-                                                                            FaultReplace_ST6_gr0);
-
-                              prm_10MAD10CG010 = rtrn_prm_st6_gr0[0];
-                              prm_10MAD10CG011 = rtrn_prm_st6_gr0[1];
-                              prm_10MAD10CG012 = rtrn_prm_st6_gr0[2];
+                                                                            FaultReplace_1);
+                              int[] prm_st6_gr1 = modbusClient_ST6.ReadHoldingRegisters(5024, 2);
+                              double[] rtrn_prm_st6_gr1 = bnRack_ST6.Scale(prm_st6_gr1, GatewayFullScaleValue_ST6, 
+                                                                            LowerMonitorRange_ST6_gr1, UpperMonitorRange_ST6_gr1,
+                                                                            FaultReplace_0);
+                              int[] prm_st6_gr5 = modbusClient_ST6.ReadHoldingRegisters(5042, 1);
+                              double[] rtrn_prm_st6_gr5 = bnRack_ST6.Scale(prm_st6_gr5, GatewayFullScaleValue_ST6,
+                                                                            LowerMonitorRange_ST6_gr5, UpperMonitorRange_ST6_gr5,
+                                                                            FaultReplace_0);
+                              int[] prm_st6_gr7 = modbusClient_ST6.ReadHoldingRegisters(5047, 1);
+                              double[] rtrn_prm_st6_gr7 = bnRack_ST6.Scale(prm_st6_gr7, GatewayFullScaleValue_ST6,
+                                                                            LowerMonitorRange_ST6_gr1, UpperMonitorRange_ST6_gr1,
+                                                                            FaultReplace_0);
 
                               var visualEffects = new VisualEffects();
-                              string [] bckgrd_gr0 = visualEffects.LimitBrush(rtrn_prm_st6_gr0, WH_Y_0_ST6_gr0, WH_Y_1_ST6_gr0,
-                                                                              WL_Y_0_ST6_gr0, WL_Y_1_ST6_gr0, AH_R_0_ST6_gr0,
-                                                                              AH_R_1_ST6_gr0, AL_R_0_ST6_gr0, AL_R_1_ST6_gr0,
-                                                                              Fault_0_ST6_gr0, Fault_1_ST6_gr0);
+                              string[] bckgrd_gr1 = visualEffects.LimitBrush_0(rtrn_prm_st6_gr1, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
+                                                                              WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
+                                                                              AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
+                                                                              UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);
+                              string[] bckgrd_gr5 = visualEffects.LimitBrush_0(rtrn_prm_st6_gr5, WH_Y_0_ST6_gr5, WH_Y_1_ST6_gr5,
+                                                                              WL_Y_0_ST6_gr5, WL_Y_1_ST6_gr5, AH_R_0_ST6_gr5,
+                                                                              AH_R_1_ST6_gr5, AL_R_0_ST6_gr5, AL_R_1_ST6_gr5,
+                                                                              UpperMonitorRange_ST6_gr5, LowerMonitorRange_ST6_gr5);
+                              string[] bckgrd_gr7 = visualEffects.LimitBrush_0(rtrn_prm_st6_gr7, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
+                                                WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
+                                                AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
+                                                UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);
 
-                              bckgrd_10MAD10CG010  = bckgrd_gr0[0];
+                              prm_10MAD10CY011 = rtrn_prm_st6_gr0[0];
+                              prm_10MAD10CY012 = rtrn_prm_st6_gr0[2];
+                              prm_10MAD10CG010 = rtrn_prm_st6_gr1[0];
+                              prm_10MAD10CG011 = rtrn_prm_st6_gr1[1];
+                              prm_10MAD20CG010 = rtrn_prm_st6_gr5[0];
+                              prm_10MAD10CG012 = rtrn_prm_st6_gr7[0];
+
+                              bckgrd_10MAD10CG010 = bckgrd_gr1[0];
+                              bckgrd_10MAD10CG011 = bckgrd_gr1[1];
+                              bckgrd_10MAD20CG010 = bckgrd_gr5[0];
+                              bckgrd_10MAD10CG012 = bckgrd_gr7[0];
 
 
-    }
+
+                          }
                           else
                           {
                               modbusClient_ST6.Disconnect();
@@ -234,11 +340,6 @@ namespace BN.ViewModels.Base
 
             });
 
-
-
-
-
-         //   BackgroundBorder = "#e5e5e5";
 
 
 

@@ -10,16 +10,12 @@ namespace BN.Models
     internal class BNRack
     {
 
-        //private const ushort GatewayFullScaleValue = 16383;
-        //private const byte UpperMonitorRange = 1;
-        //private const sbyte LowerMonitorRange = -1;
-
         /// <summary>
         ///  Метод производит шкалирование параметров
         /// </summary>
         /// <param name="ProportionalValue">Массив не шкалированных параметров</param>
         /// <returns>Массив шкаллированных данных</returns>
-        public double[] Scale(int[] ProportionalValue, ushort GatewayFullScaleValue, sbyte LowerMonitorRange, sbyte UpperMonitorRange, double FaultReplace)
+        public double[] Scale(int[] ProportionalValue, ushort GatewayFullScaleValue, short LowerMonitorRange, short UpperMonitorRange, double FaultReplace)
         {
             double[] ScaledValue = new double[ProportionalValue.Length];
             for (int i = 0; i < ProportionalValue.Length; i++)

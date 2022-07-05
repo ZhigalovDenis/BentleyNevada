@@ -26,8 +26,8 @@
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="VerticalAlignment" Value="Top" />
         </Style>
-                <Style x:Key="Child_LabelOnImage" TargetType="Label" BasedOn="{StaticResource Parent_LabelOnImage}">
-                <Setter Property="ContentStringFormat" Value="0.00 мк"/>
+                <Style x:Key="Child_0_LabelOnImage" TargetType="Label" BasedOn="{StaticResource Parent_LabelOnImage}">
+                <Setter Property="ContentStringFormat" Value="0.0 мк"/>
             </Style>
     </Application.Resources>
 </Application>
