@@ -34,6 +34,12 @@ namespace BN.ViewModels.Base
         #endregion
 
         #region Аварийные и предупредительные границы ПТ-6
+        private const double WH_Y_0_ST6_gr0 = 60;
+        private const double WH_Y_1_ST6_gr0 = 79.99;
+        private const double AH_R_0_ST6_gr0 = 80;
+        private const double AH_R_1_ST6_gr0 = 200;
+
+
         private const double WH_Y_0_ST6_gr1 = 0.5;
         private const double WH_Y_1_ST6_gr1 = 0.79;
         private const double WL_Y_0_ST6_gr1 = -0.5;
@@ -291,6 +297,9 @@ namespace BN.ViewModels.Base
                                                                             FaultReplace_0);
 
                               var visualEffects = new VisualEffects();
+                              string[] bckgrd_gr0 = visualEffects.LimitBrush_1(rtrn_prm_st6_gr0, WH_Y_0_ST6_gr0, WH_Y_1_ST6_gr0,
+                                                                                AH_R_0_ST6_gr0, AH_R_1_ST6_gr0,
+                                                                                 UpperMonitorRange_ST6_gr0, LowerMonitorRange_ST6_gr0);
                               string[] bckgrd_gr1 = visualEffects.LimitBrush_0(rtrn_prm_st6_gr1, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
                                                                               WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
                                                                               AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
@@ -311,6 +320,8 @@ namespace BN.ViewModels.Base
                               prm_10MAD20CG010 = rtrn_prm_st6_gr5[0];
                               prm_10MAD10CG012 = rtrn_prm_st6_gr7[0];
 
+                              bckgrd_10MAD10CY011 = bckgrd_gr0[0];
+                              bckgrd_10MAD10CY012 = bckgrd_gr0[2];
                               bckgrd_10MAD10CG010 = bckgrd_gr1[0];
                               bckgrd_10MAD10CG011 = bckgrd_gr1[1];
                               bckgrd_10MAD20CG010 = bckgrd_gr5[0];

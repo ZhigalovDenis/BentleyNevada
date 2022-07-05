@@ -44,7 +44,7 @@ namespace BN.Models
 
                 if ((Parameter[i] >= AH_R_0 && Parameter[i] <= AH_R_1) || (Parameter[i] <= AL_R_0 && Parameter[i] >= AL_R_1))
                 {
-                    BackgroundBorder[i] = "Red";
+                    BackgroundBorder[i] = "#FFFF4D39";
                 }
 
                 if ((Parameter[i] > Fault_0) || (Parameter[i] < Fault_1))
@@ -87,7 +87,7 @@ namespace BN.Models
 
                 if (Parameter[i] >= AH_R_0 && Parameter[i] <= AH_R_1)
                 {
-                    BackgroundBorder[i] = "Red";
+                    BackgroundBorder[i] = "#FFFF4D39";
                 }
 
                 if ((Parameter[i] > Fault_0) || (Parameter[i] < Fault_1))
