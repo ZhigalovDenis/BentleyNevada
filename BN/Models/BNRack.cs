@@ -11,7 +11,7 @@ namespace BN.Models
 {
     internal class BNRack
     {
-        ModbusClient modbusClient_ST6 = new ModbusClient();
+        ModbusClient modbusClient = new ModbusClient();
 
         /// <summary>
         ///  Метод производит шкалирование параметров
@@ -32,11 +32,11 @@ namespace BN.Models
         public bool Connection(string IPAdress, int Port)
         {
             bool IsEnable = true;
-            modbusClient_ST6.Port = Port;
-            modbusClient_ST6.IPAddress = IPAdress;
+            modbusClient.Port = Port;
+            modbusClient.IPAddress = IPAdress;
             try
             {
-                modbusClient_ST6.Connect();
+                modbusClient.Connect();
             }
             catch
             {
@@ -48,13 +48,13 @@ namespace BN.Models
          
         public void Disconnection()
         {
-            modbusClient_ST6.Disconnect();  
+            modbusClient.Disconnect();  
         }
 
         public int[] ReadData(int StartingAdress, int Quantity)
         {
-            modbusClient_ST6.ReadHoldingRegisters(StartingAdress, Quantity);
-            return modbusClient_ST6.ReadHoldingRegisters(StartingAdress, Quantity); 
+            modbusClient.ReadHoldingRegisters(StartingAdress, Quantity);
+            return modbusClient.ReadHoldingRegisters(StartingAdress, Quantity); 
         }
 
 
