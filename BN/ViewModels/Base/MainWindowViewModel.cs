@@ -229,11 +229,6 @@ namespace BN.ViewModels.Base
 
         #endregion
 
-
-
-
-
-
         #region Комманды
         public RelayCommand cmd_ConToRack_ST6 { get; set; }
         public RelayCommand cmd_DisconFromRack_ST6 { get; set; }
@@ -241,16 +236,16 @@ namespace BN.ViewModels.Base
 
         public MainWindowViewModel()
         {
-
             cmd_ConToRack_ST6 = new RelayCommand(o =>
             {
                 bt_Discon_ST6 = false;
+
                 var bnRack_ST6 = new BNData();
+
                 if (bnRack_ST6.ValidIPV4(tb_AdressIP_ST6) == true)
                 {
                     if (bnRack_ST6.Connection(tb_AdressIP_ST6, 502) == true)
-                    {
-
+                    { 
                         tbl_Status_ST6 = "Подключено";
                         sb_Bckgrnd_ST6 = "LightGreen";
                         bt_ConAct_ST6 = false;
@@ -279,17 +274,16 @@ namespace BN.ViewModels.Base
                                bckgrd_10MAD10CY011 = bckgrd_st6_gr0[0];
                                bckgrd_10MAD10CY012 = bckgrd_st6_gr0[2];
                             }
-                             else
-                             {
-                                 //  modbusClient_ST6.Disconnect();
-                                 timer_ST6.Stop();
-                                 tbl_Status_ST6 = "Отключено";
-                                 sb_Bckgrnd_ST6 = "Coral";
-                                 bt_ConAct_ST6 = true;
-                                 tb_IPAdrrAct_ST6 = true;
-                                 bt_DisconAct_ST6 = false;
-
-                             }
+                            else
+                            {
+                               //  modbusClient_ST6.Disconnect();
+                               timer_ST6.Stop();
+                               tbl_Status_ST6 = "Отключено";
+                               sb_Bckgrnd_ST6 = "Coral";
+                               bt_ConAct_ST6 = true;
+                               tb_IPAdrrAct_ST6 = true;
+                               bt_DisconAct_ST6 = false;
+                            }
                         };
                         timer_ST6.Start();
                     }
