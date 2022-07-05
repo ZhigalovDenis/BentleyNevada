@@ -11,6 +11,7 @@ namespace BN.Models
 {
     internal class BNData
     {
+        ModbusClient modbusClient_ST6 = new ModbusClient();
 
         /// <summary>
         ///  Метод производит шкалирование параметров
@@ -19,8 +20,7 @@ namespace BN.Models
         /// <returns>Массив шкаллированных данных</returns>
         /// 
         public bool ValidIPV4(string IPAdress)
-        {
-            
+        {  
             var Match = Regex.IsMatch(IPAdress, "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
             if (Match == false)
             {
@@ -28,7 +28,28 @@ namespace BN.Models
             }
             return Match;
         }
-        public double[] Scale(int[] ProportionalValue, ushort GatewayFullScaleValue, short LowerMonitorRange, short UpperMonitorRange, double FaultReplace)
+
+        public bool Connection(string IPAdress, int Port)
+        {
+            bool IsEnable = true;
+            modbusClient_ST6.Port = Port;
+            modbusClient_ST6.IPAddress = IPAdress;
+            try
+            {
+                modbusClient_ST6.Connect();
+            }
+            catch
+            {
+                MessageBox.Show("Устройство не отвечает");
+                IsEnable = false;
+            }
+            return IsEnable;
+        }
+
+        
+
+
+public double[] Scale(int[] ProportionalValue, ushort GatewayFullScaleValue, short LowerMonitorRange, short UpperMonitorRange, double FaultReplace)
         {
             double[] ScaledValue = new double[ProportionalValue.Length];
             for (int i = 0; i < ProportionalValue.Length; i++)
