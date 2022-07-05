@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BN"
         xmlns:vm="clr-namespace:BN.ViewModels.Base"
         mc:Ignorable="d"
-        Title="{Binding wnd_Title}" Height="616" Width="1134" ResizeMode="CanMinimize">
+        Title="{Binding wnd_Title}" Height="616" Width="1134" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
