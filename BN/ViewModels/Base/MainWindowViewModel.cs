@@ -249,7 +249,6 @@ namespace BN.ViewModels.Base
                 if (bnRack_ST6.ValidIPV4(tb_AdressIP_ST6) == true)
                 {
                     if (bnRack_ST6.Connection(tb_AdressIP_ST6, 502) == true)
-
                     {
 
                         tbl_Status_ST6 = "Подключено";
@@ -257,7 +256,6 @@ namespace BN.ViewModels.Base
                         bt_ConAct_ST6 = false;
                         tb_IPAdrrAct_ST6 = false;
                         bt_DisconAct_ST6 = true;
-                    
 
                         var timer_ST6 = new DispatcherTimer(DispatcherPriority.Render);
                         timer_ST6.Interval = TimeSpan.FromSeconds(1);
@@ -265,11 +263,11 @@ namespace BN.ViewModels.Base
                        {
                            if (bt_Discon_ST6 == false)
                            {
-                               int[] prm_st6_gr0 = modbusClient_ST6.ReadHoldingRegisters(5000, 23);
+                               int[] prm_st6_gr0 = bnRack_ST6.ReadData(5000, 23);
                                double[] rtrn_prm_st6_gr0 = bnRack_ST6.Scale(prm_st6_gr0, GatewayFullScaleValue_ST6,
                                                                            LowerMonitorRange_ST6_gr0, UpperMonitorRange_ST6_gr0,
                                                                            FaultReplace_1);
-                               int[] prm_st6_gr1 = modbusClient_ST6.ReadHoldingRegisters(5024, 2);
+                               /*int[] prm_st6_gr1 = modbusClient_ST6.ReadHoldingRegisters(5024, 2);
                                double[] rtrn_prm_st6_gr1 = bnRack_ST6.Scale(prm_st6_gr1, GatewayFullScaleValue_ST6,
                                                                            LowerMonitorRange_ST6_gr1, UpperMonitorRange_ST6_gr1,
                                                                            FaultReplace_0);
@@ -280,13 +278,13 @@ namespace BN.ViewModels.Base
                                int[] prm_st6_gr7 = modbusClient_ST6.ReadHoldingRegisters(5047, 1);
                                double[] rtrn_prm_st6_gr7 = bnRack_ST6.Scale(prm_st6_gr7, GatewayFullScaleValue_ST6,
                                                                            LowerMonitorRange_ST6_gr1, UpperMonitorRange_ST6_gr1,
-                                                                           FaultReplace_0);
+                                                                           FaultReplace_0);*/
 
                                var visualEffects_ST6 = new VisualEffects();
                                string[] bckgrd_st6_gr0 = visualEffects_ST6.LimitBrush_1(rtrn_prm_st6_gr0, WH_Y_0_ST6_gr0, WH_Y_1_ST6_gr0,
                                                                                AH_R_0_ST6_gr0, AH_R_1_ST6_gr0,
                                                                                UpperMonitorRange_ST6_gr0, LowerMonitorRange_ST6_gr0);
-                               string[] bckgrd_st6_gr1 = visualEffects_ST6.LimitBrush_0(rtrn_prm_st6_gr1, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
+                              /* string[] bckgrd_st6_gr1 = visualEffects_ST6.LimitBrush_0(rtrn_prm_st6_gr1, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
                                                                                WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
                                                                                AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
                                                                                UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);
@@ -297,28 +295,28 @@ namespace BN.ViewModels.Base
                                string[] bckgrd_st6_gr7 = visualEffects_ST6.LimitBrush_0(rtrn_prm_st6_gr7, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
                                                                                WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
                                                                                AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
-                                                                               UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);
+                                                                               UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);*/
 
                                prm_10MAD10CY011 = rtrn_prm_st6_gr0[0];
                                prm_10MAD10CY012 = rtrn_prm_st6_gr0[2];
                                prm_10MAD10CG010 = rtrn_prm_st6_gr1[0];
-                               prm_10MAD10CG011 = rtrn_prm_st6_gr1[1];
+                               /*prm_10MAD10CG011 = rtrn_prm_st6_gr1[1];
                                prm_10MAD20CG010 = rtrn_prm_st6_gr5[0];
-                               prm_10MAD10CG012 = rtrn_prm_st6_gr7[0];
+                               prm_10MAD10CG012 = rtrn_prm_st6_gr7[0];*/
 
                                bckgrd_10MAD10CY011 = bckgrd_st6_gr0[0];
                                bckgrd_10MAD10CY012 = bckgrd_st6_gr0[2];
-                               bckgrd_10MAD10CG010 = bckgrd_st6_gr1[0];
+                              /* bckgrd_10MAD10CG010 = bckgrd_st6_gr1[0];
                                bckgrd_10MAD10CG011 = bckgrd_st6_gr1[1];
                                bckgrd_10MAD20CG010 = bckgrd_st6_gr5[0];
-                               bckgrd_10MAD10CG012 = bckgrd_st6_gr7[0];
+                               bckgrd_10MAD10CG012 = bckgrd_st6_gr7[0];*/
 
                            }
 
                        }
                        else
                         {
-                            modbusClient_ST6.Disconnect();
+                          //  modbusClient_ST6.Disconnect();
                             timer_ST6.Stop();
                             tbl_Status_ST6 = "Отключено";
                             sb_Bckgrnd_ST6 = "Coral";
