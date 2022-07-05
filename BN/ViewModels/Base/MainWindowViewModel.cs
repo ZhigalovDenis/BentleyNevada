@@ -261,12 +261,12 @@ namespace BN.ViewModels.Base
                             { 
                                int[] prm_st6_gr0 = bnRack_ST6.ReadData(5000, 23);
                                double[] rtrn_prm_st6_gr0 = bnRack_ST6.Scale(prm_st6_gr0, GatewayFullScaleValue_ST6,
-                                                                           LowerMonitorRange_ST6_gr0, UpperMonitorRange_ST6_gr0,
-                                                                           FaultReplace_1);
+                                                                            LowerMonitorRange_ST6_gr0, UpperMonitorRange_ST6_gr0,
+                                                                            FaultReplace_1);
                                int[] prm_st6_gr1 = bnRack_ST6.ReadData(5024, 2);
                                double[] rtrn_prm_st6_gr1 = bnRack_ST6.Scale(prm_st6_gr1, GatewayFullScaleValue_ST6,
-                                                                           LowerMonitorRange_ST6_gr1, UpperMonitorRange_ST6_gr1,
-                                                                           FaultReplace_0);
+                                                                            LowerMonitorRange_ST6_gr1, UpperMonitorRange_ST6_gr1,
+                                                                            FaultReplace_0);
                                int[] prm_st6_gr5 = bnRack_ST6.ReadData(5042, 1);
                                double[] rtrn_prm_st6_gr5 = bnRack_ST6.Scale(prm_st6_gr5, GatewayFullScaleValue_ST6,
                                                                             LowerMonitorRange_ST6_gr5, UpperMonitorRange_ST6_gr5,
@@ -276,12 +276,23 @@ namespace BN.ViewModels.Base
                                                                             LowerMonitorRange_ST6_gr1, UpperMonitorRange_ST6_gr1,
                                                                             FaultReplace_0);
 
-                                var visualEffects_ST6 = new VisualEffects();
+                               var visualEffects_ST6 = new VisualEffects();
                                string[] bckgrd_st6_gr0 = visualEffects_ST6.LimitBrush_1(rtrn_prm_st6_gr0, WH_Y_0_ST6_gr0, WH_Y_1_ST6_gr0,
-                                                                               AH_R_0_ST6_gr0, AH_R_1_ST6_gr0,
-                                                                               UpperMonitorRange_ST6_gr0, LowerMonitorRange_ST6_gr0);
-
-                               prm_10MAD10CY011 = rtrn_prm_st6_gr0[0];
+                                                                                        AH_R_0_ST6_gr0, AH_R_1_ST6_gr0,
+                                                                                        UpperMonitorRange_ST6_gr0, LowerMonitorRange_ST6_gr0);
+                               string[] bckgrd_st6_gr1 = visualEffects_ST6.LimitBrush_0(rtrn_prm_st6_gr1, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
+                                                                                        WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
+                                                                                        AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
+                                                                                        UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);
+                               string[] bckgrd_st6_gr5 = visualEffects_ST6.LimitBrush_0(rtrn_prm_st6_gr5, WH_Y_0_ST6_gr5, WH_Y_1_ST6_gr5,
+                                                                                        WL_Y_0_ST6_gr5, WL_Y_1_ST6_gr5, AH_R_0_ST6_gr5,
+                                                                                        AH_R_1_ST6_gr5, AL_R_0_ST6_gr5, AL_R_1_ST6_gr5,
+                                                                                        UpperMonitorRange_ST6_gr5, LowerMonitorRange_ST6_gr5);
+                               string[] bckgrd_st6_gr7 = visualEffects_ST6.LimitBrush_0(rtrn_prm_st6_gr7, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
+                                                                                        WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
+                                                                                        AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
+                                                                                        UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);*/
+                                prm_10MAD10CY011 = rtrn_prm_st6_gr0[0];
                                prm_10MAD10CY012 = rtrn_prm_st6_gr0[2];
 
                                bckgrd_10MAD10CY011 = bckgrd_st6_gr0[0];
