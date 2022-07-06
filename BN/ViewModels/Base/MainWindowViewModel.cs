@@ -377,12 +377,12 @@ namespace BN.ViewModels.Base
                                 else//Вернулся массив размерностью 200. Значит не удалось считать регистры.
                                 {
                                     bnRack_st6.Disconnection();
-                                    timer_st6.Stop();
+                                    /*timer_st6.Stop();
                                     tbl_Status_st6 = "Отключено";
                                     sb_Bckgrnd_st6 = "Coral";
                                     bt_ConAct_st6 = true;
                                     tb_IPAdrrAct_st6 = true;
-                                    bt_DisconAct_st6 = false;
+                                    bt_DisconAct_st6 = false;*/
                                 }
                              
                             }

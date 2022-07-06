@@ -46,6 +46,13 @@ namespace BN.Models
             }
             return IsEnable;
         }
+        
+        public void Reconnection(string IPAdress, int Port)
+        {
+            modbusClient.Port = Port;
+            modbusClient.IPAddress = IPAdress;
+            modbusClient.Connect();
+        }
 
         /// <summary>
         /// Отключение от Rack
