@@ -14,7 +14,7 @@
         <TabControl>
             <TabItem Header="ПТ-6">
                 <Grid>
-                    <Image Source="/Views/Window/ST-6.png" Margin="0,-2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="545" FlowDirection="LeftToRight" UseLayoutRounding="False"/>
+                    <Image Source="/Views/Window/ST-6.png"  Stretch="Fill" Margin="0,0,0,26"/>
                     <StatusBar VerticalAlignment="Bottom" Background="{Binding sb_Bckgrnd_st6}">
                         <StatusBarItem>
                             <TextBlock Text="{Binding tbl_Status_st6}"></TextBlock>
