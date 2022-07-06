@@ -1,4 +1,5 @@
 ﻿using EasyModbus;
+using System;
 using System.Text.RegularExpressions;
 using System.Windows;
 
@@ -38,7 +39,7 @@ namespace BN.Models
             {
                 modbusClient.Connect();
             }
-            catch
+            catch (Exception)
             {
                 MessageBox.Show("Устройство не отвечает");
                 IsEnable = false;
