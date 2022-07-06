@@ -46,12 +46,25 @@ namespace BN.Models
             }
             return IsEnable;
         }
-        
-        public void Reconnection(string IPAdress, int Port)
+        /// <summary>
+        /// Повторное подключение к Rack после потери связи.
+        /// </summary>
+        /// <param name="IPAdress"></param>
+        /// <param name="Port"></param>
+        public bool Reconnection(string IPAdress, int Port)
         {
+            bool IsEnable = true;
             modbusClient.Port = Port;
             modbusClient.IPAddress = IPAdress;
-            modbusClient.Connect();
+            try
+            {
+                modbusClient.Connect();
+            }
+            catch (Exception)
+            {
+                IsEnable = false;// MessageBox.Show("Устройство не отвечает");
+            }
+            return IsEnable;
         }
 
         /// <summary>
@@ -70,8 +83,8 @@ namespace BN.Models
             }
             catch (Exception)
             {
-                MessageBox.Show("Потеря соединения");
-                int[] CleanArray = new int[200];
+               // MessageBox.Show("Потеря соединения");
+                int[] CleanArray = new int[101];
                 return CleanArray;
             }
         }

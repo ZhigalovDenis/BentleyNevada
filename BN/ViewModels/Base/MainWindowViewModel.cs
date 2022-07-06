@@ -306,7 +306,7 @@ namespace BN.ViewModels.Base
                             if (bt_Discon_st6 == false) // Проверяем нажата или нет кнопка "Отключить".
                             {
                                int[] full_range = bnRack_st6.ReadData(5000, 100);
-                                if (full_range.Length < 200) // Если вернулся массив размерностью 200 то не удалется считать регистры. И переходим к условию else.
+                                if (full_range.Length < 101) // Если вернулся массив размерностью 101 то не удалется считать регистры. И переходим к условию else.
                                 {
                                     int[] prm_st6_gr_0_0 = full_range.Skip(0).Take(1).ToArray();//5000
                                     int[] prm_st6_gr_0_1 = full_range.Skip(2).Take(2).ToArray();//5002-5003
@@ -374,9 +374,18 @@ namespace BN.ViewModels.Base
                                     bckgrd_10MAD10CG012 = bckgrd_st6_gr1[2];
                                     bckgrd_10MAD20CG010 = bckgrd_st6_gr4[0];
                                 }
-                                else//Вернулся массив размерностью 200. Значит не удалось считать регистры.
+                                else//Вернулся массив размерностью 101. Значит не удалось считать регистры.
                                 {
                                     bnRack_st6.Disconnection();
+                                    tbl_Status_st6 = "Потеря связи";
+                                    sb_Bckgrnd_st6 = "Aqua";
+                                    if (bnRack_st6.Reconnection(tb_AdressIP_st6, 502) == true)
+                                    {
+                                        tbl_Status_st6 = "Подключено";
+                                        sb_Bckgrnd_st6 = "LightGreen";
+                                    }
+                                     
+                                    //bnRack_st6.Reсonnection(tb_AdressIP_st6, 502); 
                                     /*timer_st6.Stop();
                                     tbl_Status_st6 = "Отключено";
                                     sb_Bckgrnd_st6 = "Coral";
