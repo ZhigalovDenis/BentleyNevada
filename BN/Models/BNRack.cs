@@ -85,10 +85,6 @@ namespace BN.Models
             {
                // MessageBox.Show("Потеря соединения");
                 int[] CleanArray = new int[101];
-                for (int i = 0; i < CleanArray.Length; i++)
-                {
-                    CleanArray[i] = 70000;
-                }
                 return CleanArray;
             }
         }
