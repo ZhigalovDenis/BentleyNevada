@@ -290,8 +290,7 @@ namespace BN.ViewModels.Base
 
                 if (bnRack_st6.ValidIPV4(tb_AdressIP_st6) == true)
                 {
-                    bool ConnectionIsEnabled = bnRack_st6.Connection(tb_AdressIP_st6, 502);
-                    if (ConnectionIsEnabled == true)
+                    if (bnRack_st6.Connection(tb_AdressIP_st6, 502) == true)
                     { 
                         tbl_Status_st6 = "Подключено";
                         sb_Bckgrnd_st6 = "LightGreen";
@@ -303,7 +302,7 @@ namespace BN.ViewModels.Base
                         timer_st6.Interval = TimeSpan.FromSeconds(1);
                         timer_st6.Tick += (sender, args) =>
                         {
-                            if (ConnectionIsEnabled == true)
+                            if (bnRack_st6.Connection(tb_AdressIP_st6, 502) == true)
                             {
                                 if (bt_Discon_st6 == false)
                                 {
