@@ -1,5 +1,4 @@
 ﻿using EasyModbus;
-using System;
 using System.Text.RegularExpressions;
 using System.Windows;
 
@@ -39,7 +38,7 @@ namespace BN.Models
             {
                 modbusClient.Connect();
             }
-            catch (Exception)
+            catch
             {
                 MessageBox.Show("Устройство не отвечает");
                 IsEnable = false;
@@ -58,7 +57,7 @@ namespace BN.Models
         public int[] ReadData(int StartingAdress, int Quantity)
         {
             modbusClient.ReadHoldingRegisters(StartingAdress, Quantity);
-            return modbusClient.ReadHoldingRegisters(StartingAdress, Quantity);
+            return modbusClient.ReadHoldingRegisters(StartingAdress, Quantity); 
         }
 
         /// <summary>
