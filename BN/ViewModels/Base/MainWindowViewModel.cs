@@ -140,6 +140,20 @@ namespace BN.ViewModels.Base
             get => _bckgrd_10MAD20CY012;
             set => Set(ref _bckgrd_10MAD20CY012, value);
         }
+
+        private string _bckgrd_10MAD30CY011;
+        public string bckgrd_10MAD30CY011
+        {
+            get => _bckgrd_10MAD30CY011;
+            set => Set(ref _bckgrd_10MAD30CY011, value);
+        }
+
+        private string _bckgrd_10MAD30CY012;
+        public string bckgrd_10MAD30CY012
+        {
+            get => _bckgrd_10MAD30CY012;
+            set => Set(ref _bckgrd_10MAD30CY012, value);
+        }
         #endregion
 
         #region Фон для StatusBarst6 
@@ -244,6 +258,20 @@ namespace BN.ViewModels.Base
             set => Set(ref _prm_10MAD20CY012, value);
         }
 
+        private double _prm_10MAD30CY011;
+        public double prm_10MAD30CY011
+        {
+            get => _prm_10MAD30CY011;
+            set => Set(ref _prm_10MAD30CY011, value);
+        }
+
+        private double _prm_10MAD30CY012;
+        public double prm_10MAD30CY012
+        {
+            get => _prm_10MAD30CY012;
+            set => Set(ref _prm_10MAD30CY012, value);
+        }
+
 
         #endregion
 
@@ -327,6 +355,8 @@ namespace BN.ViewModels.Base
                                prm_10MAD10CY012 = rtrn_prm_st6_gr0[1];
                                prm_10MAD20CY011 = rtrn_prm_st6_gr0[2];
                                prm_10MAD20CY012 = rtrn_prm_st6_gr0[3];
+                               prm_10MAD30CY011 = rtrn_prm_st6_gr0[4];
+                               prm_10MAD30CY012 = rtrn_prm_st6_gr0[5];
                                prm_10MAD10CG010 = rtrn_prm_st6_gr1[0];
                                prm_10MAD10CG011 = rtrn_prm_st6_gr1[1];
                                prm_10MAD10CG012 = rtrn_prm_st6_gr1[2];
@@ -336,6 +366,8 @@ namespace BN.ViewModels.Base
                                bckgrd_10MAD10CY012 = bckgrd_st6_gr0[1];
                                bckgrd_10MAD20CY011 = bckgrd_st6_gr0[2];
                                bckgrd_10MAD20CY012 = bckgrd_st6_gr0[3];
+                               bckgrd_10MAD30CY011 = bckgrd_st6_gr0[4];
+                               bckgrd_10MAD30CY012 = bckgrd_st6_gr0[5];
                                bckgrd_10MAD10CG010 = bckgrd_st6_gr1[0];
                                bckgrd_10MAD10CG011 = bckgrd_st6_gr1[1];
                                bckgrd_10MAD10CG012 = bckgrd_st6_gr1[2];
