@@ -288,9 +288,9 @@ namespace BN.ViewModels.Base
 
                 var bnRack_st6 = new BNRack();
 
-                if (bnRack_st6.ValidIPV4(tb_AdressIP_st6) == true)
+                if (bnRack_st6.ValidIPV4(tb_AdressIP_st6) == true) //Проверяем валидность IP адреса.
                 {
-                    if (bnRack_st6.Connection(tb_AdressIP_st6, 502) == true)
+                    if (bnRack_st6.Connection(tb_AdressIP_st6, 502) == true) //Пытаемся подключиться к устройству.
                     { 
                         tbl_Status_st6 = "Подключено";
                         sb_Bckgrnd_st6 = "LightGreen";
@@ -303,10 +303,10 @@ namespace BN.ViewModels.Base
                         timer_st6.Tick += (sender, args) =>
                         {
 
-                            if (bt_Discon_st6 == false)
+                            if (bt_Discon_st6 == false) // Проверяем нажата или нет кнопка "Отключить".
                             {
                                int[] full_range = bnRack_st6.ReadData(5000, 100);
-                                if (full_range.Length < 200)
+                                if (full_range.Length < 200) // Если вернулся массив размерностью 200 то не удалется считать регистры. И переходим к условию else.
                                 {
                                     int[] prm_st6_gr_0_0 = full_range.Skip(0).Take(1).ToArray();//5000
                                     int[] prm_st6_gr_0_1 = full_range.Skip(2).Take(2).ToArray();//5002-5003
@@ -374,7 +374,7 @@ namespace BN.ViewModels.Base
                                     bckgrd_10MAD10CG012 = bckgrd_st6_gr1[2];
                                     bckgrd_10MAD20CG010 = bckgrd_st6_gr4[0];
                                 }
-                                else
+                                else//Вернулся массив размерностью 200. Значит не удалось считать регистры.
                                 {
                                     bnRack_st6.Disconnection();
                                     timer_st6.Stop();
@@ -386,7 +386,7 @@ namespace BN.ViewModels.Base
                                 }
                              
                             }
-                            else
+                            else //Действеи если нажата кнопка "Отключить".
                             {
                                bnRack_st6.Disconnection();
                                timer_st6.Stop();
@@ -399,12 +399,12 @@ namespace BN.ViewModels.Base
                         };
                         timer_st6.Start();
                     }
-                    else
+                    else //Действие если подключиться к устройству не удалось
                     {
                         return;
                     }
                 }
-                else
+                else //Действие если IP адрес не валиден.
                 {
                     return;
                 }
