@@ -15,18 +15,18 @@
             <TabItem Header="ПТ-6">
                 <Grid>
                     <Image Source="/Views/Window/ST-6.png" Margin="0,-2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="545" FlowDirection="LeftToRight" UseLayoutRounding="False"/>
-                    <StatusBar VerticalAlignment="Bottom" Background="{Binding sb_Bckgrnd_ST6}">
+                    <StatusBar VerticalAlignment="Bottom" Background="{Binding sb_Bckgrnd_st6}">
                         <StatusBarItem>
-                            <TextBlock Text="{Binding tbl_Status_ST6}"></TextBlock>
+                            <TextBlock Text="{Binding tbl_Status_st6}"></TextBlock>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <TextBox Text="{Binding tb_AdressIP_ST6}" IsEnabled="{Binding tb_IPAdrrAct_ST6}"></TextBox>
+                            <TextBox Text="{Binding tb_AdressIP_st6}" IsEnabled="{Binding tb_IPAdrrAct_st6}"></TextBox>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <Button Content="Подключить" Command="{Binding cmd_ConToRack_ST6}" IsEnabled="{Binding bt_ConAct_ST6}"></Button>
+                            <Button Content="Подключить" Command="{Binding cmd_ConToRack_st6}" IsEnabled="{Binding bt_ConAct_st6}"></Button>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <Button Content="Отключить" Command="{Binding cmd_DisconFromRack_ST6}" IsEnabled="{Binding bt_DisconAct_ST6}"></Button>
+                            <Button Content="Отключить" Command="{Binding cmd_DisconFromRack_st6}" IsEnabled="{Binding bt_DisconAct_st6}"></Button>
                         </StatusBarItem>
                     </StatusBar>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="22,205,0,0" Background="{Binding bckgrd_10MAD10CG010}"/>
