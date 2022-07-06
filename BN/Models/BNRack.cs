@@ -54,11 +54,19 @@ namespace BN.Models
         {
                 modbusClient.Disconnect();  
         }
-
         public int[] ReadData(int StartingAdress, int Quantity)
         {
-            int[] ReturnData = modbusClient.ReadHoldingRegisters(StartingAdress, Quantity);
-            return ReturnData; 
+            try
+            {
+                int[] ReturnData = modbusClient.ReadHoldingRegisters(StartingAdress, Quantity);
+                return ReturnData;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Потеря соединения");
+                int[] CleanArray = new int[200];
+                return CleanArray;
+            }
         }
 
         /// <summary>
