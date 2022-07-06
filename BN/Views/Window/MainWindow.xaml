@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BN"
         xmlns:vm="clr-namespace:BN.ViewModels.Base"
         mc:Ignorable="d"
-        Title="{Binding wnd_Title}" Height="616" Width="1134" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="{Binding wnd_Title}" Height="616" Width="1200" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -14,7 +14,7 @@
         <TabControl>
             <TabItem Header="ПТ-6">
                 <Grid>
-                    <Image Source="/Views/Window/ST-6.png" Margin="0,-2,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="545" FlowDirection="LeftToRight" UseLayoutRounding="False"/>
+                    <Image Source="/Views/Window/ST-6.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Top" Height="541" Width="1174"/>
                     <StatusBar VerticalAlignment="Bottom" Background="{Binding sb_Bckgrnd_st6}">
                         <StatusBarItem>
                             <TextBlock Text="{Binding tbl_Status_st6}"></TextBlock>
@@ -41,6 +41,7 @@
                     <Label Content="{Binding prm_10MAD20CG010}" Style="{StaticResource Parent_LabelOnImage}" Margin="506,364,0,0" ToolTip="10MAD20CG010"/>
                     <Label Content="{Binding prm_10MAD10CY011}" Style="{StaticResource Child_0_LabelOnImage}" Margin="155,125,0,0" ToolTip="10MAD10CY011"/>
                     <Label Content="{Binding prm_10MAD10CY012}" Style="{StaticResource Child_0_LabelOnImage}" Margin="155,147,0,0" ToolTip="10MAD10CY012"/>
+                    <Border Background="Aqua" Height="30" Margin="738,221,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" RenderTransformOrigin="0.328,-1.775"/>
                 </Grid>
             </TabItem>
             <TabItem Header="ГТ-7">
