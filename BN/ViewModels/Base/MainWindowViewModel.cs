@@ -379,19 +379,11 @@ namespace BN.ViewModels.Base
                                     bnRack_st6.Disconnection();
                                     tbl_Status_st6 = "Потеря связи";
                                     sb_Bckgrnd_st6 = "Aqua";
-                                    if (bnRack_st6.Reconnection(tb_AdressIP_st6, 502) == true)
+                                    if (bnRack_st6.Reconnection(tb_AdressIP_st6, 502) == true)//Проверка повторного подключения к устройству
                                     {
                                         tbl_Status_st6 = "Подключено";
                                         sb_Bckgrnd_st6 = "LightGreen";
                                     }
-                                     
-                                    //bnRack_st6.Reсonnection(tb_AdressIP_st6, 502); 
-                                    /*timer_st6.Stop();
-                                    tbl_Status_st6 = "Отключено";
-                                    sb_Bckgrnd_st6 = "Coral";
-                                    bt_ConAct_st6 = true;
-                                    tb_IPAdrrAct_st6 = true;
-                                    bt_DisconAct_st6 = false;*/
                                 }
                              
                             }
