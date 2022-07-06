@@ -51,7 +51,7 @@ namespace BN.ViewModels.Base
         #endregion
 
         #region Заголовок окна
-        private string _wnd_Title = "АСКВД BN";
+        private string _wnd_Title = "АСКВД Bentley Nevada";
         public string wnd_Title
         {
             get => _wnd_Title;
