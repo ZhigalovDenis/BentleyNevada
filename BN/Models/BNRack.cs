@@ -58,24 +58,29 @@ namespace BN.Models
         public int[] ReadData(int StartingAdress, int Quantity)
         {
             bool NotEx = true;
+            int[] mass;
             try
             {
-                modbusClient.ReadHoldingRegisters(StartingAdress, Quantity);
+                mass = modbusClient.ReadHoldingRegisters(StartingAdress, Quantity);
+                return mass;
             }
             catch (Exception)
             {
                 MessageBox.Show("!!!!!!!!");
                 NotEx = false;
+                
             }
-            if (NotEx == true)
+            return mass;
+
+           /* if (NotEx == true)
             {
-                return modbusClient.ReadHoldingRegisters(StartingAdress, Quantity);
+                return mass;
             }
             else
             {
                 int[] arr = new int[200];
                 return arr;
-            }
+            }*/
         }
 
         /// <summary>
