@@ -1,17 +1,8 @@
 ﻿using BN.Infrostructure.Commands;
 using BN.Models;
-using EasyModbus;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
 using System.Windows.Threading;
-
 namespace BN.ViewModels.Base
 {
     internal class MainWindowViewModel : ViewModel
@@ -225,6 +216,19 @@ namespace BN.ViewModels.Base
             set => Set(ref _prm_10MAD10CY012, value);
         }
 
+        private double _prm_10MAD20CY011;
+        public double prm_10MAD20CY011
+        {
+            get => _prm_10MAD20CY011;
+            set => Set(ref _prm_10MAD20CY011, value);
+        }
+
+        private double _prm_10MAD20CY012;
+        public double prm_10MAD20CY012
+        {
+            get => _prm_10MAD20CY012;
+            set => Set(ref _prm_10MAD20CY012, value);
+        }
 
 
         #endregion
@@ -270,13 +274,12 @@ namespace BN.ViewModels.Base
                                int[] prm_st6_gr_0_6 = full_range.Skip(17).Take(2).ToArray();//5017-5018
                                int[] prm_st6_gr_0_7 = full_range.Skip(20).Take(2).ToArray();//5020-5021
                                int[] prm_st6_gr_0_8 = full_range.Skip(23).Take(1).ToArray();//5023
-
-                                int[] prm_st6_gr0 = prm_st6_gr_0_0.Concat(prm_st6_gr_0_1).Concat(prm_st6_gr_0_2)
+                               int[] prm_st6_gr0 = prm_st6_gr_0_0.Concat(prm_st6_gr_0_1).Concat(prm_st6_gr_0_2)
                                                                   .Concat(prm_st6_gr_0_3).Concat(prm_st6_gr_0_4)
                                                                   .Concat(prm_st6_gr_0_5).Concat(prm_st6_gr_0_6)
                                                                   .Concat(prm_st6_gr_0_7).Concat(prm_st6_gr_0_8).ToArray();
 
-                                int[] prm_st6_gr_1_0 = full_range.Skip(24).Take(2).ToArray(); //5024-5025
+                               int[] prm_st6_gr_1_0 = full_range.Skip(24).Take(2).ToArray(); //5024-5025
                                int[] prm_st6_gr_1_1 = full_range.Skip(47).Take(1).ToArray(); //5047 
                                int[] prm_st6_gr1 = prm_st6_gr_1_0.Concat(prm_st6_gr_1_1).ToArray();
 
@@ -293,8 +296,6 @@ namespace BN.ViewModels.Base
                                                                             LowerMonitorRange_st6_gr4, UpperMonitorRange_st6_gr4,
                                                                             FaultReplace_0);
 
-
-
                                var visualEffects_st6 = new VisualEffects();
                                string[] bckgrd_st6_gr0 = visualEffects_st6.LimitBrush_1(rtrn_prm_st6_gr0, WH_Y_0_st6_gr0, WH_Y_1_st6_gr0,
                                                                                         AH_R_0_st6_gr0, AH_R_1_st6_gr0,
@@ -309,21 +310,18 @@ namespace BN.ViewModels.Base
                                                                                         UpperMonitorRange_st6_gr4, LowerMonitorRange_st6_gr4);
 
                                prm_10MAD10CY011 = rtrn_prm_st6_gr0[0];
-                               prm_10MAD10CY012 = rtrn_prm_st6_gr0[2];
+                               prm_10MAD10CY012 = rtrn_prm_st6_gr0[1];
                                prm_10MAD10CG010 = rtrn_prm_st6_gr1[0];
                                prm_10MAD10CG011 = rtrn_prm_st6_gr1[1];
                                prm_10MAD10CG012 = rtrn_prm_st6_gr1[2];
                                prm_10MAD20CG010 = rtrn_prm_st6_gr4[0];
                                
-                               
                                bckgrd_10MAD10CY011 = bckgrd_st6_gr0[0];
-                               bckgrd_10MAD10CY012 = bckgrd_st6_gr0[2];
+                               bckgrd_10MAD10CY012 = bckgrd_st6_gr0[1];
                                bckgrd_10MAD10CG010 = bckgrd_st6_gr1[0];
                                bckgrd_10MAD10CG011 = bckgrd_st6_gr1[1];
                                bckgrd_10MAD10CG012 = bckgrd_st6_gr1[2];
-                               bckgrd_10MAD20CG010 = bckgrd_st6_gr4[0];
-                               
-
+                               bckgrd_10MAD20CG010 = bckgrd_st6_gr4[0];                             
                             }
                             else
                             {
