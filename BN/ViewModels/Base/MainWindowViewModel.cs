@@ -21,42 +21,42 @@ namespace BN.ViewModels.Base
         private const double FaultReplace_1 = 999.9;
 
         #region Параметры для шкалирования ПТ-6
-        private const ushort GatewayFullScaleValue_ST6 = 16383;
+        private const ushort GatewayFullScaleValue_st6 = 16383;
 
-        private const short LowerMonitorRange_ST6_gr0 = 0;
-        private const short UpperMonitorRange_ST6_gr0 = 200;
+        private const short LowerMonitorRange_st6_gr0 = 0;
+        private const short UpperMonitorRange_st6_gr0 = 200;
 
-        private const short LowerMonitorRange_ST6_gr1 = -1;
-        private const short UpperMonitorRange_ST6_gr1 = 1;
+        private const short LowerMonitorRange_st6_gr1 = -1;
+        private const short UpperMonitorRange_st6_gr1 = 1;
 
-        private const short LowerMonitorRange_ST6_gr5 = -6;
-        private const short UpperMonitorRange_ST6_gr5 = 4;
+        private const short LowerMonitorRange_st6_gr5 = -6;
+        private const short UpperMonitorRange_st6_gr5 = 4;
         #endregion
 
         #region Аварийные и предупредительные границы ПТ-6
-        private const double WH_Y_0_ST6_gr0 = 60;
-        private const double WH_Y_1_ST6_gr0 = 79.99;
-        private const double AH_R_0_ST6_gr0 = 80;
-        private const double AH_R_1_ST6_gr0 = 200;
+        private const double WH_Y_0_st6_gr0 = 60;
+        private const double WH_Y_1_st6_gr0 = 79.99;
+        private const double AH_R_0_st6_gr0 = 80;
+        private const double AH_R_1_st6_gr0 = 200;
 
 
-        private const double WH_Y_0_ST6_gr1 = 0.5;
-        private const double WH_Y_1_ST6_gr1 = 0.79;
-        private const double WL_Y_0_ST6_gr1 = -0.5;
-        private const double WL_Y_1_ST6_gr1 = -0.79;
-        private const double AH_R_0_ST6_gr1 = 0.8;
-        private const double AH_R_1_ST6_gr1 = 1;
-        private const double AL_R_0_ST6_gr1 = -0.8;
-        private const double AL_R_1_ST6_gr1 = -1;
+        private const double WH_Y_0_st6_gr1 = 0.5;
+        private const double WH_Y_1_st6_gr1 = 0.79;
+        private const double WL_Y_0_st6_gr1 = -0.5;
+        private const double WL_Y_1_st6_gr1 = -0.79;
+        private const double AH_R_0_st6_gr1 = 0.8;
+        private const double AH_R_1_st6_gr1 = 1;
+        private const double AL_R_0_st6_gr1 = -0.8;
+        private const double AL_R_1_st6_gr1 = -1;
 
-        private const double WH_Y_0_ST6_gr5 = 0.5;
-        private const double WH_Y_1_ST6_gr5 = 1.99;
-        private const double WL_Y_0_ST6_gr5 = -2.5;
-        private const double WL_Y_1_ST6_gr5 = -3.99;
-        private const double AH_R_0_ST6_gr5 = 2;
-        private const double AH_R_1_ST6_gr5 = 4;
-        private const double AL_R_0_ST6_gr5 = -4.0;
-        private const double AL_R_1_ST6_gr5 = -6;
+        private const double WH_Y_0_st6_gr5 = 0.5;
+        private const double WH_Y_1_st6_gr5 = 1.99;
+        private const double WL_Y_0_st6_gr5 = -2.5;
+        private const double WL_Y_1_st6_gr5 = -3.99;
+        private const double AH_R_0_st6_gr5 = 2;
+        private const double AH_R_1_st6_gr5 = 4;
+        private const double AL_R_0_st6_gr5 = -4.0;
+        private const double AL_R_1_st6_gr5 = -6;
         #endregion
 
         #region Заголовок окна
@@ -76,20 +76,20 @@ namespace BN.ViewModels.Base
         #endregion
 
         #region Статус подключения ПТ-6
-        private string _tbl_Status_ST6 = "Отключено"; // поле
-        public string tbl_Status_ST6
+        private string _tbl_Status_st6 = "Отключено"; // поле
+        public string tbl_Status_st6
         {
-            get => _tbl_Status_ST6; //возвращает значение поля
-            set => Set(ref _tbl_Status_ST6, value);
+            get => _tbl_Status_st6; //возвращает значение поля
+            set => Set(ref _tbl_Status_st6, value);
         }
         #endregion
 
         #region IP адрес подключения ПТ-6
-        private string _tb_AdressIP_ST6 = "127.0.0.1";
-        public string tb_AdressIP_ST6
+        private string _tb_AdressIP_st6 = "127.0.0.1";
+        public string tb_AdressIP_st6
         {
-            get => _tb_AdressIP_ST6;
-            set => Set(ref _tb_AdressIP_ST6, value);
+            get => _tb_AdressIP_st6;
+            set => Set(ref _tb_AdressIP_st6, value);
         }
         #endregion
 
@@ -137,48 +137,48 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-        #region Фон для StatusBarST6 
-        private string _sb_Bckgrnd_ST6 = "Coral";
-        public string sb_Bckgrnd_ST6
+        #region Фон для StatusBarst6 
+        private string _sb_Bckgrnd_st6 = "Coral";
+        public string sb_Bckgrnd_st6
         {
-            get => _sb_Bckgrnd_ST6;
-            set => Set(ref _sb_Bckgrnd_ST6, value);
+            get => _sb_Bckgrnd_st6;
+            set => Set(ref _sb_Bckgrnd_st6, value);
         }
         #endregion
 
         #region Активность ввода адреса для ПТ-6 
-        private bool _tb_IPAdrrAct_ST6 = true;
-        public bool tb_IPAdrrAct_ST6
+        private bool _tb_IPAdrrAct_st6 = true;
+        public bool tb_IPAdrrAct_st6
         {
-            get => _tb_IPAdrrAct_ST6;
-            set => Set(ref _tb_IPAdrrAct_ST6, value);
+            get => _tb_IPAdrrAct_st6;
+            set => Set(ref _tb_IPAdrrAct_st6, value);
         }
         #endregion
 
         #region Активность кнопки подключить для ПТ-6 
-        private bool _bt_ConAct_ST6 = true;
-        public bool bt_ConAct_ST6
+        private bool _bt_ConAct_st6 = true;
+        public bool bt_ConAct_st6
         {
-            get => _bt_ConAct_ST6;
-            set => Set(ref _bt_ConAct_ST6, value);
+            get => _bt_ConAct_st6;
+            set => Set(ref _bt_ConAct_st6, value);
         }
         #endregion
 
         #region Кнопка отключить для ПТ-6
-        private bool _bt_Discon_ST6;
-        public bool bt_Discon_ST6
+        private bool _bt_Discon_st6;
+        public bool bt_Discon_st6
         {
-            get => _bt_Discon_ST6;
-            set => Set(ref _bt_Discon_ST6, value);
+            get => _bt_Discon_st6;
+            set => Set(ref _bt_Discon_st6, value);
         }
         #endregion
 
         #region Активность кнопки отключить для ПТ-6 
-        private bool _bt_DisconAct_ST6 = false;
-        public bool bt_DisconAct_ST6
+        private bool _bt_DisconAct_st6 = false;
+        public bool bt_DisconAct_st6
         {
-            get => _bt_DisconAct_ST6;
-            set => Set(ref _bt_DisconAct_ST6, value);
+            get => _bt_DisconAct_st6;
+            set => Set(ref _bt_DisconAct_st6, value);
         }
         #endregion
 
@@ -230,68 +230,68 @@ namespace BN.ViewModels.Base
         #endregion
 
         #region Комманды
-        public RelayCommand cmd_ConToRack_ST6 { get; set; }
-        public RelayCommand cmd_DisconFromRack_ST6 { get; set; }
+        public RelayCommand cmd_ConToRack_st6 { get; set; }
+        public RelayCommand cmd_DisconFromRack_st6 { get; set; }
         #endregion
 
         public MainWindowViewModel()
         {
-            cmd_ConToRack_ST6 = new RelayCommand(o =>
+            cmd_ConToRack_st6 = new RelayCommand(o =>
             {
-                bt_Discon_ST6 = false;
+                bt_Discon_st6 = false;
 
-                var bnRack_ST6 = new BNRack();
+                var bnRack_st6 = new BNRack();
 
-                if (bnRack_ST6.ValidIPV4(tb_AdressIP_ST6) == true)
+                if (bnRack_st6.ValidIPV4(tb_AdressIP_st6) == true)
                 {
-                    if (bnRack_ST6.Connection(tb_AdressIP_ST6, 502) == true)
+                    if (bnRack_st6.Connection(tb_AdressIP_st6, 502) == true)
                     { 
-                        tbl_Status_ST6 = "Подключено";
-                        sb_Bckgrnd_ST6 = "LightGreen";
-                        bt_ConAct_ST6 = false;
-                        tb_IPAdrrAct_ST6 = false;
-                        bt_DisconAct_ST6 = true;
+                        tbl_Status_st6 = "Подключено";
+                        sb_Bckgrnd_st6 = "LightGreen";
+                        bt_ConAct_st6 = false;
+                        tb_IPAdrrAct_st6 = false;
+                        bt_DisconAct_st6 = true;
 
-                        var timer_ST6 = new DispatcherTimer(DispatcherPriority.Render);
-                        timer_ST6.Interval = TimeSpan.FromSeconds(1);
-                        timer_ST6.Tick += (sender, args) =>
+                        var timer_st6 = new DispatcherTimer(DispatcherPriority.Render);
+                        timer_st6.Interval = TimeSpan.FromSeconds(1);
+                        timer_st6.Tick += (sender, args) =>
                         {
 
-                            if (bt_Discon_ST6 == false)
+                            if (bt_Discon_st6 == false)
                             { 
-                               int[] prm_st6_gr0 = bnRack_ST6.ReadData(5000, 23);
-                               double[] rtrn_prm_st6_gr0 = bnRack_ST6.Scale(prm_st6_gr0, GatewayFullScaleValue_ST6,
-                                                                            LowerMonitorRange_ST6_gr0, UpperMonitorRange_ST6_gr0,
+                               int[] prm_st6_gr0 = bnRack_st6.ReadData(5000, 23);
+                               double[] rtrn_prm_st6_gr0 = bnRack_st6.Scale(prm_st6_gr0, GatewayFullScaleValue_st6,
+                                                                            LowerMonitorRange_st6_gr0, UpperMonitorRange_st6_gr0,
                                                                             FaultReplace_1);
-                               int[] prm_st6_gr1 = bnRack_ST6.ReadData(5024, 2);
-                               double[] rtrn_prm_st6_gr1 = bnRack_ST6.Scale(prm_st6_gr1, GatewayFullScaleValue_ST6,
-                                                                            LowerMonitorRange_ST6_gr1, UpperMonitorRange_ST6_gr1,
+                               int[] prm_st6_gr1 = bnRack_st6.ReadData(5024, 2);
+                               double[] rtrn_prm_st6_gr1 = bnRack_st6.Scale(prm_st6_gr1, GatewayFullScaleValue_st6,
+                                                                            LowerMonitorRange_st6_gr1, UpperMonitorRange_st6_gr1,
                                                                             FaultReplace_0);
-                               int[] prm_st6_gr5 = bnRack_ST6.ReadData(5042, 1);
-                               double[] rtrn_prm_st6_gr5 = bnRack_ST6.Scale(prm_st6_gr5, GatewayFullScaleValue_ST6,
-                                                                            LowerMonitorRange_ST6_gr5, UpperMonitorRange_ST6_gr5,
+                               int[] prm_st6_gr5 = bnRack_st6.ReadData(5042, 1);
+                               double[] rtrn_prm_st6_gr5 = bnRack_st6.Scale(prm_st6_gr5, GatewayFullScaleValue_st6,
+                                                                            LowerMonitorRange_st6_gr5, UpperMonitorRange_st6_gr5,
                                                                             FaultReplace_0);
-                               int[] prm_st6_gr7 = bnRack_ST6.ReadData(5047, 1);
-                               double[] rtrn_prm_st6_gr7 = bnRack_ST6.Scale(prm_st6_gr7, GatewayFullScaleValue_ST6,
-                                                                            LowerMonitorRange_ST6_gr1, UpperMonitorRange_ST6_gr1,
+                               int[] prm_st6_gr7 = bnRack_st6.ReadData(5047, 1);
+                               double[] rtrn_prm_st6_gr7 = bnRack_st6.Scale(prm_st6_gr7, GatewayFullScaleValue_st6,
+                                                                            LowerMonitorRange_st6_gr1, UpperMonitorRange_st6_gr1,
                                                                             FaultReplace_0);
 
-                               var visualEffects_ST6 = new VisualEffects();
-                               string[] bckgrd_st6_gr0 = visualEffects_ST6.LimitBrush_1(rtrn_prm_st6_gr0, WH_Y_0_ST6_gr0, WH_Y_1_ST6_gr0,
-                                                                                        AH_R_0_ST6_gr0, AH_R_1_ST6_gr0,
-                                                                                        UpperMonitorRange_ST6_gr0, LowerMonitorRange_ST6_gr0);
-                               string[] bckgrd_st6_gr1 = visualEffects_ST6.LimitBrush_0(rtrn_prm_st6_gr1, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
-                                                                                        WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
-                                                                                        AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
-                                                                                        UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);
-                               string[] bckgrd_st6_gr5 = visualEffects_ST6.LimitBrush_0(rtrn_prm_st6_gr5, WH_Y_0_ST6_gr5, WH_Y_1_ST6_gr5,
-                                                                                        WL_Y_0_ST6_gr5, WL_Y_1_ST6_gr5, AH_R_0_ST6_gr5,
-                                                                                        AH_R_1_ST6_gr5, AL_R_0_ST6_gr5, AL_R_1_ST6_gr5,
-                                                                                        UpperMonitorRange_ST6_gr5, LowerMonitorRange_ST6_gr5);
-                               string[] bckgrd_st6_gr7 = visualEffects_ST6.LimitBrush_0(rtrn_prm_st6_gr7, WH_Y_0_ST6_gr1, WH_Y_1_ST6_gr1,
-                                                                                        WL_Y_0_ST6_gr1, WL_Y_1_ST6_gr1, AH_R_0_ST6_gr1,
-                                                                                        AH_R_1_ST6_gr1, AL_R_0_ST6_gr1, AL_R_1_ST6_gr1,
-                                                                                        UpperMonitorRange_ST6_gr1, LowerMonitorRange_ST6_gr1);
+                               var visualEffects_st6 = new VisualEffects();
+                               string[] bckgrd_st6_gr0 = visualEffects_st6.LimitBrush_1(rtrn_prm_st6_gr0, WH_Y_0_st6_gr0, WH_Y_1_st6_gr0,
+                                                                                        AH_R_0_st6_gr0, AH_R_1_st6_gr0,
+                                                                                        UpperMonitorRange_st6_gr0, LowerMonitorRange_st6_gr0);
+                               string[] bckgrd_st6_gr1 = visualEffects_st6.LimitBrush_0(rtrn_prm_st6_gr1, WH_Y_0_st6_gr1, WH_Y_1_st6_gr1,
+                                                                                        WL_Y_0_st6_gr1, WL_Y_1_st6_gr1, AH_R_0_st6_gr1,
+                                                                                        AH_R_1_st6_gr1, AL_R_0_st6_gr1, AL_R_1_st6_gr1,
+                                                                                        UpperMonitorRange_st6_gr1, LowerMonitorRange_st6_gr1);
+                               string[] bckgrd_st6_gr5 = visualEffects_st6.LimitBrush_0(rtrn_prm_st6_gr5, WH_Y_0_st6_gr5, WH_Y_1_st6_gr5,
+                                                                                        WL_Y_0_st6_gr5, WL_Y_1_st6_gr5, AH_R_0_st6_gr5,
+                                                                                        AH_R_1_st6_gr5, AL_R_0_st6_gr5, AL_R_1_st6_gr5,
+                                                                                        UpperMonitorRange_st6_gr5, LowerMonitorRange_st6_gr5);
+                               string[] bckgrd_st6_gr7 = visualEffects_st6.LimitBrush_0(rtrn_prm_st6_gr7, WH_Y_0_st6_gr1, WH_Y_1_st6_gr1,
+                                                                                        WL_Y_0_st6_gr1, WL_Y_1_st6_gr1, AH_R_0_st6_gr1,
+                                                                                        AH_R_1_st6_gr1, AL_R_0_st6_gr1, AL_R_1_st6_gr1,
+                                                                                        UpperMonitorRange_st6_gr1, LowerMonitorRange_st6_gr1);
                                prm_10MAD10CY011 = rtrn_prm_st6_gr0[0];
                                prm_10MAD10CY012 = rtrn_prm_st6_gr0[2];
                                prm_10MAD10CG010 = rtrn_prm_st6_gr1[0];
@@ -309,16 +309,16 @@ namespace BN.ViewModels.Base
                             }
                             else
                             {
-                               bnRack_ST6.Disconnection();
-                               timer_ST6.Stop();
-                               tbl_Status_ST6 = "Отключено";
-                               sb_Bckgrnd_ST6 = "Coral";
-                               bt_ConAct_ST6 = true;
-                               tb_IPAdrrAct_ST6 = true;
-                               bt_DisconAct_ST6 = false;
+                               bnRack_st6.Disconnection();
+                               timer_st6.Stop();
+                               tbl_Status_st6 = "Отключено";
+                               sb_Bckgrnd_st6 = "Coral";
+                               bt_ConAct_st6 = true;
+                               tb_IPAdrrAct_st6 = true;
+                               bt_DisconAct_st6 = false;
                             }
                         };
-                        timer_ST6.Start();
+                        timer_st6.Start();
                     }
                     else
                     {
@@ -331,9 +331,9 @@ namespace BN.ViewModels.Base
                 }
             });
 
-            cmd_DisconFromRack_ST6 = new RelayCommand(o =>
+            cmd_DisconFromRack_st6 = new RelayCommand(o =>
             {
-                bt_Discon_ST6 = true;
+                bt_Discon_st6 = true;
 
             });
 

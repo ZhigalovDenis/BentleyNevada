@@ -13,12 +13,7 @@ namespace BN.Models
     {
         ModbusClient modbusClient = new ModbusClient();
 
-        /// <summary>
-        ///  Метод производит шкалирование параметров
-        /// </summary>
-        /// <param name="ProportionalValue">Массив не шкалированных параметров</param>
-        /// <returns>Массив шкаллированных данных</returns>
-        /// 
+
         public bool ValidIPV4(string IPAdress)
         {  
             var Match = Regex.IsMatch(IPAdress, "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
@@ -48,7 +43,7 @@ namespace BN.Models
          
         public void Disconnection()
         {
-            modbusClient.Disconnect();  
+                modbusClient.Disconnect();  
         }
 
         public int[] ReadData(int StartingAdress, int Quantity)
