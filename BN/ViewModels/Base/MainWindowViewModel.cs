@@ -378,7 +378,7 @@ namespace BN.ViewModels.Base
                                 {
                                     bnRack_st6.Disconnection();
                                     tbl_Status_st6 = "Потеря связи";
-                                    sb_Bckgrnd_st6 = "Aqua";
+                                    sb_Bckgrnd_st6 = "BlueViolet";
                                     if (bnRack_st6.Reconnection(tb_AdressIP_st6, 502) == true)//Проверка повторного подключения к устройству
                                     {
                                         tbl_Status_st6 = "Подключено";
