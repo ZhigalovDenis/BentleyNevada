@@ -56,8 +56,8 @@ namespace BN.Models
 
         public int[] ReadData(int StartingAdress, int Quantity)
         {
-           int [] retdat =  modbusClient.ReadHoldingRegisters(StartingAdress, Quantity);
-            return retdat; 
+            modbusClient.ReadHoldingRegisters(StartingAdress, Quantity);
+            return modbusClient.ReadHoldingRegisters(StartingAdress, Quantity); 
         }
 
         /// <summary>
