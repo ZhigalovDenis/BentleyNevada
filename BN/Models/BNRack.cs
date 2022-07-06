@@ -13,7 +13,11 @@ namespace BN.Models
     {
         ModbusClient modbusClient = new ModbusClient();
 
-
+        /// <summary>
+        /// Валидация IP адреса.
+        /// </summary>
+        /// <param name="IPAdress"></param>
+        /// <returns></returns>
         public bool ValidIPV4(string IPAdress)
         {  
             var Match = Regex.IsMatch(IPAdress, "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
@@ -24,6 +28,12 @@ namespace BN.Models
             return Match;
         }
 
+        /// <summary>
+        /// Подключение к Rack 
+        /// </summary>
+        /// <param name="IPAdress"></param>
+        /// <param name="Port"></param>
+        /// <returns></returns>
         public bool Connection(string IPAdress, int Port)
         {
             bool IsEnable = true;
@@ -40,7 +50,10 @@ namespace BN.Models
             }
             return IsEnable;
         }
-         
+
+        /// <summary>
+        /// Отключение от Rack
+        /// </summary>        
         public void Disconnection()
         {
                 modbusClient.Disconnect();  
@@ -52,8 +65,16 @@ namespace BN.Models
             return modbusClient.ReadHoldingRegisters(StartingAdress, Quantity); 
         }
 
-
-public double[] Scale(int[] ProportionalValue, ushort GatewayFullScaleValue, short LowerMonitorRange, short UpperMonitorRange, double FaultReplace)
+        /// <summary>
+        /// Шкалирование величин
+        /// </summary>
+        /// <param name="ProportionalValue"></param>
+        /// <param name="GatewayFullScaleValue"></param>
+        /// <param name="LowerMonitorRange"></param>
+        /// <param name="UpperMonitorRange"></param>
+        /// <param name="FaultReplace"></param>
+        /// <returns></returns>
+        public double[] Scale(int[] ProportionalValue, ushort GatewayFullScaleValue, short LowerMonitorRange, short UpperMonitorRange, double FaultReplace)
         {
             double[] ScaledValue = new double[ProportionalValue.Length];
             for (int i = 0; i < ProportionalValue.Length; i++)

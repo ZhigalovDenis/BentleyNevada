@@ -337,9 +337,6 @@ namespace BN.ViewModels.Base
 
             });
 
-
-
-
         }
     }
 }
