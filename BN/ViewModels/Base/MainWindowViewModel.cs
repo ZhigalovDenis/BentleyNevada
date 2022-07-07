@@ -20,6 +20,9 @@ namespace BN.ViewModels.Base
         private const short LowerMonitorRange_st6_gr1 = -1;
         private const short UpperMonitorRange_st6_gr1 = 1;
 
+        private const short LowerMonitorRange_st6_gr2 = 0;
+        private const short UpperMonitorRange_st6_gr2 = 25;
+
         private const short LowerMonitorRange_st6_gr4 = -6;
         private const short UpperMonitorRange_st6_gr4 = 4;
         #endregion
