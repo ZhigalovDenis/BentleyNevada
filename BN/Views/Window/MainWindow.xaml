@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:BN"
         xmlns:vm="clr-namespace:BN.ViewModels.Base"
         mc:Ignorable="d"
@@ -20,7 +21,7 @@
                             <TextBlock Text="{Binding tbl_Status_st6}"></TextBlock>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <TextBox Text="{Binding tb_AdressIP_st6}" IsEnabled="{Binding tb_IPAdrrAct_st6}"></TextBox>
+                            <xctk:MaskedTextBox Text="{Binding mtb_AdressIP_st6}" Mask="000\.000\.000\.000" IsEnabled="{Binding mtb_IPAdrrAct_st6}"/>
                         </StatusBarItem>
                         <StatusBarItem>
                             <Button Content="Подключить" Command="{Binding cmd_ConToRack_st6}" IsEnabled="{Binding bt_ConAct_st6}"></Button>
@@ -49,7 +50,6 @@
                     <Label Content="{Binding prm_10MAD20CY012}" Style="{StaticResource Child_0_LabelOnImage}" Margin="418,133,0,0" ToolTip="10MAD20CY012"/>
                     <Label Content="{Binding prm_10MAD30CY011}" Style="{StaticResource Child_0_LabelOnImage}" Margin="504,264,0,0" ToolTip="10MAD30CY011"/>
                     <Label Content="{Binding prm_10MAD30CY012}" Style="{StaticResource Child_0_LabelOnImage}" Margin="504,285,0,0" ToolTip="10MAD30CY012"/>
-
                 </Grid>
             </TabItem>
             <TabItem Header="ГТ-7">

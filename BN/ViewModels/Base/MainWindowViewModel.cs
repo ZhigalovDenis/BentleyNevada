@@ -76,11 +76,11 @@ namespace BN.ViewModels.Base
         #endregion
 
         #region IP адрес подключения ПТ-6
-        private string _tb_AdressIP_st6 = "127.0.0.1";
-        public string tb_AdressIP_st6
+        private string _mtb_AdressIP_st6 = "127.000.000.001";
+        public string mtb_AdressIP_st6
         {
-            get => _tb_AdressIP_st6;
-            set => Set(ref _tb_AdressIP_st6, value);
+            get => _mtb_AdressIP_st6;
+            set => Set(ref _mtb_AdressIP_st6, value);
         }
         #endregion
 
@@ -166,11 +166,11 @@ namespace BN.ViewModels.Base
         #endregion
 
         #region Активность ввода адреса для ПТ-6 
-        private bool _tb_IPAdrrAct_st6 = true;
-        public bool tb_IPAdrrAct_st6
+        private bool _mtb_IPAdrrAct_st6 = true;
+        public bool mtb_IPAdrrAct_st6
         {
-            get => _tb_IPAdrrAct_st6;
-            set => Set(ref _tb_IPAdrrAct_st6, value);
+            get => _mtb_IPAdrrAct_st6;
+            set => Set(ref _mtb_IPAdrrAct_st6, value);
         }
         #endregion
 
@@ -288,14 +288,14 @@ namespace BN.ViewModels.Base
 
                 var bnRack_st6 = new BNRack();
 
-                if (bnRack_st6.ValidIPV4(tb_AdressIP_st6) == true) //Проверяем валидность IP адреса.
+                if (bnRack_st6.ValidIPV4(mtb_AdressIP_st6) == true) //Проверяем валидность IP адреса.
                 {
-                    if (bnRack_st6.Connection(tb_AdressIP_st6, 502) == true) //Пытаемся подключиться к устройству.
+                    if (bnRack_st6.Connection(mtb_AdressIP_st6, 502) == true) //Пытаемся подключиться к устройству.
                     { 
                         tbl_Status_st6 = "Подключено";
                         sb_Bckgrnd_st6 = "LightGreen";
                         bt_ConAct_st6 = false;
-                        tb_IPAdrrAct_st6 = false;
+                        mtb_IPAdrrAct_st6 = false;
                         bt_DisconAct_st6 = true;
 
                         var timer_st6 = new DispatcherTimer(DispatcherPriority.Render);
@@ -379,7 +379,7 @@ namespace BN.ViewModels.Base
                                     bnRack_st6.Disconnection();
                                     tbl_Status_st6 = "Потеря связи";
                                     sb_Bckgrnd_st6 = "BlueViolet";
-                                    if (bnRack_st6.Reconnection(tb_AdressIP_st6, 502) == true)//Проверка повторного подключения к устройству
+                                    if (bnRack_st6.Reconnection(mtb_AdressIP_st6, 502) == true)//Проверка повторного подключения к устройству
                                     {
                                         tbl_Status_st6 = "Подключено";
                                         sb_Bckgrnd_st6 = "LightGreen";
@@ -394,7 +394,7 @@ namespace BN.ViewModels.Base
                                tbl_Status_st6 = "Отключено";
                                sb_Bckgrnd_st6 = "Coral";
                                bt_ConAct_st6 = true;
-                               tb_IPAdrrAct_st6 = true;
+                               mtb_IPAdrrAct_st6 = true;
                                bt_DisconAct_st6 = false;
                             }
                         };
