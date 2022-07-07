@@ -43,6 +43,11 @@ namespace BN.ViewModels.Base
         private const double AL_R_0_st6_gr1 = -0.8;
         private const double AL_R_1_st6_gr1 = -1;
 
+        private const double WH_Y_0_st6_gr2 = 7.1;
+        private const double WH_Y_1_st6_gr2 = 10.99;
+        private const double AH_R_0_st6_gr2 = 11;
+        private const double AH_R_1_st6_gr2 = 25;
+
         private const double WH_Y_0_st6_gr4 = 0.5;
         private const double WH_Y_1_st6_gr4 = 1.99;
         private const double WL_Y_0_st6_gr4 = -2.5;
