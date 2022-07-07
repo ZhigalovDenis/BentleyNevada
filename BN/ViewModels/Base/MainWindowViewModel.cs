@@ -10,6 +10,7 @@ namespace BN.ViewModels.Base
         //Замена если вышло за границы
         private const double FaultReplace_0 = 999.999; 
         private const double FaultReplace_1 = 999.9;
+        private const double FaultReplace_2 = 999.99;
 
         #region Параметры для шкалирования ПТ-6
         private const ushort GatewayFullScaleValue_st6 = 16383;
