@@ -18,7 +18,7 @@
                     <Image Source="/Views/Window/ST-6.png"  Stretch="Fill" Margin="0,0,0,26"/>
                     <StatusBar VerticalAlignment="Bottom" Background="{Binding sb_Bckgrnd_st6}">
                         <StatusBarItem>
-                            <TextBlock Text="{Binding tbl_Status_st6}"></TextBlock>
+                            <TextBlock Text="{Binding tbl_Status_st6}" Background="{Binding tbl_Bckgrnd_st6}"></TextBlock>
                         </StatusBarItem>
                         <StatusBarItem>
                             <xctk:MaskedTextBox Text="{Binding mtb_AdressIP_st6}" Mask="000\.000\.000\.000" IsEnabled="{Binding mtb_IPAdrrAct_st6}"/>

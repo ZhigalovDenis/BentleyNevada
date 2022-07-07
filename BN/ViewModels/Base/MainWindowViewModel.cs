@@ -156,12 +156,21 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-        #region Фон для StatusBarst6 
+        #region Фон для StatusBar_st6 
         private string _sb_Bckgrnd_st6 = "Coral";
         public string sb_Bckgrnd_st6
         {
             get => _sb_Bckgrnd_st6;
             set => Set(ref _sb_Bckgrnd_st6, value);
+        }
+        #endregion
+
+        #region Фон для TextBlock_st6 
+        private string _tbl_Bckgrnd_st6 = "Default";
+        public string tbl_Bckgrnd_st6
+        {
+            get => _tbl_Bckgrnd_st6;
+            set => Set(ref _tbl_Bckgrnd_st6, value);
         }
         #endregion
 
@@ -378,10 +387,12 @@ namespace BN.ViewModels.Base
                                 {
                                     bnRack_st6.Disconnection();
                                     tbl_Status_st6 = "Потеря связи";
-                                    sb_Bckgrnd_st6 = "BlueViolet";
+                                    tbl_Bckgrnd_st6 = "Red";
+                                    sb_Bckgrnd_st6 = "BlueViolet";                                
                                     if (bnRack_st6.Reconnection(mtb_AdressIP_st6, 502) == true)//Проверка повторного подключения к устройству
                                     {
                                         tbl_Status_st6 = "Подключено";
+                                        tbl_Bckgrnd_st6 = "Default";
                                         sb_Bckgrnd_st6 = "LightGreen";
                                     }
                                 }
