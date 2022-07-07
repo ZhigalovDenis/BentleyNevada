@@ -371,7 +371,7 @@ namespace BN.ViewModels.Base
                                     prm_10MAD10CG011 = rtrn_prm_st6_gr1[1];
                                     prm_10MAD10CG012 = rtrn_prm_st6_gr1[2];
                                     prm_10MAD20CG010 = rtrn_prm_st6_gr4[0];
-
+                                    /////
                                     bckgrd_10MAD10CY011 = bckgrd_st6_gr0[0];
                                     bckgrd_10MAD10CY012 = bckgrd_st6_gr0[1];
                                     bckgrd_10MAD20CY011 = bckgrd_st6_gr0[2];
