@@ -473,6 +473,8 @@ namespace BN.ViewModels.Base
                                     int[] prm_st6_gr_1_1 = full_range.Skip(47).Take(1).ToArray(); //5047 
                                     int[] prm_st6_gr1 = prm_st6_gr_1_0.Concat(prm_st6_gr_1_1).ToArray();
 
+                                    /////Группа 2
+
                                     int[] prm_st6_gr4 = full_range.Skip(42).Take(1).ToArray(); //5042
 
 
