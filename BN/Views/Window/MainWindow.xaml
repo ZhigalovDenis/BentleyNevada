@@ -24,10 +24,10 @@
                             <xctk:MaskedTextBox Text="{Binding mtb_AdressIP_st6}" Mask="000\.000\.000\.000" IsEnabled="{Binding mtb_IPAdrrAct_st6}"/>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <Button Content="Подключить" Command="{Binding cmd_ConToRack_st6}" IsEnabled="{Binding bt_ConAct_st6}"/>
+                            <Button Content="Подключить 10CJJ20" Command="{Binding cmd_ConToRack_st6}" IsEnabled="{Binding bt_ConAct_st6}"/>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <Button Content="Отключить" Command="{Binding cmd_DisconFromRack_st6}" IsEnabled="{Binding bt_DisconAct_st6}"/>
+                            <Button Content="Отключить 10CJJ20" Command="{Binding cmd_DisconFromRack_st6}" IsEnabled="{Binding bt_DisconAct_st6}"/>
                         </StatusBarItem>
                     </StatusBar>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="26,193,0,0" Background="{Binding bckgrd_10MAD10CG010}"/>
@@ -46,6 +46,8 @@
                     <Border Style="{StaticResource BorderForLabel}"  Margin="499,41,0,0" Background="{Binding bckgrd_10MAD50CY012}"/>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="611,19,0,0" Background="{Binding bckgrd_10MAD60CY011}"/>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="611,40,0,0" Background="{Binding bckgrd_10MAD60CY012}"/>
+                    <Border Style="{StaticResource BorderForLabel}"  Margin="814,19,0,0" Background="{Binding bckgrd_10MKA10CY011}"/>
+                    <Border Style="{StaticResource BorderForLabel}"  Margin="814,40,0,0" Background="{Binding bckgrd_10MKA10CY012}"/>
                     <Label Content="{Binding prm_10MAD10CG012}" Style="{StaticResource Parent_LabelOnImage}" Margin="31,229,0,0" ToolTip="10MAD10CG012"/>
                     <Label Content="{Binding prm_10MAD10CG011}" Style="{StaticResource Parent_LabelOnImage}" Margin="31,208,0,0" ToolTip="10MAD10CG011"/>
                     <Label Content="{Binding prm_10MAD10CG010}" Style="{StaticResource Parent_LabelOnImage}" Margin="31,187,0,0" ToolTip="10MAD10CG010"/>
@@ -62,6 +64,8 @@
                     <Label Content="{Binding prm_10MAD50CY012}" Style="{StaticResource Child_0_LabelOnImage}" Margin="504,36,0,0" ToolTip="10MAD50CY012"/>
                     <Label Content="{Binding prm_10MAD60CY011}" Style="{StaticResource Child_0_LabelOnImage}" Margin="616,14,0,0" ToolTip="10MAD60CY011"/>
                     <Label Content="{Binding prm_10MAD60CY012}" Style="{StaticResource Child_0_LabelOnImage}" Margin="616,35,0,0" ToolTip="10MAD60CY012"/>
+                    <Label Content="{Binding prm_10MKA10CY011}" Style="{StaticResource Child_0_LabelOnImage}" Margin="819,14,0,0" ToolTip="10MKA10CY011"/>
+                    <Label Content="{Binding prm_10MKA10CY012}" Style="{StaticResource Child_0_LabelOnImage}" Margin="819,35,0,0" ToolTip="10MKA10CY012"/>
                 </Grid>
             </TabItem>
             <TabItem Header="ГТ-7">
