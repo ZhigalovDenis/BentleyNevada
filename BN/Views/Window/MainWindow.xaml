@@ -18,16 +18,16 @@
                     <Image Source="/Views/Window/ST-6.png"  Stretch="Fill" Margin="0,0,0,26"/>
                     <StatusBar VerticalAlignment="Bottom" Background="{Binding sb_Bckgrnd_st6}">
                         <StatusBarItem>
-                            <TextBlock Text="{Binding tbl_Status_st6}" Background="{Binding tbl_Bckgrnd_st6}"></TextBlock>
+                            <TextBlock Text="{Binding tbl_Status_st6}" Background="{Binding tbl_Bckgrnd_st6}"/>
                         </StatusBarItem>
                         <StatusBarItem>
                             <xctk:MaskedTextBox Text="{Binding mtb_AdressIP_st6}" Mask="000\.000\.000\.000" IsEnabled="{Binding mtb_IPAdrrAct_st6}"/>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <Button Content="Подключить" Command="{Binding cmd_ConToRack_st6}" IsEnabled="{Binding bt_ConAct_st6}"></Button>
+                            <Button Content="Подключить" Command="{Binding cmd_ConToRack_st6}" IsEnabled="{Binding bt_ConAct_st6}"/>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <Button Content="Отключить" Command="{Binding cmd_DisconFromRack_st6}" IsEnabled="{Binding bt_DisconAct_st6}"></Button>
+                            <Button Content="Отключить" Command="{Binding cmd_DisconFromRack_st6}" IsEnabled="{Binding bt_DisconAct_st6}"/>
                         </StatusBarItem>
                     </StatusBar>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="26,193,0,0" Background="{Binding bckgrd_10MAD10CG010}"/>
@@ -40,6 +40,8 @@
                     <Border Style="{StaticResource BorderForLabel}"  Margin="413,138,0,0" Background="{Binding bckgrd_10MAD20CY012}"/>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="499,269,0,0" Background="{Binding bckgrd_10MAD30CY011}"/>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="499,290,0,0" Background="{Binding bckgrd_10MAD30CY012}"/>
+                    <Border Style="{StaticResource BorderForLabel}"  Margin="611,269,0,0" Background="{Binding bckgrd_10MAD40CY011}"/>
+                    <Border Style="{StaticResource BorderForLabel}"  Margin="611,290,0,0" Background="{Binding bckgrd_10MAD40CY012}"/>
                     <Label Content="{Binding prm_10MAD10CG012}" Style="{StaticResource Parent_LabelOnImage}" Margin="31,229,0,0" ToolTip="10MAD10CG012"/>
                     <Label Content="{Binding prm_10MAD10CG011}" Style="{StaticResource Parent_LabelOnImage}" Margin="31,208,0,0" ToolTip="10MAD10CG011"/>
                     <Label Content="{Binding prm_10MAD10CG010}" Style="{StaticResource Parent_LabelOnImage}" Margin="31,187,0,0" ToolTip="10MAD10CG010"/>
@@ -50,6 +52,8 @@
                     <Label Content="{Binding prm_10MAD20CY012}" Style="{StaticResource Child_0_LabelOnImage}" Margin="418,133,0,0" ToolTip="10MAD20CY012"/>
                     <Label Content="{Binding prm_10MAD30CY011}" Style="{StaticResource Child_0_LabelOnImage}" Margin="504,264,0,0" ToolTip="10MAD30CY011"/>
                     <Label Content="{Binding prm_10MAD30CY012}" Style="{StaticResource Child_0_LabelOnImage}" Margin="504,285,0,0" ToolTip="10MAD30CY012"/>
+                    <Label Content="{Binding prm_10MAD40CY011}" Style="{StaticResource Child_0_LabelOnImage}" Margin="616,264,0,0" ToolTip="10MAD40CY011"/>
+                    <Label Content="{Binding prm_10MAD40CY012}" Style="{StaticResource Child_0_LabelOnImage}" Margin="616,285,0,0" ToolTip="10MAD40CY012"/>
                 </Grid>
             </TabItem>
             <TabItem Header="ГТ-7">
