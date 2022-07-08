@@ -6,6 +6,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:BN"
         xmlns:vm="clr-namespace:BN.ViewModels.Base"
+        xmlns:ipctrl="clr-namespace:IPUserControls;assembly=IPUserControls"
         mc:Ignorable="d"
         Title="{Binding wnd_Title}" Height="616" Width="1134" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
@@ -28,6 +29,9 @@
                         </StatusBarItem>
                         <StatusBarItem>
                             <Button Content="Отключить 10CJJ20" Command="{Binding cmd_DisconFromRack_st6}" IsEnabled="{Binding bt_DisconAct_st6}"/>
+                        </StatusBarItem>
+                        <StatusBarItem>
+                            <ipctrl:IpField IpAddress="{Binding mtb_AdressIP_st6}"/>
                         </StatusBarItem>
                     </StatusBar>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="26,193,0,0" Background="{Binding bckgrd_10MAD10CG010}"/>
