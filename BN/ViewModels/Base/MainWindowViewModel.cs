@@ -61,7 +61,7 @@ namespace BN.ViewModels.Base
 
         #region Заголовок окна
         private string _wnd_Title = "АСКВД Bentley Nevada";
-        public string Wnd_Title
+        public string wnd_Title
         {
             get => _wnd_Title;
             //{
@@ -77,7 +77,7 @@ namespace BN.ViewModels.Base
 
         #region Статус подключения ПТ-6
         private string _tbl_Status_st6 = "Отключено"; // поле
-        public string Tbl_Status_st6
+        public string tbl_Status_st6
         {
             get => _tbl_Status_st6; //возвращает значение поля
             set => Set(ref _tbl_Status_st6, value);
@@ -448,7 +448,7 @@ namespace BN.ViewModels.Base
                 {
                     if (bnRack_st6.Connection(mtb_AdressIP_st6, 502) == true) //Пытаемся подключиться к устройству.
                     { 
-                        Tbl_Status_st6 = "Подключено";
+                        tbl_Status_st6 = "Подключено";
                         sb_Bckgrnd_st6 = "LightGreen";
                         bt_ConAct_st6 = false;
                         mtb_IPAdrrAct_st6 = false;
@@ -555,12 +555,12 @@ namespace BN.ViewModels.Base
                                 else//Вернулся массив размерностью 101. Значит не удалось считать регистры.
                                 {
                                     bnRack_st6.Disconnection();
-                                    Tbl_Status_st6 = "Потеря связи";
+                                    tbl_Status_st6 = "Потеря связи";
                                     tbl_Bckgrnd_st6 = "Red";
                                     sb_Bckgrnd_st6 = "BlueViolet";                                
                                     if (bnRack_st6.Reconnection(mtb_AdressIP_st6, 502) == true)//Проверка повторного подключения к устройству
                                     {
-                                        Tbl_Status_st6 = "Подключено";
+                                        tbl_Status_st6 = "Подключено";
                                         tbl_Bckgrnd_st6 = "Default";
                                         sb_Bckgrnd_st6 = "LightGreen";
                                     }
@@ -571,7 +571,7 @@ namespace BN.ViewModels.Base
                             {
                                bnRack_st6.Disconnection();
                                timer_st6.Stop();
-                               Tbl_Status_st6 = "Отключено";
+                               tbl_Status_st6 = "Отключено";
                                sb_Bckgrnd_st6 = "Coral";
                                bt_ConAct_st6 = true;
                                mtb_IPAdrrAct_st6 = true;

@@ -8,7 +8,7 @@
         xmlns:vm="clr-namespace:BN.ViewModels.Base"
         xmlns:ipctrl="clr-namespace:IPUserControls;assembly=IPUserControls"
         mc:Ignorable="d"
-        Title="{Binding Wnd_Title}" Height="616" Width="1134" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="{Binding wnd_Title}" Height="616" Width="1134" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
