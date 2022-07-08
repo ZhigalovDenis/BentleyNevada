@@ -61,7 +61,7 @@ namespace BN.ViewModels.Base
 
         #region Заголовок окна
         private string _wnd_Title = "АСКВД Bentley Nevada";
-        public string wnd_Title
+        public string Wnd_Title
         {
             get => _wnd_Title;
             //{
@@ -77,7 +77,7 @@ namespace BN.ViewModels.Base
 
         #region Статус подключения ПТ-6
         private string _tbl_Status_st6 = "Отключено"; // поле
-        public string tbl_Status_st6
+        public string Tbl_Status_st6
         {
             get => _tbl_Status_st6; //возвращает значение поля
             set => Set(ref _tbl_Status_st6, value);
@@ -85,150 +85,150 @@ namespace BN.ViewModels.Base
         #endregion
 
         #region IP адрес подключения ПТ-6
-        private string _mtb_AdressIP_st6 = "127.000.000.001";
-        public string mtb_AdressIP_st6
+        private string _ipfld_AdressIP_st6 = "127.0.0.1";
+        public string Ipfld_AdressIP_st6
         {
-            get => _mtb_AdressIP_st6;
-            set => Set(ref _mtb_AdressIP_st6, value);
+            get => _ipfld_AdressIP_st6;
+            set => Set(ref _ipfld_AdressIP_st6, value);
         }
         #endregion
 
         #region Фон для параметров ПТ-6
         private string _bckgrd_10MAD10CG010;
-        public string bckgrd_10MAD10CG010
+        public string Bckgrd_10MAD10CG010
         {
             get => _bckgrd_10MAD10CG010;
             set => Set(ref _bckgrd_10MAD10CG010, value);
         }
 
         private string _bckgrd_10MAD10CG011;
-        public string bckgrd_10MAD10CG011
+        public string Bckgrd_10MAD10CG011
         {
             get => _bckgrd_10MAD10CG011;
             set => Set(ref _bckgrd_10MAD10CG011, value);
         }
 
         private string _bckgrd_10MAD10CG012;
-        public string bckgrd_10MAD10CG012
+        public string Bckgrd_10MAD10CG012
         {
             get => _bckgrd_10MAD10CG012;
             set => Set(ref _bckgrd_10MAD10CG012, value);
         }
 
         private string _bckgrd_10MAD20CG010;
-        public string bckgrd_10MAD20CG010
+        public string Bckgrd_10MAD20CG010
         {
             get => _bckgrd_10MAD20CG010;
             set => Set(ref _bckgrd_10MAD20CG010, value);
         }
 
         private string _bckgrd_10MAD10CY011;
-        public string bckgrd_10MAD10CY011
+        public string Bckgrd_10MAD10CY011
         {
             get => _bckgrd_10MAD10CY011;
             set => Set(ref _bckgrd_10MAD10CY011, value);
         }
 
         private string _bckgrd_10MAD10CY012;
-        public string bckgrd_10MAD10CY012
+        public string Bckgrd_10MAD10CY012
         {
             get => _bckgrd_10MAD10CY012;
             set => Set(ref _bckgrd_10MAD10CY012, value);
         }
 
         private string _bckgrd_10MAD20CY011;
-        public string bckgrd_10MAD20CY011
+        public string Bckgrd_10MAD20CY011
         {
             get => _bckgrd_10MAD20CY011;
             set => Set(ref _bckgrd_10MAD20CY011, value);
         }
 
         private string _bckgrd_10MAD20CY012;
-        public string bckgrd_10MAD20CY012
+        public string Bckgrd_10MAD20CY012
         {
             get => _bckgrd_10MAD20CY012;
             set => Set(ref _bckgrd_10MAD20CY012, value);
         }
 
         private string _bckgrd_10MAD30CY011;
-        public string bckgrd_10MAD30CY011
+        public string Bckgrd_10MAD30CY011
         {
             get => _bckgrd_10MAD30CY011;
             set => Set(ref _bckgrd_10MAD30CY011, value);
         }
 
         private string _bckgrd_10MAD30CY012;
-        public string bckgrd_10MAD30CY012
+        public string Bckgrd_10MAD30CY012
         {
             get => _bckgrd_10MAD30CY012;
             set => Set(ref _bckgrd_10MAD30CY012, value);
         }
 
         private string _bckgrd_10MAD40CY011;
-        public string bckgrd_10MAD40CY011
+        public string Bckgrd_10MAD40CY011
         {
             get => _bckgrd_10MAD40CY011;
             set => Set(ref _bckgrd_10MAD40CY011, value);
         }
 
         private string _bckgrd_10MAD40CY012;
-        public string bckgrd_10MAD40CY012
+        public string Bckgrd_10MAD40CY012
         {
             get => _bckgrd_10MAD40CY012;
             set => Set(ref _bckgrd_10MAD40CY012, value);
         }
 
         private string _bckgrd_10MAD50CY011;
-        public string bckgrd_10MAD50CY011
+        public string Bckgrd_10MAD50CY011
         {
             get => _bckgrd_10MAD50CY011;
             set => Set(ref _bckgrd_10MAD50CY011, value);
         }
 
         private string _bckgrd_10MAD50CY012;
-        public string bckgrd_10MAD50CY012
+        public string Bckgrd_10MAD50CY012
         {
             get => _bckgrd_10MAD50CY012;
             set => Set(ref _bckgrd_10MAD50CY012, value);
         }
 
         private string _bckgrd_10MAD60CY011;
-        public string bckgrd_10MAD60CY011
+        public string Bckgrd_10MAD60CY011
         {
             get => _bckgrd_10MAD60CY011;
             set => Set(ref _bckgrd_10MAD60CY011, value);
         }
 
         private string _bckgrd_10MAD60CY012;
-        public string bckgrd_10MAD60CY012
+        public string Bckgrd_10MAD60CY012
         {
             get => _bckgrd_10MAD60CY012;
             set => Set(ref _bckgrd_10MAD60CY012, value);
         }
 
         private string _bckgrd_10MKA10CY011;
-        public string bckgrd_10MKA10CY011
+        public string Bckgrd_10MKA10CY011
         {
             get => _bckgrd_10MKA10CY011;
             set => Set(ref _bckgrd_10MKA10CY011, value);
         }
 
         private string _bckgrd_10MKA10CY012;
-        public string bckgrd_10MKA10CY012
+        public string Bckgrd_10MKA10CY012
         {
             get => _bckgrd_10MKA10CY012;
             set => Set(ref _bckgrd_10MKA10CY012, value);
         }
 
         private string _bckgrd_10MKA20CY011;
-        public string bckgrd_10MKA20CY011
+        public string Bckgrd_10MKA20CY011
         {
             get => _bckgrd_10MKA20CY011;
             set => Set(ref _bckgrd_10MKA20CY011, value);
         }
 
         private string _bckgrd_10MKA20CY012;
-        public string bckgrd_10MKA20CY012
+        public string Bckgrd_10MKA20CY012
         {
             get => _bckgrd_10MKA20CY012;
             set => Set(ref _bckgrd_10MKA20CY012, value);
@@ -237,7 +237,7 @@ namespace BN.ViewModels.Base
 
         #region Фон для StatusBar_st6 
         private string _sb_Bckgrnd_st6 = "Coral";
-        public string sb_Bckgrnd_st6
+        public string Sb_Bckgrnd_st6
         {
             get => _sb_Bckgrnd_st6;
             set => Set(ref _sb_Bckgrnd_st6, value);
@@ -246,7 +246,7 @@ namespace BN.ViewModels.Base
 
         #region Фон для TextBlock_st6 
         private string _tbl_Bckgrnd_st6 = "Default";
-        public string tbl_Bckgrnd_st6
+        public string Tbl_Bckgrnd_st6
         {
             get => _tbl_Bckgrnd_st6;
             set => Set(ref _tbl_Bckgrnd_st6, value);
@@ -254,17 +254,17 @@ namespace BN.ViewModels.Base
         #endregion
 
         #region Активность ввода адреса для ПТ-6 
-        private bool _mtb_IPAdrrAct_st6 = true;
-        public bool mtb_IPAdrrAct_st6
+        private bool _ipfld_IPAdrrAct_st6 = true;
+        public bool Ipfld_IPAdrrAct_st6
         {
-            get => _mtb_IPAdrrAct_st6;
-            set => Set(ref _mtb_IPAdrrAct_st6, value);
+            get => _ipfld_IPAdrrAct_st6;
+            set => Set(ref _ipfld_IPAdrrAct_st6, value);
         }
         #endregion
 
         #region Активность кнопки подключить для ПТ-6 
         private bool _bt_ConAct_st6 = true;
-        public bool bt_ConAct_st6
+        public bool Bt_ConAct_st6
         {
             get => _bt_ConAct_st6;
             set => Set(ref _bt_ConAct_st6, value);
@@ -273,7 +273,7 @@ namespace BN.ViewModels.Base
 
         #region Кнопка отключить для ПТ-6
         private bool _bt_Discon_st6;
-        public bool bt_Discon_st6
+        public bool Bt_Discon_st6
         {
             get => _bt_Discon_st6;
             set => Set(ref _bt_Discon_st6, value);
@@ -282,7 +282,7 @@ namespace BN.ViewModels.Base
 
         #region Активность кнопки отключить для ПТ-6 
         private bool _bt_DisconAct_st6 = false;
-        public bool bt_DisconAct_st6
+        public bool Bt_DisconAct_st6
         {
             get => _bt_DisconAct_st6;
             set => Set(ref _bt_DisconAct_st6, value);
@@ -291,140 +291,140 @@ namespace BN.ViewModels.Base
 
         #region Измеряемые велечины ПТ-6
         private double _prm_10MAD10CG010;
-        public double prm_10MAD10CG010
+        public double Prm_10MAD10CG010
         {
             get => _prm_10MAD10CG010;
             set => Set(ref _prm_10MAD10CG010, value);
         }
 
         private double _prm_10MAD10CG011;
-        public double prm_10MAD10CG011
+        public double Prm_10MAD10CG011
         {
             get => _prm_10MAD10CG011;
             set => Set(ref _prm_10MAD10CG011, value);
         }
 
         private double _prm_10MAD10CG012;
-        public double prm_10MAD10CG012
+        public double Prm_10MAD10CG012
         {
             get => _prm_10MAD10CG012;
             set => Set(ref _prm_10MAD10CG012, value);
         }
 
         private double _prm_10MAD20CG010;
-        public double prm_10MAD20CG010
+        public double Prm_10MAD20CG010
         {
             get => _prm_10MAD20CG010;
             set => Set(ref _prm_10MAD20CG010, value);
         }
 
         private double _prm_10MAD10CY011;
-        public double prm_10MAD10CY011
+        public double Prm_10MAD10CY011
         {
             get => _prm_10MAD10CY011;
             set => Set(ref _prm_10MAD10CY011, value);
         }
 
         private double _prm_10MAD10CY012;
-        public double prm_10MAD10CY012
+        public double Prm_10MAD10CY012
         {
             get => _prm_10MAD10CY012;
             set => Set(ref _prm_10MAD10CY012, value);
         }
 
         private double _prm_10MAD20CY011;
-        public double prm_10MAD20CY011
+        public double Prm_10MAD20CY011
         {
             get => _prm_10MAD20CY011;
             set => Set(ref _prm_10MAD20CY011, value);
         }
 
         private double _prm_10MAD20CY012;
-        public double prm_10MAD20CY012
+        public double Prm_10MAD20CY012
         {
             get => _prm_10MAD20CY012;
             set => Set(ref _prm_10MAD20CY012, value);
         }
 
         private double _prm_10MAD30CY011;
-        public double prm_10MAD30CY011
+        public double Prm_10MAD30CY011
         {
             get => _prm_10MAD30CY011;
             set => Set(ref _prm_10MAD30CY011, value);
         }
 
         private double _prm_10MAD30CY012;
-        public double prm_10MAD30CY012
+        public double Prm_10MAD30CY012
         {
             get => _prm_10MAD30CY012;
             set => Set(ref _prm_10MAD30CY012, value);
         }
 
         private double _prm_10MAD40CY011;
-        public double prm_10MAD40CY011
+        public double Prm_10MAD40CY011
         {
             get => _prm_10MAD40CY011;
             set => Set(ref _prm_10MAD40CY011, value);
         }
 
         private double _prm_10MAD40CY012;
-        public double prm_10MAD40CY012
+        public double Prm_10MAD40CY012
         {
             get => _prm_10MAD40CY012;
             set => Set(ref _prm_10MAD40CY012, value);
         }
 
         private double _prm_10MAD50CY011;
-        public double prm_10MAD50CY011
+        public double Prm_10MAD50CY011
         {
             get => _prm_10MAD50CY011;
             set => Set(ref _prm_10MAD50CY011, value);
         }
 
         private double _prm_10MAD50CY012;
-        public double prm_10MAD50CY012
+        public double Prm_10MAD50CY012
         {
             get => _prm_10MAD50CY012;
             set => Set(ref _prm_10MAD50CY012, value);
         }
 
         private double _prm_10MAD60CY011;
-        public double prm_10MAD60CY011
+        public double Prm_10MAD60CY011
         {
             get => _prm_10MAD60CY011;
             set => Set(ref _prm_10MAD60CY011, value);
         }
 
         private double _prm_10MAD60CY012;
-        public double prm_10MAD60CY012
+        public double Prm_10MAD60CY012
         {
             get => _prm_10MAD60CY012;
             set => Set(ref _prm_10MAD60CY012, value);
         }
 
         private double _prm_10MKA10CY011;
-        public double prm_10MKA10CY011
+        public double Prm_10MKA10CY011
         {
             get => _prm_10MKA10CY011;
             set => Set(ref _prm_10MKA10CY011, value);
         }
 
         private double _prm_10MKA10CY012;
-        public double prm_10MKA10CY012
+        public double Prm_10MKA10CY012
         {
             get => _prm_10MKA10CY012;
             set => Set(ref _prm_10MKA10CY012, value);
         }
 
         private double _prm_10MKA20CY011;
-        public double prm_10MKA20CY011
+        public double Prm_10MKA20CY011
         {
             get => _prm_10MKA20CY011;
             set => Set(ref _prm_10MKA20CY011, value);
         }
 
         private double _prm_10MKA20CY012;
-        public double prm_10MKA20CY012
+        public double Prm_10MKA20CY012
         {
             get => _prm_10MKA20CY012;
             set => Set(ref _prm_10MKA20CY012, value);
@@ -432,34 +432,34 @@ namespace BN.ViewModels.Base
         #endregion
 
         #region Комманды
-        public RelayCommand cmd_ConToRack_st6 { get; set; }
-        public RelayCommand cmd_DisconFromRack_st6 { get; set; }
+        public RelayCommand Cmd_ConToRack_st6 { get; set; }
+        public RelayCommand Cmd_DisconFromRack_st6 { get; set; }
         #endregion
 
         public MainWindowViewModel()
         {
-            cmd_ConToRack_st6 = new RelayCommand(o =>
+            Cmd_ConToRack_st6 = new RelayCommand(o =>
             {
-                bt_Discon_st6 = false;
+                Bt_Discon_st6 = false;
 
                 var bnRack_st6 = new BNRack();
 
-                if (bnRack_st6.ValidIPV4(mtb_AdressIP_st6) == true) //Проверяем валидность IP адреса.
+                if (bnRack_st6.ValidIPV4(Ipfld_AdressIP_st6) == true) //Проверяем валидность IP адреса.
                 {
-                    if (bnRack_st6.Connection(mtb_AdressIP_st6, 502) == true) //Пытаемся подключиться к устройству.
+                    if (bnRack_st6.Connection(Ipfld_AdressIP_st6, 502) == true) //Пытаемся подключиться к устройству.
                     { 
-                        tbl_Status_st6 = "Подключено";
-                        sb_Bckgrnd_st6 = "LightGreen";
-                        bt_ConAct_st6 = false;
-                        mtb_IPAdrrAct_st6 = false;
-                        bt_DisconAct_st6 = true;
+                        Tbl_Status_st6 = "Подключено";
+                        Sb_Bckgrnd_st6 = "LightGreen";
+                        Bt_ConAct_st6 = false;
+                        Ipfld_IPAdrrAct_st6 = false;
+                        Bt_DisconAct_st6 = true;
 
                         var timer_st6 = new DispatcherTimer(DispatcherPriority.Render);
                         timer_st6.Interval = TimeSpan.FromSeconds(1);
                         timer_st6.Tick += (sender, args) =>
                         {
 
-                            if (bt_Discon_st6 == false) // Проверяем нажата или нет кнопка "Отключить".
+                            if (Bt_Discon_st6 == false) // Проверяем нажата или нет кнопка "Отключить".
                             {
                                int[] full_range = bnRack_st6.ReadData(5000, 100);
                                 if (full_range.Length < 101) // Если вернулся массив размерностью 101 то не удалется считать регистры. И переходим к условию else.
@@ -510,59 +510,59 @@ namespace BN.ViewModels.Base
                                                                                              AH_R_1_st6_gr4, AL_R_0_st6_gr4, AL_R_1_st6_gr4,
                                                                                              UpperMonitorRange_st6_gr4, LowerMonitorRange_st6_gr4);
 
-                                    prm_10MAD10CY011 = rtrn_prm_st6_gr0[0];
-                                    prm_10MAD10CY012 = rtrn_prm_st6_gr0[1];
-                                    prm_10MAD20CY011 = rtrn_prm_st6_gr0[2];
-                                    prm_10MAD20CY012 = rtrn_prm_st6_gr0[3];
-                                    prm_10MAD30CY011 = rtrn_prm_st6_gr0[4];
-                                    prm_10MAD30CY012 = rtrn_prm_st6_gr0[5];
-                                    prm_10MAD40CY011 = rtrn_prm_st6_gr0[6];
-                                    prm_10MAD40CY012 = rtrn_prm_st6_gr0[7];
-                                    prm_10MAD50CY011 = rtrn_prm_st6_gr0[8];
-                                    prm_10MAD50CY012 = rtrn_prm_st6_gr0[9];
-                                    prm_10MAD60CY011 = rtrn_prm_st6_gr0[10];
-                                    prm_10MAD60CY012 = rtrn_prm_st6_gr0[11]; 
-                                    prm_10MKA10CY011 = rtrn_prm_st6_gr0[12];
-                                    prm_10MKA10CY012 = rtrn_prm_st6_gr0[13];
-                                    prm_10MKA20CY011 = rtrn_prm_st6_gr0[14];
-                                    prm_10MKA20CY012 = rtrn_prm_st6_gr0[15];
-                                    prm_10MAD10CG010 = rtrn_prm_st6_gr1[0];
-                                    prm_10MAD10CG011 = rtrn_prm_st6_gr1[1];
-                                    prm_10MAD10CG012 = rtrn_prm_st6_gr1[2];
-                                    prm_10MAD20CG010 = rtrn_prm_st6_gr4[0];
+                                    Prm_10MAD10CY011 = rtrn_prm_st6_gr0[0];
+                                    Prm_10MAD10CY012 = rtrn_prm_st6_gr0[1];
+                                    Prm_10MAD20CY011 = rtrn_prm_st6_gr0[2];
+                                    Prm_10MAD20CY012 = rtrn_prm_st6_gr0[3];
+                                    Prm_10MAD30CY011 = rtrn_prm_st6_gr0[4];
+                                    Prm_10MAD30CY012 = rtrn_prm_st6_gr0[5];
+                                    Prm_10MAD40CY011 = rtrn_prm_st6_gr0[6];
+                                    Prm_10MAD40CY012 = rtrn_prm_st6_gr0[7];
+                                    Prm_10MAD50CY011 = rtrn_prm_st6_gr0[8];
+                                    Prm_10MAD50CY012 = rtrn_prm_st6_gr0[9];
+                                    Prm_10MAD60CY011 = rtrn_prm_st6_gr0[10];
+                                    Prm_10MAD60CY012 = rtrn_prm_st6_gr0[11]; 
+                                    Prm_10MKA10CY011 = rtrn_prm_st6_gr0[12];
+                                    Prm_10MKA10CY012 = rtrn_prm_st6_gr0[13];
+                                    Prm_10MKA20CY011 = rtrn_prm_st6_gr0[14];
+                                    Prm_10MKA20CY012 = rtrn_prm_st6_gr0[15];
+                                    Prm_10MAD10CG010 = rtrn_prm_st6_gr1[0];
+                                    Prm_10MAD10CG011 = rtrn_prm_st6_gr1[1];
+                                    Prm_10MAD10CG012 = rtrn_prm_st6_gr1[2];
+                                    Prm_10MAD20CG010 = rtrn_prm_st6_gr4[0];
                                     
-                                    bckgrd_10MAD10CY011 = bckgrd_st6_gr0[0];
-                                    bckgrd_10MAD10CY012 = bckgrd_st6_gr0[1];
-                                    bckgrd_10MAD20CY011 = bckgrd_st6_gr0[2];
-                                    bckgrd_10MAD20CY012 = bckgrd_st6_gr0[3];
-                                    bckgrd_10MAD30CY011 = bckgrd_st6_gr0[4];
-                                    bckgrd_10MAD30CY012 = bckgrd_st6_gr0[5];
-                                    bckgrd_10MAD40CY011 = bckgrd_st6_gr0[6];
-                                    bckgrd_10MAD40CY012 = bckgrd_st6_gr0[7];
-                                    bckgrd_10MAD50CY011 = bckgrd_st6_gr0[8];
-                                    bckgrd_10MAD50CY012 = bckgrd_st6_gr0[9];
-                                    bckgrd_10MAD60CY011 = bckgrd_st6_gr0[10];
-                                    bckgrd_10MAD60CY012 = bckgrd_st6_gr0[11];
-                                    bckgrd_10MKA10CY011 = bckgrd_st6_gr0[12];
-                                    bckgrd_10MKA10CY012 = bckgrd_st6_gr0[13];
-                                    bckgrd_10MKA20CY011 = bckgrd_st6_gr0[14];
-                                    bckgrd_10MKA20CY012 = bckgrd_st6_gr0[15];
-                                    bckgrd_10MAD10CG010 = bckgrd_st6_gr1[0];
-                                    bckgrd_10MAD10CG011 = bckgrd_st6_gr1[1];
-                                    bckgrd_10MAD10CG012 = bckgrd_st6_gr1[2];
-                                    bckgrd_10MAD20CG010 = bckgrd_st6_gr4[0];
+                                    Bckgrd_10MAD10CY011 = bckgrd_st6_gr0[0];
+                                    Bckgrd_10MAD10CY012 = bckgrd_st6_gr0[1];
+                                    Bckgrd_10MAD20CY011 = bckgrd_st6_gr0[2];
+                                    Bckgrd_10MAD20CY012 = bckgrd_st6_gr0[3];
+                                    Bckgrd_10MAD30CY011 = bckgrd_st6_gr0[4];
+                                    Bckgrd_10MAD30CY012 = bckgrd_st6_gr0[5];
+                                    Bckgrd_10MAD40CY011 = bckgrd_st6_gr0[6];
+                                    Bckgrd_10MAD40CY012 = bckgrd_st6_gr0[7];
+                                    Bckgrd_10MAD50CY011 = bckgrd_st6_gr0[8];
+                                    Bckgrd_10MAD50CY012 = bckgrd_st6_gr0[9];
+                                    Bckgrd_10MAD60CY011 = bckgrd_st6_gr0[10];
+                                    Bckgrd_10MAD60CY012 = bckgrd_st6_gr0[11];
+                                    Bckgrd_10MKA10CY011 = bckgrd_st6_gr0[12];
+                                    Bckgrd_10MKA10CY012 = bckgrd_st6_gr0[13];
+                                    Bckgrd_10MKA20CY011 = bckgrd_st6_gr0[14];
+                                    Bckgrd_10MKA20CY012 = bckgrd_st6_gr0[15];
+                                    Bckgrd_10MAD10CG010 = bckgrd_st6_gr1[0];
+                                    Bckgrd_10MAD10CG011 = bckgrd_st6_gr1[1];
+                                    Bckgrd_10MAD10CG012 = bckgrd_st6_gr1[2];
+                                    Bckgrd_10MAD20CG010 = bckgrd_st6_gr4[0];
                                 }
                                 else//Вернулся массив размерностью 101. Значит не удалось считать регистры.
                                 {
                                     bnRack_st6.Disconnection();
-                                    tbl_Status_st6 = "Потеря связи";
-                                    tbl_Bckgrnd_st6 = "Red";
-                                    sb_Bckgrnd_st6 = "BlueViolet";                                
-                                    if (bnRack_st6.Reconnection(mtb_AdressIP_st6, 502) == true)//Проверка повторного подключения к устройству
+                                    Tbl_Status_st6 = "Потеря связи";
+                                    Tbl_Bckgrnd_st6 = "Red";
+                                    Sb_Bckgrnd_st6 = "BlueViolet";                                
+                                    if (bnRack_st6.Reconnection(Ipfld_AdressIP_st6, 502) == true)//Проверка повторного подключения к устройству
                                     {
-                                        tbl_Status_st6 = "Подключено";
-                                        tbl_Bckgrnd_st6 = "Default";
-                                        sb_Bckgrnd_st6 = "LightGreen";
+                                        Tbl_Status_st6 = "Подключено";
+                                        Tbl_Bckgrnd_st6 = "Default";
+                                        Sb_Bckgrnd_st6 = "LightGreen";
                                     }
                                 }
                              
@@ -571,11 +571,11 @@ namespace BN.ViewModels.Base
                             {
                                bnRack_st6.Disconnection();
                                timer_st6.Stop();
-                               tbl_Status_st6 = "Отключено";
-                               sb_Bckgrnd_st6 = "Coral";
-                               bt_ConAct_st6 = true;
-                               mtb_IPAdrrAct_st6 = true;
-                               bt_DisconAct_st6 = false;
+                               Tbl_Status_st6 = "Отключено";
+                               Sb_Bckgrnd_st6 = "Coral";
+                               Bt_ConAct_st6 = true;
+                               Ipfld_IPAdrrAct_st6 = true;
+                               Bt_DisconAct_st6 = false;
                             }
                         };
                         timer_st6.Start();
@@ -591,9 +591,9 @@ namespace BN.ViewModels.Base
                 }
             });
 
-            cmd_DisconFromRack_st6 = new RelayCommand(o =>
+            Cmd_DisconFromRack_st6 = new RelayCommand(o =>
             {
-                bt_Discon_st6 = true;
+                Bt_Discon_st6 = true;
 
             });
 
