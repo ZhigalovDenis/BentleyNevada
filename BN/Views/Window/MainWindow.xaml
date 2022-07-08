@@ -22,16 +22,13 @@
                             <TextBlock Text="{Binding Tbl_Status_st6}" Background="{Binding Tbl_Bckgrnd_st6}"/>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <xctk:MaskedTextBox Text="{Binding Ipfld_AdressIP_st6}" Mask="000\.000\.000\.000" IsEnabled="{Binding Ipfld_IPAdrrAct_st6}"/>
+                            <ipctrl:IpField IpAddress="{Binding Ipfld_AdressIP_st6}" IsEnabled="{Binding Ipfld_IPAdrrAct_st6}"/>
                         </StatusBarItem>
                         <StatusBarItem>
                             <Button Content="Подключить 10CJJ20" Command="{Binding Cmd_ConToRack_st6}" IsEnabled="{Binding Bt_ConAct_st6}"/>
                         </StatusBarItem>
                         <StatusBarItem>
                             <Button Content="Отключить 10CJJ20" Command="{Binding Cmd_DisconFromRack_st6}" IsEnabled="{Binding Bt_DisconAct_st6}"/>
-                        </StatusBarItem>
-                        <StatusBarItem>
-                            <ipctrl:IpField IpAddress="{Binding Ipfld_AdressIP_st6}"/>
                         </StatusBarItem>
                     </StatusBar>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="26,193,0,0" Background="{Binding Bckgrd_10MAD10CG010}"/>
