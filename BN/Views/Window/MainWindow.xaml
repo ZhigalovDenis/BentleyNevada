@@ -51,6 +51,9 @@
                     <Border Style="{StaticResource BorderForLabel}"  Margin="814,40,0,0" Background="{Binding Bckgrd_10MKA10CY012}"/>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="1023,19,0,0" Background="{Binding Bckgrd_10MKA20CY011}"/>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="1024,40,0,0" Background="{Binding Bckgrd_10MKA20CY012}"/>
+                    <Border Style="{StaticResource BorderForLabel}"  Margin="146,312,0,0" Background="{Binding Bckgrd_10MAD10CY020}"/>
+                    <Border Style="{StaticResource BorderForLabel}"  Margin="146,333,0,0" Background="{Binding Bckgrd_10MAD10CY030}"/>
+                    <Border Style="{StaticResource BorderForLabel}"  Margin="146,354,0,0" Background="{Binding Bckgrd_10MAD10CY040}"/>
                     <Label Content="{Binding Prm_10MAD10CG012}" Style="{StaticResource Parent_LabelOnImage}" Margin="31,229,0,0" ToolTip="10MAD10CG012"/>
                     <Label Content="{Binding Prm_10MAD10CG011}" Style="{StaticResource Parent_LabelOnImage}" Margin="31,208,0,0" ToolTip="10MAD10CG011"/>
                     <Label Content="{Binding Prm_10MAD10CG010}" Style="{StaticResource Parent_LabelOnImage}" Margin="31,187,0,0" ToolTip="10MAD10CG010"/>
@@ -71,6 +74,9 @@
                     <Label Content="{Binding Prm_10MKA10CY012}" Style="{StaticResource Child_0_LabelOnImage}" Margin="818,35,0,0" ToolTip="10MKA10CY012"/>
                     <Label Content="{Binding Prm_10MKA20CY011}" Style="{StaticResource Child_0_LabelOnImage}" Margin="1028,14,0,0" ToolTip="10MKA20CY011"/>
                     <Label Content="{Binding Prm_10MKA20CY012}" Style="{StaticResource Child_0_LabelOnImage}" Margin="1028,35,0,0" ToolTip="10MKA20CY012"/>
+                    <Label Content="{Binding Prm_10MAD10CY020}" Style="{StaticResource Child_1_LabelOnImage}" Margin="151,306,0,0" ToolTip="10MAD10CY020"/>
+                    <Label Content="{Binding Prm_10MAD10CY030}" Style="{StaticResource Child_1_LabelOnImage}" Margin="151,328,0,0" ToolTip="10MAD10CY030"/>
+                    <Label Content="{Binding Prm_10MAD10CY040}" Style="{StaticResource Child_1_LabelOnImage}" Margin="151,349,0,0" ToolTip="10MAD10CY040"/>
                 </Grid>
             </TabItem>
             <TabItem Header="ГТ-7">

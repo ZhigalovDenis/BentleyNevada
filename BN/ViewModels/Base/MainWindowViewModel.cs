@@ -231,6 +231,27 @@ namespace BN.ViewModels.Base
             get => _bckgrd_10MKA20CY012;
             set => Set(ref _bckgrd_10MKA20CY012, value);
         }
+
+        private string _bckgrd_10MAD10CY020;
+        public string Bckgrd_10MAD10CY020
+        {
+            get => _bckgrd_10MAD10CY020;
+            set => Set(ref _bckgrd_10MAD10CY020, value);
+        }
+
+        private string _bckgrd_10MAD10CY030;
+        public string Bckgrd_10MAD10CY030
+        {
+            get => _bckgrd_10MAD10CY030;
+            set => Set(ref _bckgrd_10MAD10CY030, value);
+        }
+
+        private string _bckgrd_10MAD10CY040;
+        public string Bckgrd_10MAD10CY040
+        {
+            get => _bckgrd_10MAD10CY020;
+            set => Set(ref _bckgrd_10MAD10CY040, value);
+        }
         #endregion
 
         #region Фон для StatusBar_st6 
@@ -427,6 +448,27 @@ namespace BN.ViewModels.Base
             get => _prm_10MKA20CY012;
             set => Set(ref _prm_10MKA20CY012, value);
         }
+
+        private double _prm_10MAD10CY020;
+        public double Prm_10MAD10CY020
+        {
+            get => _prm_10MAD10CY020;
+            set => Set(ref _prm_10MAD10CY020, value);
+        }
+
+        private double _prm_10MAD10CY030;
+        public double Prm_10MAD10CY030
+        {
+            get => _prm_10MAD10CY030;
+            set => Set(ref _prm_10MAD10CY030, value);
+        }
+
+        private double _prm_10MAD10CY040;
+        public double Prm_10MAD10CY040
+        {
+            get => _prm_10MAD10CY040;
+            set => Set(ref _prm_10MAD10CY040, value);
+        }
         #endregion
 
         #region Комманды
@@ -538,6 +580,10 @@ namespace BN.ViewModels.Base
                                     Prm_10MAD10CG010 = rtrn_prm_st6_gr1[0];
                                     Prm_10MAD10CG011 = rtrn_prm_st6_gr1[1];
                                     Prm_10MAD10CG012 = rtrn_prm_st6_gr1[2];
+                                    Prm_10MAD10CY020 = rtrn_prm_st6_gr2[0];
+                                    Prm_10MAD10CY030 = rtrn_prm_st6_gr2[1];
+                                    Prm_10MAD10CY040 = rtrn_prm_st6_gr2[3];
+                                    ///////////////////////////////////////
                                     Prm_10MAD20CG010 = rtrn_prm_st6_gr4[0];
                                     
                                     Bckgrd_10MAD10CY011 = bckgrd_st6_gr0[0];
@@ -559,6 +605,10 @@ namespace BN.ViewModels.Base
                                     Bckgrd_10MAD10CG010 = bckgrd_st6_gr1[0];
                                     Bckgrd_10MAD10CG011 = bckgrd_st6_gr1[1];
                                     Bckgrd_10MAD10CG012 = bckgrd_st6_gr1[2];
+                                    Bckgrd_10MAD10CY020 = bckgrd_st6_gr2[0];
+                                    Bckgrd_10MAD10CY030 = bckgrd_st6_gr2[1];
+                                    Bckgrd_10MAD10CY040 = bckgrd_st6_gr2[3];
+                                    ///////////////////////////////////////
                                     Bckgrd_10MAD20CG010 = bckgrd_st6_gr4[0];
                                 }
                                 else//Вернулся массив размерностью 101. Значит не удалось считать регистры.
