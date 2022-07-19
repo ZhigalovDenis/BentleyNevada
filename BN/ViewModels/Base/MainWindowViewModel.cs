@@ -21,7 +21,6 @@ namespace BN.ViewModels.Base
         private const short LowerMonitorRange_st6_gr1 = -1;
         private const short UpperMonitorRange_st6_gr1 = 1;
 
-        private const short LowerMonitorRange_st6_gr2 = 0;
         private const short UpperMonitorRange_st6_gr2 = 25;
 
         private const short LowerMonitorRange_st6_gr4 = -6;
@@ -49,7 +48,6 @@ namespace BN.ViewModels.Base
         private const double AH_R_0_st6_gr2 = 11;
         private const double AH_R_1_st6_gr2 = 25;
 
-        private const double WH_Y_0_st6_gr4 = 0.5;
         private const double WH_Y_1_st6_gr4 = 1.99;
         private const double WL_Y_0_st6_gr4 = -2.5;
         private const double WL_Y_1_st6_gr4 = -3.99;
@@ -474,15 +472,20 @@ namespace BN.ViewModels.Base
                                     int[] prm_st6_gr_0_7 = full_range.Skip(20).Take(2).ToArray();//5020-5021
                                     int[] prm_st6_gr_0_8 = full_range.Skip(23).Take(1).ToArray();//5023
                                     int[] prm_st6_gr0 = prm_st6_gr_0_0.Concat(prm_st6_gr_0_1).Concat(prm_st6_gr_0_2)
-                                                                       .Concat(prm_st6_gr_0_3).Concat(prm_st6_gr_0_4)
-                                                                       .Concat(prm_st6_gr_0_5).Concat(prm_st6_gr_0_6)
-                                                                       .Concat(prm_st6_gr_0_7).Concat(prm_st6_gr_0_8).ToArray();
+                                                                      .Concat(prm_st6_gr_0_3).Concat(prm_st6_gr_0_4)
+                                                                      .Concat(prm_st6_gr_0_5).Concat(prm_st6_gr_0_6)
+                                                                      .Concat(prm_st6_gr_0_7).Concat(prm_st6_gr_0_8).ToArray();
 
                                     int[] prm_st6_gr_1_0 = full_range.Skip(24).Take(2).ToArray(); //5024-5025
                                     int[] prm_st6_gr_1_1 = full_range.Skip(47).Take(1).ToArray(); //5047 
                                     int[] prm_st6_gr1 = prm_st6_gr_1_0.Concat(prm_st6_gr_1_1).ToArray();
 
-                                    /////Группа 2
+                                    int[] prm_st6_gr_2_0 = full_range.Skip(26).Take(1).ToArray(); //5026
+                                    int[] prm_st6_gr_2_1 = full_range.Skip(30).Take(2).ToArray(); //5030-5031
+                                    int[] prm_st6_gr_2_2 = full_range.Skip(34).Take(8).ToArray(); //5034-5041
+                                    int[] prm_st6_gr_2_3 = full_range.Skip(44).Take(3).ToArray(); //5044-5046
+                                    int[] prm_st6_gr2 = prm_st6_gr_2_0.Concat(prm_st6_gr_2_1).Concat(prm_st6_gr_2_2)
+                                                                      .Concat(prm_st6_gr_2_3).ToArray();
 
                                     int[] prm_st6_gr4 = full_range.Skip(42).Take(1).ToArray(); //5042
 
@@ -493,6 +496,9 @@ namespace BN.ViewModels.Base
                                     double[] rtrn_prm_st6_gr1 = bnRack_st6.Scale(prm_st6_gr1, GatewayFullScaleValue_st6,
                                                                                  LowerMonitorRange_st6_gr1, UpperMonitorRange_st6_gr1,
                                                                                  FaultReplace_0);
+                                    double[] rtrn_prm_st6_gr2 = bnRack_st6.Scale(prm_st6_gr2, GatewayFullScaleValue_st6,
+                                                                                 LowerMonitorRange_st6_gr0, UpperMonitorRange_st6_gr2,
+                                                                                 FaultReplace_2);
                                     double[] rtrn_prm_st6_gr4 = bnRack_st6.Scale(prm_st6_gr4, GatewayFullScaleValue_st6,
                                                                                  LowerMonitorRange_st6_gr4, UpperMonitorRange_st6_gr4,
                                                                                  FaultReplace_0);
@@ -505,7 +511,10 @@ namespace BN.ViewModels.Base
                                                                                              WL_Y_0_st6_gr1, WL_Y_1_st6_gr1, AH_R_0_st6_gr1,
                                                                                              AH_R_1_st6_gr1, AL_R_0_st6_gr1, AL_R_1_st6_gr1,
                                                                                              UpperMonitorRange_st6_gr1, LowerMonitorRange_st6_gr1);
-                                    string[] bckgrd_st6_gr4 = visualEffects_st6.LimitBrush_0(rtrn_prm_st6_gr4, WH_Y_0_st6_gr4, WH_Y_1_st6_gr4,
+                                    string[] bckgrd_st6_gr2 = visualEffects_st6.LimitBrush_1(rtrn_prm_st6_gr2, WH_Y_0_st6_gr2, WH_Y_1_st6_gr2,
+                                                                                             AH_R_0_st6_gr2, AH_R_1_st6_gr2,
+                                                                                             UpperMonitorRange_st6_gr2, LowerMonitorRange_st6_gr0);
+                                    string[] bckgrd_st6_gr4 = visualEffects_st6.LimitBrush_0(rtrn_prm_st6_gr4, WH_Y_0_st6_gr1, WH_Y_1_st6_gr4,
                                                                                              WL_Y_0_st6_gr4, WL_Y_1_st6_gr4, AH_R_0_st6_gr4,
                                                                                              AH_R_1_st6_gr4, AL_R_0_st6_gr4, AL_R_1_st6_gr4,
                                                                                              UpperMonitorRange_st6_gr4, LowerMonitorRange_st6_gr4);

@@ -62,7 +62,7 @@ namespace BN.Models
             }
             catch (Exception)
             {
-                IsEnable = false;// MessageBox.Show("Устройство не отвечает");
+                IsEnable = false;
             }
             return IsEnable;
         }
@@ -74,6 +74,12 @@ namespace BN.Models
         {
                 modbusClient.Disconnect();  
         }
+        /// <summary>
+        /// Чтение данных из Rack
+        /// </summary>
+        /// <param name="StartingAdress"></param>
+        /// <param name="Quantity"></param>
+        /// <returns></returns>
         public int[] ReadData(int StartingAdress, int Quantity)
         {
             try
@@ -83,7 +89,7 @@ namespace BN.Models
             }
             catch (Exception)
             {
-               // MessageBox.Show("Потеря соединения");
+              
                 int[] CleanArray = new int[101];
                 return CleanArray;
             }
