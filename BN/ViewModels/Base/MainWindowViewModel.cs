@@ -48,6 +48,12 @@ namespace BN.ViewModels.Base
         private const double AH_R_0_st6_gr2 = 11;
         private const double AH_R_1_st6_gr2 = 25;
 
+        private const double WH_Y_0_st6_gr3 = 4.5;
+        private const double WH_Y_1_st6_gr3 = 7.09;
+        private const double AH_R_0_st6_gr3 = 7.1; //WH_Y_0_st6_gr2
+        private const double AH_R_1_st6_gr3 = 25; //AH_R_1_st6_gr2
+
+
         private const double WH_Y_1_st6_gr4 = 1.99;
         private const double WL_Y_0_st6_gr4 = -2.5;
         private const double WL_Y_1_st6_gr4 = -3.99;
@@ -529,6 +535,8 @@ namespace BN.ViewModels.Base
                                     int[] prm_st6_gr2 = prm_st6_gr_2_0.Concat(prm_st6_gr_2_1).Concat(prm_st6_gr_2_2)
                                                                       .Concat(prm_st6_gr_2_3).ToArray();
 
+                                    int[] prm_st6_gr3 = full_range.Skip(32).Take(1).ToArray(); //5032
+
                                     int[] prm_st6_gr4 = full_range.Skip(42).Take(1).ToArray(); //5042
 
 
@@ -539,6 +547,9 @@ namespace BN.ViewModels.Base
                                                                                  LowerMonitorRange_st6_gr1, UpperMonitorRange_st6_gr1,
                                                                                  FaultReplace_0);
                                     double[] rtrn_prm_st6_gr2 = bnRack_st6.Scale(prm_st6_gr2, GatewayFullScaleValue_st6,
+                                                                                 LowerMonitorRange_st6_gr0, UpperMonitorRange_st6_gr2,
+                                                                                 FaultReplace_2);
+                                    double[] rtrn_prm_st6_gr3 = bnRack_st6.Scale(prm_st6_gr3, GatewayFullScaleValue_st6,
                                                                                  LowerMonitorRange_st6_gr0, UpperMonitorRange_st6_gr2,
                                                                                  FaultReplace_2);
                                     double[] rtrn_prm_st6_gr4 = bnRack_st6.Scale(prm_st6_gr4, GatewayFullScaleValue_st6,
@@ -556,6 +567,9 @@ namespace BN.ViewModels.Base
                                     string[] bckgrd_st6_gr2 = visualEffects_st6.LimitBrush_1(rtrn_prm_st6_gr2, WH_Y_0_st6_gr2, WH_Y_1_st6_gr2,
                                                                                              AH_R_0_st6_gr2, AH_R_1_st6_gr2,
                                                                                              UpperMonitorRange_st6_gr2, LowerMonitorRange_st6_gr0);
+                                    string[] bckgrd_st6_gr3 = visualEffects_st6.LimitBrush_1(rtrn_prm_st6_gr3, WH_Y_0_st6_gr3, WH_Y_1_st6_gr3,
+                                                                                            WH_Y_0_st6_gr2, AH_R_1_st6_gr2,
+                                                                                            UpperMonitorRange_st6_gr2, LowerMonitorRange_st6_gr0);
                                     string[] bckgrd_st6_gr4 = visualEffects_st6.LimitBrush_0(rtrn_prm_st6_gr4, WH_Y_0_st6_gr1, WH_Y_1_st6_gr4,
                                                                                              WL_Y_0_st6_gr4, WL_Y_1_st6_gr4, AH_R_0_st6_gr4,
                                                                                              AH_R_1_st6_gr4, AL_R_0_st6_gr4, AL_R_1_st6_gr4,
