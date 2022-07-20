@@ -50,9 +50,6 @@ namespace BN.ViewModels.Base
 
         private const double WH_Y_0_st6_gr3 = 4.5;
         private const double WH_Y_1_st6_gr3 = 7.09;
-        private const double AH_R_0_st6_gr3 = 7.1; //WH_Y_0_st6_gr2
-        private const double AH_R_1_st6_gr3 = 25; //AH_R_1_st6_gr2
-
 
         private const double WH_Y_1_st6_gr4 = 1.99;
         private const double WL_Y_0_st6_gr4 = -2.5;
@@ -97,7 +94,7 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-        #region Фон для параметров ПТ-6
+        #region Фон для измеряемых параметров ПТ-6
         private string _bckgrd_10MAD10CG010;
         public string Bckgrd_10MAD10CG010
         {
@@ -255,8 +252,92 @@ namespace BN.ViewModels.Base
         private string _bckgrd_10MAD10CY040;
         public string Bckgrd_10MAD10CY040
         {
-            get => _bckgrd_10MAD10CY020;
+            get => _bckgrd_10MAD10CY040;
             set => Set(ref _bckgrd_10MAD10CY040, value);
+        }
+        
+        private string _bckgrd_10MAD20CY020;
+        public string Bckgrd_10MAD20CY020
+        {
+            get => _bckgrd_10MAD20CY020;
+            set => Set(ref _bckgrd_10MAD20CY020, value);
+        }
+
+        private string _bckgrd_10MAD20CY030;
+        public string Bckgrd_10MAD20CY030
+        {
+            get => _bckgrd_10MAD20CY030;
+            set => Set(ref _bckgrd_10MAD20CY030, value);
+        }
+
+        private string _bckgrd_10MAD20CY040;
+        public string Bckgrd_10MAD20CY040
+        {
+            get => _bckgrd_10MAD20CY020;
+            set => Set(ref _bckgrd_10MAD20CY040, value);
+        }
+
+        private string _bckgrd_10MAK10CY020;
+        public string Bckgrd_10MAK10CY020
+        {
+            get => _bckgrd_10MAK10CY020;
+            set => Set(ref _bckgrd_10MAK10CY020, value);
+        }
+
+        private string _bckgrd_10MAK10CY030;
+        public string Bckgrd_10MAK10CY030
+        {
+            get => _bckgrd_10MAK10CY030;
+            set => Set(ref _bckgrd_10MAK10CY030, value);
+        }
+
+        private string _bckgrd_10MAK10CY040;
+        public string Bckgrd_10MAK10CY040
+        {
+            get => _bckgrd_10MAK10CY040;
+            set => Set(ref _bckgrd_10MAK10CY040, value);
+        }
+
+        private string _bckgrd_10MKA10CY020;
+        public string Bckgrd_10MKA10CY020
+        {
+            get => _bckgrd_10MKA10CY020;
+            set => Set(ref _bckgrd_10MKA10CY020, value);
+        }
+
+        private string _bckgrd_10MKA10CY030;
+        public string Bckgrd_10MKA10CY030
+        {
+            get => _bckgrd_10MKA10CY030;
+            set => Set(ref _bckgrd_10MKA10CY030, value);
+        }
+
+        private string _bckgrd_10MKA10CY040;
+        public string Bckgrd_10MKA10CY040
+        {
+            get => _bckgrd_10MKA10CY040;
+            set => Set(ref _bckgrd_10MKA10CY040, value);
+        }
+
+        private string _bckgrd_10MKA20CY020;
+        public string Bckgrd_10MKA20CY020
+        {
+            get => _bckgrd_10MKA20CY020;
+            set => Set(ref _bckgrd_10MKA20CY020, value);
+        }
+
+        private string _bckgrd_10MKA20CY030;
+        public string Bckgrd_10MKA20CY030
+        {
+            get => _bckgrd_10MKA20CY030;
+            set => Set(ref _bckgrd_10MKA20CY030, value);
+        }
+
+        private string _bckgrd_10MKA20CY040;
+        public string Bckgrd_10MKA20CY040
+        {
+            get => _bckgrd_10MKA20CY040;
+            set => Set(ref _bckgrd_10MKA20CY040, value);
         }
         #endregion
 
@@ -314,7 +395,7 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-        #region Измеряемые велечины ПТ-6
+        #region Обработанные параметры ПТ-6
         private double _prm_10MAD10CG010;
         public double Prm_10MAD10CG010
         {
@@ -475,6 +556,90 @@ namespace BN.ViewModels.Base
             get => _prm_10MAD10CY040;
             set => Set(ref _prm_10MAD10CY040, value);
         }
+
+        private double _prm_10MAD20CY020;
+        public double Prm_10MAD20CY020
+        {
+            get => _prm_10MAD20CY020;
+            set => Set(ref _prm_10MAD20CY020, value);
+        }
+
+        private double _prm_10MAD20CY030;
+        public double Prm_10MAD20CY030
+        {
+            get => _prm_10MAD20CY030;
+            set => Set(ref _prm_10MAD20CY030, value);
+        }
+
+        private double _prm_10MAD20CY040;
+        public double Prm_10MAD20CY040
+        {
+            get => _prm_10MAD20CY040;
+            set => Set(ref _prm_10MAD20CY040, value);
+        }
+
+        private double _prm_10MAK10CY020;
+        public double Prm_10MAK10CY020
+        {
+            get => _prm_10MAK10CY020;
+            set => Set(ref _prm_10MAK10CY020, value);
+        }
+
+        private double _prm_10MAK10CY030;
+        public double Prm_10MAK10CY030
+        {
+            get => _prm_10MAK10CY030;
+            set => Set(ref _prm_10MAK10CY030, value);
+        }
+
+        private double _prm_10MAK10CY040;
+        public double Prm_10MAK10CY040
+        {
+            get => _prm_10MAK10CY040;
+            set => Set(ref _prm_10MAK10CY040, value);
+        }
+
+        private double _prm_10MKA10CY020;
+        public double Prm_10MKA10CY020
+        {
+            get => _prm_10MKA10CY020;
+            set => Set(ref _prm_10MKA10CY020, value);
+        }
+
+        private double _prm_10MKA10CY030;
+        public double Prm_10MKA10CY030
+        {
+            get => _prm_10MKA10CY030;
+            set => Set(ref _prm_10MKA10CY030, value);
+        }
+
+        private double _prm_10MKA10CY040;
+        public double Prm_10MKA10CY040
+        {
+            get => _prm_10MKA10CY040;
+            set => Set(ref _prm_10MKA10CY040, value);
+        }
+
+        private double _prm_10MKA20CY020;
+        public double Prm_10MKA20CY020
+        {
+            get => _prm_10MKA20CY020;
+            set => Set(ref _prm_10MKA20CY020, value);
+        }
+
+        private double _prm_10MKA20CY030;
+        public double Prm_10MKA20CY030
+        {
+            get => _prm_10MKA20CY030;
+            set => Set(ref _prm_10MKA20CY030, value);
+        }
+
+        private double _prm_10MKA20CY040;
+        public double Prm_10MKA20CY040
+        {
+            get => _prm_10MKA20CY040;
+            set => Set(ref _prm_10MKA20CY040, value);
+        }
         #endregion
 
         #region Комманды
@@ -597,7 +762,18 @@ namespace BN.ViewModels.Base
                                     Prm_10MAD10CY020 = rtrn_prm_st6_gr2[0];
                                     Prm_10MAD10CY030 = rtrn_prm_st6_gr2[1];
                                     Prm_10MAD10CY040 = rtrn_prm_st6_gr2[3];
-                                    ///////////////////////////////////////
+                                    Prm_10MAD20CY020 = rtrn_prm_st6_gr2[7];
+                                    Prm_10MAD20CY030 = rtrn_prm_st6_gr2[2];
+                                    Prm_10MAD20CY040 = rtrn_prm_st6_gr2[4];
+                                    Prm_10MAK10CY020 = rtrn_prm_st6_gr2[11];
+                                    Prm_10MAK10CY030 = rtrn_prm_st6_gr3[0];
+                                    Prm_10MAK10CY040 = rtrn_prm_st6_gr2[12];
+                                    Prm_10MKA10CY020 = rtrn_prm_st6_gr2[9];
+                                    Prm_10MKA10CY030 = rtrn_prm_st6_gr2[5];
+                                    Prm_10MKA10CY040 = rtrn_prm_st6_gr2[10];
+                                    Prm_10MKA20CY020 = rtrn_prm_st6_gr2[8];
+                                    Prm_10MKA20CY030 = rtrn_prm_st6_gr2[6];
+                                    Prm_10MKA20CY040 = rtrn_prm_st6_gr2[13];
                                     Prm_10MAD20CG010 = rtrn_prm_st6_gr4[0];
                                     
                                     Bckgrd_10MAD10CY011 = bckgrd_st6_gr0[0];
@@ -622,7 +798,18 @@ namespace BN.ViewModels.Base
                                     Bckgrd_10MAD10CY020 = bckgrd_st6_gr2[0];
                                     Bckgrd_10MAD10CY030 = bckgrd_st6_gr2[1];
                                     Bckgrd_10MAD10CY040 = bckgrd_st6_gr2[3];
-                                    ///////////////////////////////////////
+                                    Bckgrd_10MAD20CY020 = bckgrd_st6_gr2[7];
+                                    Bckgrd_10MAD20CY030 = bckgrd_st6_gr2[2];
+                                    Bckgrd_10MAD20CY040 = bckgrd_st6_gr2[4];
+                                    Bckgrd_10MAK10CY020 = bckgrd_st6_gr2[11];
+                                    Bckgrd_10MAK10CY030 = bckgrd_st6_gr3[0];
+                                    Bckgrd_10MAK10CY040 = bckgrd_st6_gr2[12];
+                                    Bckgrd_10MKA10CY020 = bckgrd_st6_gr2[9];
+                                    Bckgrd_10MKA10CY030 = bckgrd_st6_gr2[5];
+                                    Bckgrd_10MKA10CY040 = bckgrd_st6_gr2[10];
+                                    Bckgrd_10MKA20CY020 = bckgrd_st6_gr2[8];
+                                    Bckgrd_10MKA20CY030 = bckgrd_st6_gr2[6];
+                                    Bckgrd_10MKA20CY040 = bckgrd_st6_gr2[13];
                                     Bckgrd_10MAD20CG010 = bckgrd_st6_gr4[0];
                                 }
                                 else//Вернулся массив размерностью 101. Значит не удалось считать регистры.

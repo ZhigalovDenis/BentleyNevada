@@ -19,7 +19,7 @@
             <Setter Property="Foreground" Value="#008800"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="ContentStringFormat" Value="0.000 мм"/>
-            <Setter Property="Width" Value="70"/>
+            <Setter Property="Width" Value="75"/>
             <Setter Property="Height" Value="30"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
