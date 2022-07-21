@@ -12,12 +12,12 @@ namespace BN.Models
     {
         private readonly DriveInfo[] allDrives = DriveInfo.GetDrives();
         private readonly string CurDir = Directory.GetCurrentDirectory();
-        private const int AllowedFreeSpace = 8000; // Размер в Мб
+        private const int AllowedFreeSpace = 1000; // Размер в Мб
         /// <summary>
         /// Проверяет кол-во свободного места на диске. 
         /// </summary>
         /// <returns></returns>
-        public bool CheckFreeSpaceOnDisk()
+        private bool CheckFreeSpaceOnDisk()
         {
             string DiskName = CurDir.Substring(0, 3);
             bool IsCkecked = false;
@@ -52,27 +52,65 @@ namespace BN.Models
             //string CurDir = Directory.GetCurrentDirectory();
             string NewDir = CurDir + "\\Archive";
             bool IsCreated;
-            try
+            if(CheckFreeSpaceOnDisk() == true)
             {
-                // Проверяем существет ли директория
-                if (Directory.Exists(NewDir))
+                try
                 {
-                    //Папка уже существует создовать не надо
-                    IsCreated = true;
+                    // Проверяем существет ли директория
+                    if (Directory.Exists(NewDir))
+                    {
+                        //Папка уже существует создовать не надо
+                        IsCreated = true;
+                    }
+                    else
+                    {
+                        // Пытаемся создать директорию
+                        Directory.CreateDirectory(NewDir);
+                        IsCreated = true;
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    // Пытаемся создать директорию
-                    Directory.CreateDirectory(NewDir);
-                    IsCreated = true;
+                    MessageBox.Show("Не возможно создать дирректорию");
+                    IsCreated = false;
                 }
+                return IsCreated;
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Не возможно создать дирректорию");
-                IsCreated = false;
+                return false;
             }
-            return IsCreated;
         }
+
+
+
+        //public void Archiving(double[] prm_arch)
+        //{
+        //    if (CreateDirectory() == true)
+        //    {
+        //        DateTime dt0 = DateTime.Now;
+        //        string str_dt1 = Convert.ToString(dt0);
+        //        string str_dt2 = str_dt1.Replace(':', '_');
+        //        string Path = CurDir + "\\Archive" + "\\" + str_dt2 + ".txt";
+        //        if()
+        //        FileInfo info = new FileInfo(Path);
+        //        long SizeOfFile = info.Length;
+        //        using (var sw = new StreamWriter(Path))
+        //        {
+        //            sw.WriteLine("Дата/Время;Параметр1;Параметр2;Параметр3;Параметр4");
+        //            int[] array = new int[4];
+        //            Random rand = new Random();
+        //            sw.Write(DateTime.Now);
+        //            for (int y = 0; y < 4; y++)
+        //            {
+        //                array[y] = rand.Next(1, 21);
+        //                sw.Write(";" + array[y]);
+        //            }
+        //            sw.WriteLine();
+        //            sw.Flush();
+        //        }
+        //    }
+        //}   
+            
     }
 }
