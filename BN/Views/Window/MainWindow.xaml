@@ -31,7 +31,7 @@
                             <Button Content="Отключить 10CJJ20" Command="{Binding Cmd_DisconFromRack_st6}" IsEnabled="{Binding Bt_DisconAct_st6}"/>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <CheckBox Content="Архивация" IsChecked="{Binding Chbx_Arch_st6}" IsEnabled="{Binding Cmd_StartArchiving_st6}"/>
+                            <CheckBox Content="Архивация" IsChecked="{Binding Chbx_Arch_st6}" IsEnabled="{Binding Chbx_ArchAct_st6}"/>
                         </StatusBarItem>
                     </StatusBar>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="26,193,0,0" Background="{Binding Bckgrd_10MAD10CG010}"/>

@@ -663,7 +663,6 @@ namespace BN.ViewModels.Base
         #region Комманды
         public RelayCommand Cmd_ConToRack_st6 { get; set; }
         public RelayCommand Cmd_DisconFromRack_st6 { get; set; }
-        public RelayCommand Cmd_StartArchiving_st6 { get; set; }
         #endregion
 
         public MainWindowViewModel()
@@ -832,8 +831,13 @@ namespace BN.ViewModels.Base
                                     Bckgrd_10MKA20CY040 = bckgrd_st6_gr2[13];
                                     Bckgrd_10MAD20CG010 = bckgrd_st6_gr4[0];
 
-                                    DataArchiving dataArchiving_st6 = new DataArchiving();
-                                   // bool  test = dataArchiving_st6.CheckFreeSpaceOnDisk();
+                                     if(Chbx_Arch_st6 == true) //Если CheckBox "Архивация" активирован. 
+                                    {
+                                        DataArchiving dataArchiving_st6 = new DataArchiving();
+                                        //bool  test = dataArchiving_st6.CheckFreeSpaceOnDisk();
+                                        dataArchiving_st6.CreateDirectory();
+                                    }
+
                                 }
                                 else//Вернулся массив размерностью 101. Значит не удалось считать регистры.
                                 {
@@ -859,7 +863,8 @@ namespace BN.ViewModels.Base
                                Bt_ConAct_st6 = true;
                                Ipfld_IPAdrrAct_st6 = true;
                                Bt_DisconAct_st6 = false;
-                               Chbx_ArchAct_st6 = false;     
+                               Chbx_ArchAct_st6 = false;
+                               Chbx_Arch_st6 = false; 
                             }
                         };
                         timer_st6.Start();
@@ -881,11 +886,6 @@ namespace BN.ViewModels.Base
 
             });
 
-            Cmd_StartArchiving_st6 = new RelayCommand(o =>
-            {
-                Chbx_Arch_st6 = true;
-
-            });
 
         }
     }
