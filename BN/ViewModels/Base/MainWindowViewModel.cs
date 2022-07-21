@@ -368,7 +368,7 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-        #region Активность кнопки подключить для ПТ-6 
+        #region Активность кнопки "Подключить" для ПТ-6 
         private bool _bt_ConAct_st6 = true;
         public bool Bt_ConAct_st6
         {
@@ -377,7 +377,7 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-        #region Кнопка отключить для ПТ-6
+        #region Кнопка "Отключить" для ПТ-6
         private bool _bt_Discon_st6;
         public bool Bt_Discon_st6
         {
@@ -386,12 +386,30 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-        #region Активность кнопки отключить для ПТ-6 
+        #region Активность кнопки "Отключить" для ПТ-6 
         private bool _bt_DisconAct_st6 = false;
         public bool Bt_DisconAct_st6
         {
             get => _bt_DisconAct_st6;
             set => Set(ref _bt_DisconAct_st6, value);
+        }
+        #endregion
+
+        #region CheckBox "Архивация"
+        private bool _chbx_Arch_st6;
+        public bool Chbx_Arch_st6
+        {
+            get => _chbx_Arch_st6;
+            set => Set(ref _chbx_Arch_st6, value);
+        }
+        #endregion
+
+        #region Активность CheckBox "Архивация"
+        private bool _chbx_ArchAct_st6;
+        public bool Chbx_ArchAct_st6
+        {
+            get => _chbx_ArchAct_st6;
+            set => Set(ref _chbx_ArchAct_st6, value);
         }
         #endregion
 
@@ -645,6 +663,7 @@ namespace BN.ViewModels.Base
         #region Комманды
         public RelayCommand Cmd_ConToRack_st6 { get; set; }
         public RelayCommand Cmd_DisconFromRack_st6 { get; set; }
+        public RelayCommand Cmd_StartArchiving_st6 { get; set; }
         #endregion
 
         public MainWindowViewModel()
@@ -664,6 +683,7 @@ namespace BN.ViewModels.Base
                         Bt_ConAct_st6 = false;
                         Ipfld_IPAdrrAct_st6 = false;
                         Bt_DisconAct_st6 = true;
+                        Chbx_ArchAct_st6 = true;
 
                         var timer_st6 = new DispatcherTimer(DispatcherPriority.Render);
                         timer_st6.Interval = TimeSpan.FromSeconds(1);
@@ -811,6 +831,9 @@ namespace BN.ViewModels.Base
                                     Bckgrd_10MKA20CY030 = bckgrd_st6_gr2[6];
                                     Bckgrd_10MKA20CY040 = bckgrd_st6_gr2[13];
                                     Bckgrd_10MAD20CG010 = bckgrd_st6_gr4[0];
+
+                                    DataArchiving dataArchiving_st6 = new DataArchiving();
+                                   // bool  test = dataArchiving_st6.CheckFreeSpaceOnDisk();
                                 }
                                 else//Вернулся массив размерностью 101. Значит не удалось считать регистры.
                                 {
@@ -836,6 +859,7 @@ namespace BN.ViewModels.Base
                                Bt_ConAct_st6 = true;
                                Ipfld_IPAdrrAct_st6 = true;
                                Bt_DisconAct_st6 = false;
+                               Chbx_ArchAct_st6 = false;     
                             }
                         };
                         timer_st6.Start();
@@ -854,6 +878,12 @@ namespace BN.ViewModels.Base
             Cmd_DisconFromRack_st6 = new RelayCommand(o =>
             {
                 Bt_Discon_st6 = true;
+
+            });
+
+            Cmd_StartArchiving_st6 = new RelayCommand(o =>
+            {
+                Chbx_Arch_st6 = true;
 
             });
 

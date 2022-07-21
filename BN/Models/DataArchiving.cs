@@ -12,7 +12,7 @@ namespace BN.Models
     {
         private readonly DriveInfo[] allDrives = DriveInfo.GetDrives();
         private readonly string CurDir = Directory.GetCurrentDirectory();
-        private const int AllowedFreeSpace = 1000; // Размер в Мб
+        private const int AllowedFreeSpace = 8000; // Размер в Мб
 
         public bool CheckFreeSpaceOnDisk()
         {
