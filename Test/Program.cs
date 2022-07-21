@@ -1,8 +1,10 @@
 ﻿using EasyModbus;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Test
@@ -12,23 +14,49 @@ namespace Test
 
         static void Main(string[] args)
         {
-            //ushort _ProportionalValue = 500;
-            //ushort GatewayFullScaleValue = 16383;
-            //byte UpperMonitorRange = 1;
-            //sbyte LowerMonitorRange = -1;
-            //double result;
 
-            ushort _ProportionalValue = 500;
-            ushort GatewayFullScaleValue = 16383;
-            double UpperMonitorRange = 1;
-            double LowerMonitorRange = -1;
-            double result;
+            string CurDir = Directory.GetCurrentDirectory();
+            string NewDir = CurDir + "\\Archive";
+            DateTime dt0 = DateTime.Now;
+            string dt1 = Convert.ToString(dt0);
+            string dt2 = dt1.Replace(':','_');
+            string Path = NewDir + "\\" + dt2 + ".txt";
 
-            int a = 500, b = 23;
-            double c = (double) a / b;
+            using (var sw = new StreamWriter(Path))
+            {
+                sw.WriteLine("Дата/Время;Параметр1;Параметр2;Параметр3;Параметр4");
+                int[] array = new int[4];
+                Random rand = new Random();
 
-            result =  ((double)_ProportionalValue / GatewayFullScaleValue) * ((double) UpperMonitorRange - LowerMonitorRange) + (double) LowerMonitorRange;
-            Console.WriteLine(result);
+                //FileInfo info = new FileInfo(Path);
+                //long SizeOfFile = info.Length;
+
+                while (true)
+                {
+                    FileInfo info = new FileInfo(Path);
+                    long SizeOfFile = info.Length;
+                    sw.Write(DateTime.Now);
+                    for (int y = 0; y < 4; y++)
+                    {
+                        array[y] = rand.Next(1, 21);
+                        sw.Write(";" + array[y]);
+                    }
+                    sw.WriteLine();
+                    Thread.Sleep(1000);
+                    sw.Flush();
+                }  
+            }
+            //DataArchiving test  = new DataArchiving();
+            //bool test1 = test.CheckFreeSpaceOnDisk();
+            //if (test1)
+            //{
+            //    bool test2 = test.CreateDirectory();
+            //    if (test2)
+            //    {
+
+            //    }
+            //}
+            //test.CreateDirectory();
         }
     }
 }
