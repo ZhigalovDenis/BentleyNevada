@@ -674,6 +674,7 @@ namespace BN.ViewModels.Base
                 Bt_Discon_st6 = false;
 
                 //string TestPath = "Archive.txt";
+                string Path = Directory.GetCurrentDirectory() + "\\Archive" + "\\" + "Archive.txt"; 
 
                 var bnRack_st6 = new BNRack();
 
@@ -837,54 +838,21 @@ namespace BN.ViewModels.Base
 
                                      if(Chbx_Arch_st6 == true) //Если CheckBox "Архивация" активирован. 
                                     {
-
-                                        //DateTime dt0 = DateTime.Now;
-                                        //string str_dt1 = Convert.ToString(dt0);
-                                        //string str_dt2 = str_dt1.Replace(':', '_');
-
-                                        //string FirstLine;                                     
-
-                                        //using (var sw = new StreamWriter(TestPath, true))  // Создаем пустой если не был создан. Иначе не чего будет читать. 
-                                        //{ 
-                                        //}
-
-                                        //using (var reader = new StreamReader(TestPath))
-                                        //{
-                                        //    FirstLine = reader.ReadLine();
-                                        //}
-
-                                        //FileInfo info = new FileInfo(TestPath);
-                                        //long SizeOfFile = info.Length;
-
-                                        //if (SizeOfFile < 2000)  //Если размер меньше 2Кб то пишим в файл
-                                        //{
-                                        //    using (var sw = new StreamWriter(TestPath, true))
-                                        //    {
-                                        //        if (FirstLine == null) // Если файл пустой то записать заголовок
-                                        //        {
-                                        //            sw.WriteLine("Дата/Время;Параметр1;Параметр2;Параметр3;Параметр4");
-                                        //        }
-                                        //        else // Если файл не пустой заполнять массивом
-                                        //        {
-                                        //            int[] array = new int[4];
-                                        //            Random rand = new Random();
-                                        //            sw.Write(DateTime.Now);
-                                        //            for (int y = 0; y < 4; y++)
-                                        //            {
-                                        //                array[y] = rand.Next(1, 21);
-                                        //                sw.Write(";" + array[y]);
-                                        //            }
-                                        //            sw.WriteLine();
-                                        //        }
-                                        //    }
-                                        //}
-                                        //else // Если размер больще 2 Кб создаем новый 
-                                        //{
-                                        //    TestPath = "Archive_" + str_dt2 + ".txt";
-                                        //}
+                                        DateTime dt0 = DateTime.Now;
+                                        string str_dt1 = Convert.ToString(dt0);
+                                        string str_dt2 = str_dt1.Replace(':', '_');
 
                                         DataArchiving test = new DataArchiving();
-                                        test.Archiving(rtrn_prm_st6_gr4);
+                                        test.CreateDirectory();
+                                        if(test.CheckSizeOfFile(Path) == true)
+                                        {
+                                            test.Archiving(rtrn_prm_st6_gr4, Path);
+                                        }
+                                        else
+                                        {
+                                            Path = Directory.GetCurrentDirectory() + "\\Archive" + "\\" + str_dt2 + ".txt";
+                                            test.Archiving(rtrn_prm_st6_gr4, Path);
+                                        }                                       
                                      }
 
                                 }
@@ -893,12 +861,14 @@ namespace BN.ViewModels.Base
                                     bnRack_st6.Disconnection();
                                     Tbl_Status_st6 = "Потеря связи";
                                     Tbl_Bckgrnd_st6 = "Red";
-                                    Sb_Bckgrnd_st6 = "BlueViolet";                                
+                                    Sb_Bckgrnd_st6 = "BlueViolet";
+                                    Chbx_ArchAct_st6 = false;
                                     if (bnRack_st6.Reconnection(Ipfld_AdressIP_st6, 502) == true)//Проверка повторного подключения к устройству
                                     {
                                         Tbl_Status_st6 = "Подключено";
                                         Tbl_Bckgrnd_st6 = "Default";
                                         Sb_Bckgrnd_st6 = "LightGreen";
+                                        Chbx_ArchAct_st6 = true;
                                     }
                                 }
                              

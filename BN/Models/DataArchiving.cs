@@ -13,7 +13,6 @@ namespace BN.Models
         private readonly DriveInfo[] allDrives = DriveInfo.GetDrives();
         private readonly string CurDir = Directory.GetCurrentDirectory();
         private const int AllowedFreeSpace = 1000; // Размер в Мб
-       // private string Path = Directory.GetCurrentDirectory() + "\\Archive" + "\\" + "Archive.txt";
 
         /// <summary>
         /// Проверяет кол-во свободного места на диске. 
@@ -83,13 +82,20 @@ namespace BN.Models
                 return false;
             }
         }
-
-        private bool CheckSizeOfFile(string Path)
+        /// <summary>
+        /// Проверка размера архивного файла
+        /// </summary>
+        /// <param name="Path"></param>
+        /// <returns></returns>
+        public bool CheckSizeOfFile(string Path)
         {
-           string FilePath = Path;
-            FileInfo info = new FileInfo(FilePath);
+            using (var sw = new StreamWriter(Path, true))  // Создаем пустой если не был создан. Иначе не чего будет читать. 
+            {
+            }
+
+            FileInfo info = new FileInfo(Path);
             long SizeOfFile = info.Length;
-            if(SizeOfFile < 2000)
+            if(SizeOfFile < 500)
             {
                 return true;
             }
@@ -98,39 +104,15 @@ namespace BN.Models
                 return false;
             }
         }
-
-        public void Archiving(double[] prm_arch)
+        /// <summary>
+        /// Архивирование
+        /// </summary>
+        /// <param name="prm_arch"></param>
+        /// <param name="Path"></param>
+        public void Archiving(double[] prm_arch, string Path)
         {
             if (CreateDirectory() == true)
             {
-                //////////        DateTime dt0 = DateTime.Now;
-                //////////        string str_dt1 = Convert.ToString(dt0);
-                //////////        string str_dt2 = str_dt1.Replace(':', '_');
-                //////////        string Path = CurDir + "\\Archive" + "\\" + str_dt2 + ".txt";
-                //////////        if()
-                //////////        FileInfo info = new FileInfo(Path);
-                //////////        long SizeOfFile = info.Length;
-                //////////        using (var sw = new StreamWriter(Path))
-                //////////        {
-                //////////            sw.WriteLine("Дата/Время;Параметр1;Параметр2;Параметр3;Параметр4");
-                //////////            int[] array = new int[4];
-                //////////            Random rand = new Random();
-                //////////            sw.Write(DateTime.Now);
-                //////////            for (int y = 0; y < 4; y++)
-                //////////            {
-                //////////                array[y] = rand.Next(1, 21);
-                //////////                sw.Write(";" + array[y]);
-                //////////            }
-                //////////            sw.WriteLine();
-                //////////            sw.Flush();
-
-
-                DateTime dt0 = DateTime.Now;
-                string str_dt1 = Convert.ToString(dt0);
-                string str_dt2 = str_dt1.Replace(':', '_');
-                string Path = CurDir + "\\Archive" + "\\" + "Archive.txt";
-
-
                 string FirstLine;
 
                 using (var sw = new StreamWriter(Path, true))  // Создаем пустой если не был создан. Иначе не чего будет читать. 
@@ -141,35 +123,27 @@ namespace BN.Models
                 {
                     FirstLine = reader.ReadLine();
                 }
-             
-                if (CheckSizeOfFile(Path) == true)  //Если размер меньше 2Кб то пишим в файл
+
+                using (var sw = new StreamWriter(Path, true))
                 {
-                    using (var sw = new StreamWriter(Path, true))
+                    if (FirstLine == null) // Если файл пустой то записать заголовок
                     {
-                        if (FirstLine == null) // Если файл пустой то записать заголовок
+                        sw.WriteLine("Дата/Время;Параметр1;Параметр2;Параметр3;Параметр4");
+                    }
+                    else // Если файл не пустой заполнять массивом
+                    {
+                        int[] array = new int[4];
+                        Random rand = new Random();
+                        sw.Write(DateTime.Now);
+                        for (int y = 0; y < 4; y++)
                         {
-                            sw.WriteLine("Дата/Время;Параметр1;Параметр2;Параметр3;Параметр4");
+                            array[y] = rand.Next(1, 21);
+                            sw.Write(";" + array[y]);
                         }
-                        else // Если файл не пустой заполнять массивом
-                        {
-                            int[] array = new int[4];
-                            Random rand = new Random();
-                            sw.Write(DateTime.Now);
-                            for (int y = 0; y < 4; y++)
-                            {
-                                array[y] = rand.Next(1, 21);
-                                sw.Write(";" + array[y]);
-                            }
-                            sw.WriteLine();
-                        }
+                        sw.WriteLine();
                     }
                 }
-                else // Если размер больще 2 Кб создаем новый 
-                {
-                    Path = "Archive_" + str_dt2 + ".txt";
-                }
             }
-        }   
-            
+        }              
     }
 }
