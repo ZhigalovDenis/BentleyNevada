@@ -94,8 +94,8 @@ namespace BN.Models
             }
 
             FileInfo info = new FileInfo(Path);
-            long SizeOfFile = info.Length;
-            if(SizeOfFile < 500)
+            long SizeOfFile = (info.Length/1024)/1024; //Размер в МБ 
+            if(SizeOfFile < 1) 
             {
                 return true;
             }
@@ -109,7 +109,7 @@ namespace BN.Models
         /// </summary>
         /// <param name="prm_arch"></param>
         /// <param name="Path"></param>
-        public void Archiving(double[] prm_arch, string Path)
+        public void Archiving(double[] ArrOfPrm, string Path)
         {
             if (CreateDirectory() == true)
             {
@@ -128,17 +128,17 @@ namespace BN.Models
                 {
                     if (FirstLine == null) // Если файл пустой то записать заголовок
                     {
-                        sw.WriteLine("Дата/Время;Параметр1;Параметр2;Параметр3;Параметр4");
+                        sw.WriteLine("Дата/Время;10MAD10CY011;10MAD10CY012;10MAD20CY011;10MAD20CY012;10MAD30CY011;10MAD30CY012;10MAD40CY011;10MAD40CY012;" +
+                                     "10MAD50CY011;10MAD50CY012;10MAD60CY011;10MAD60CY012;10MKA10CY011;10MKA10CY012;10MKA20CY011;10MKA20CY012;10MAD10CG010;" +
+                                     "10MAD10CG011;10MAD10CG012;10MAD10CY020;10MAD10CY030;10MAD20CY030;10MAD10CY040;10MAD20CY040;10MKA10CY030;10MKA20CY030;" +
+                                     "10MAD20CY020;10MKA20CY020;10MKA10CY020;10MKA10CY040;10MAK10CY020;10MAK10CY040;10MKA20CY040;10MAK10CY030;10MAD20CG010");
                     }
                     else // Если файл не пустой заполнять массивом
                     {
-                        int[] array = new int[4];
-                        Random rand = new Random();
                         sw.Write(DateTime.Now);
-                        for (int y = 0; y < 4; y++)
+                        foreach (double item in ArrOfPrm)
                         {
-                            array[y] = rand.Next(1, 21);
-                            sw.Write(";" + array[y]);
+                           sw.Write(";" + item);
                         }
                         sw.WriteLine();
                     }

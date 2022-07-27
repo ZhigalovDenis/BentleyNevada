@@ -673,7 +673,6 @@ namespace BN.ViewModels.Base
             {
                 Bt_Discon_st6 = false;
 
-                //string TestPath = "Archive.txt";
                 string Path = Directory.GetCurrentDirectory() + "\\Archive" + "\\" + "Archive.txt"; 
 
                 var bnRack_st6 = new BNRack();
@@ -838,20 +837,21 @@ namespace BN.ViewModels.Base
 
                                      if(Chbx_Arch_st6 == true) //Если CheckBox "Архивация" активирован. 
                                     {
+                                        double[] rtrn_prm_st6_arch = rtrn_prm_st6_gr0.Concat(rtrn_prm_st6_gr1).Concat(rtrn_prm_st6_gr2).Concat(rtrn_prm_st6_gr3).Concat(rtrn_prm_st6_gr4).ToArray();
                                         DateTime dt0 = DateTime.Now;
                                         string str_dt1 = Convert.ToString(dt0);
                                         string str_dt2 = str_dt1.Replace(':', '_');
 
-                                        DataArchiving test = new DataArchiving();
-                                        test.CreateDirectory();
-                                        if(test.CheckSizeOfFile(Path) == true)
+                                        DataArchiving ArchData_st6 = new DataArchiving();
+                                         ArchData_st6.CreateDirectory();
+                                        if(ArchData_st6.CheckSizeOfFile(Path) == true)
                                         {
-                                            test.Archiving(rtrn_prm_st6_gr4, Path);
+                                            ArchData_st6.Archiving(rtrn_prm_st6_arch, Path);
                                         }
                                         else
                                         {
                                             Path = Directory.GetCurrentDirectory() + "\\Archive" + "\\" + str_dt2 + ".txt";
-                                            test.Archiving(rtrn_prm_st6_gr4, Path);
+                                            ArchData_st6.Archiving(rtrn_prm_st6_arch, Path);
                                         }                                       
                                      }
 
