@@ -95,8 +95,8 @@ namespace BN.Models
             }
 
             FileInfo info = new FileInfo(Path);
-            long SizeOfFile = info.Length;///1024)/1024; //Размер в МБ 
-            if(SizeOfFile < 5000) 
+            long SizeOfFile = (info.Length/1024)/1024; //Размер в МБ 
+            if(SizeOfFile < 1) 
             {
                 return true;
             }
@@ -198,7 +198,11 @@ namespace BN.Models
                
             }
         }
-
+        /// <summary>
+        /// Получение последнего созданного файла
+        /// </summary>
+        /// <param name="Path"></param>
+        /// <returns></returns>
         private string GetLastFile(string Path)
         {
             DirectoryInfo directory = new DirectoryInfo(Path);
@@ -208,7 +212,11 @@ namespace BN.Models
             string PathLastFile = Path + LastFile;
             return PathLastFile;
         }
-
+        /// <summary>
+        /// Чтение последнего созданного файла
+        /// </summary>
+        /// <param name="Path"></param>
+        /// <returns></returns>
         public string[] ReadLastFile(string Path)
         {
              String LastPath = GetLastFile(Path);
