@@ -673,7 +673,9 @@ namespace BN.ViewModels.Base
             {
                 Bt_Discon_st6 = false;
 
-                string Path = Directory.GetCurrentDirectory() + "\\Archive" + "\\" + "Archive.txt"; 
+                string Path0 = Directory.GetCurrentDirectory() + "\\Archive\\Data\\" + "Data.txt";
+                string Path1 = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\" + "Jurnal.txt";
+
 
                 var bnRack_st6 = new BNRack();
 
@@ -687,6 +689,13 @@ namespace BN.ViewModels.Base
                         Ipfld_IPAdrrAct_st6 = false;
                         Bt_DisconAct_st6 = true;
                         Chbx_ArchAct_st6 = true;
+
+                        string[] NewArrOfStatus = new string[35];
+                        string[] KKS = {"10MAD10CY011","10MAD10CY012","10MAD20CY011","10MAD20CY012","10MAD30CY011","10MAD30CY012","10MAD40CY011","10MAD40CY012", 
+                                        "10MAD50CY011","10MAD50CY012","10MAD60CY011","10MAD60CY012","10MKA10CY011","10MKA10CY012","10MKA20CY011","10MKA20CY012",
+                                        "10MAD10CG010","10MAD10CG011","10MAD10CG012","10MAD10CY020","10MAD10CY030","10MAD20CY030","10MAD10CY040","10MAD20CY040",
+                                        "10MKA10CY030","10MKA20CY030","10MAD20CY020","10MKA20CY020","10MKA10CY020","10MKA10CY040","10MAK10CY020","10MAK10CY040",
+                                        "10MKA20CY040","10MAK10CY030","10MAD20CG010"};
 
                         var timer_st6 = new DispatcherTimer(DispatcherPriority.Render);
                         timer_st6.Interval = TimeSpan.FromSeconds(1);
@@ -763,6 +772,7 @@ namespace BN.ViewModels.Base
                                                                                              AH_R_1_st6_gr4, AL_R_0_st6_gr4, AL_R_1_st6_gr4,
                                                                                              UpperMonitorRange_st6_gr4, LowerMonitorRange_st6_gr4);
 
+
                                     Prm_10MAD10CY011 = rtrn_prm_st6_gr0[0];
                                     Prm_10MAD10CY012 = rtrn_prm_st6_gr0[1];
                                     Prm_10MAD20CY011 = rtrn_prm_st6_gr0[2];
@@ -835,25 +845,43 @@ namespace BN.ViewModels.Base
                                     Bckgrd_10MKA20CY040 = bckgrd_st6_gr2[13];
                                     Bckgrd_10MAD20CG010 = bckgrd_st6_gr4[0];
 
-                                     if(Chbx_Arch_st6 == true) //Если CheckBox "Архивация" активирован. 
+
+
+                                     if (Chbx_Arch_st6 == true) //Если CheckBox "Архивация" активирован. 
                                     {
                                         double[] rtrn_prm_st6_arch = rtrn_prm_st6_gr0.Concat(rtrn_prm_st6_gr1).Concat(rtrn_prm_st6_gr2).Concat(rtrn_prm_st6_gr3).Concat(rtrn_prm_st6_gr4).ToArray();
+                                        string[] ArrOFStatus = bckgrd_st6_gr0.Concat(bckgrd_st6_gr1).Concat(bckgrd_st6_gr2).Concat(bckgrd_st6_gr3).Concat(bckgrd_st6_gr4).ToArray();
                                         DateTime dt0 = DateTime.Now;
                                         string str_dt1 = Convert.ToString(dt0);
                                         string str_dt2 = str_dt1.Replace(':', '_');
 
                                         DataArchiving ArchData_st6 = new DataArchiving();
-                                         ArchData_st6.CreateDirectory();
-                                        if(ArchData_st6.CheckSizeOfFile(Path) == true)
+                                        ArchData_st6.DirToCreate = "\\Archive\\Data\\";
+                                        ArchData_st6.CreateDirectory();
+                                        ArchData_st6.DirToCreate = "\\Archive\\Jurnal\\";
+                                        ArchData_st6.CreateDirectory();
+
+                                        if (ArchData_st6.CheckSizeOfFile(Path0) == true)
                                         {
-                                            ArchData_st6.Archiving(rtrn_prm_st6_arch, Path);
+                                            ArchData_st6.ArchivingData(rtrn_prm_st6_arch, Path0);
                                         }
                                         else
                                         {
-                                            Path = Directory.GetCurrentDirectory() + "\\Archive" + "\\" + str_dt2 + ".txt";
-                                            ArchData_st6.Archiving(rtrn_prm_st6_arch, Path);
-                                        }                                       
-                                     }
+                                            Path0 = Directory.GetCurrentDirectory() + "\\Archive\\Data\\" + str_dt2 + ".txt";
+                                            ArchData_st6.ArchivingData(rtrn_prm_st6_arch, Path0);
+                                        }
+
+                                        if (ArchData_st6.CheckSizeOfFile(Path1) == true)
+                                        {
+                                            ArchData_st6.AchivingJurnal(ArrOFStatus, NewArrOfStatus, KKS, Path1);
+                                        }
+                                        else
+                                        {
+                                            Path1 = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\" + str_dt2 + ".txt";
+                                            ArchData_st6.AchivingJurnal(ArrOFStatus, NewArrOfStatus, KKS, Path1);
+                                        }
+                                        ArrOFStatus.CopyTo(NewArrOfStatus, 0);
+                                    }
 
                                 }
                                 else//Вернулся массив размерностью 101. Значит не удалось считать регистры.

@@ -13,6 +13,7 @@ namespace BN.Models
         private readonly DriveInfo[] allDrives = DriveInfo.GetDrives();
         private readonly string CurDir = Directory.GetCurrentDirectory();
         private const int AllowedFreeSpace = 1000; // Размер в Мб
+        public string DirToCreate { get; set; }
 
         /// <summary>
         /// Проверяет кол-во свободного места на диске. 
@@ -50,8 +51,8 @@ namespace BN.Models
         /// <returns></returns>
         public bool CreateDirectory()
         {
-            //string CurDir = Directory.GetCurrentDirectory();
-            string NewDir = CurDir + "\\Archive";
+            string Dir = DirToCreate;
+            string NewDir = CurDir + Dir;
             bool IsCreated;
             if(CheckFreeSpaceOnDisk() == true)
             {
@@ -94,8 +95,8 @@ namespace BN.Models
             }
 
             FileInfo info = new FileInfo(Path);
-            long SizeOfFile = (info.Length/1024)/1024; //Размер в МБ 
-            if(SizeOfFile < 1) 
+            long SizeOfFile = info.Length;///1024)/1024; //Размер в МБ 
+            if(SizeOfFile < 5000) 
             {
                 return true;
             }
@@ -105,11 +106,11 @@ namespace BN.Models
             }
         }
         /// <summary>
-        /// Архивирование
+        /// Архивирование измеряемых параметров
         /// </summary>
         /// <param name="prm_arch"></param>
         /// <param name="Path"></param>
-        public void Archiving(double[] ArrOfPrm, string Path)
+        public void ArchivingData(double[] ArrOfPrm, string Path)
         {
             if (CreateDirectory() == true)
             {
@@ -145,5 +146,57 @@ namespace BN.Models
                 }
             }
         }              
+
+        public void AchivingJurnal(string[] ArrOfStatus, string[] NewArrOfStatus, string[] KKS, string Path)
+        {
+            if (CreateDirectory() == true)
+            {
+
+                string FirstLine;
+
+                using (var sw = new StreamWriter(Path, true))  // Создаем пустой если не был создан. Иначе не чего будет читать. 
+                {
+                }
+
+                using (var reader = new StreamReader(Path))
+                {
+                    FirstLine = reader.ReadLine();
+                }
+
+                if(FirstLine == null)
+                {
+                    using (var sw = new StreamWriter(Path, true))  
+                    {
+                        sw.WriteLine("Дата/Время;Параметр;Статус");
+                    }
+                }
+
+                for (int i = 0; i < NewArrOfStatus.Length; i++)
+                {
+                    if (ArrOfStatus[i] != NewArrOfStatus[i])
+                    {
+                        using (var sw = new StreamWriter(Path, true))
+                        {
+                            switch (ArrOfStatus[i])
+                            {
+                                case "#e5e5e5":
+                                    sw.WriteLine(DateTime.Now + ";" + KKS[i] + ";" + "Норма");
+                                    break;
+                                case "Yellow":
+                                    sw.WriteLine(DateTime.Now + ";" + KKS[i] + ";" + "Сработала предупредительная граница");
+                                    break;
+                                case "#FFFF4D39":
+                                    sw.WriteLine(DateTime.Now + ";" + KKS[i] + ";" + "Сработала аварийная граница");
+                                    break;
+                                case "Blue":
+                                    sw.WriteLine(DateTime.Now + ";" + KKS[i] + ";" + "Неисправность");
+                                    break;
+                            }
+                        }
+                    }
+                }
+               
+            }
+        }
     }
 }
