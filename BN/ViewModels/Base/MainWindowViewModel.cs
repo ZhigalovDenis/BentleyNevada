@@ -1,6 +1,7 @@
 ﻿using BN.Infrostructure.Commands;
 using BN.Models;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -662,6 +663,15 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
+        #region Обработанный журнал
+        private string[] _jurnal_st6;
+        public string[] Jurnal_st6
+        {
+            get =>_jurnal_st6;
+            set => Set(ref _jurnal_st6, value);
+        }
+        #endregion
+
         #region Комманды
         public RelayCommand Cmd_ConToRack_st6 { get; set; }
         public RelayCommand Cmd_DisconFromRack_st6 { get; set; }
@@ -848,7 +858,7 @@ namespace BN.ViewModels.Base
 
 
                                      if (Chbx_Arch_st6 == true) //Если CheckBox "Архивация" активирован. 
-                                    {
+                                     {
                                         double[] rtrn_prm_st6_arch = rtrn_prm_st6_gr0.Concat(rtrn_prm_st6_gr1).Concat(rtrn_prm_st6_gr2).Concat(rtrn_prm_st6_gr3).Concat(rtrn_prm_st6_gr4).ToArray();
                                         string[] ArrOFStatus = bckgrd_st6_gr0.Concat(bckgrd_st6_gr1).Concat(bckgrd_st6_gr2).Concat(bckgrd_st6_gr3).Concat(bckgrd_st6_gr4).ToArray();
                                         DateTime dt0 = DateTime.Now;
@@ -881,7 +891,11 @@ namespace BN.ViewModels.Base
                                             ArchData_st6.AchivingJurnal(ArrOFStatus, NewArrOfStatus, KKS, Path1);
                                         }
                                         ArrOFStatus.CopyTo(NewArrOfStatus, 0);
+                                        string Path2 = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\";
+                                        Jurnal_st6 = ArchData_st6.ReadLastFile(Path2);
+
                                     }
+
 
                                 }
                                 else//Вернулся массив размерностью 101. Значит не удалось считать регистры.

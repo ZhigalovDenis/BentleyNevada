@@ -108,7 +108,7 @@
             </TabItem>
             <TabItem Header="ГТ-7">
                 <Grid>
-                    <ListBox ItemsSource="{Binding Jurnal}"></ListBox>
+                    <ListBox ItemsSource="{ Binding Jurnal_st6}"></ListBox>
                 </Grid>
             </TabItem>
             <TabItem Header="ГТ-8" Visibility="Hidden"/>
