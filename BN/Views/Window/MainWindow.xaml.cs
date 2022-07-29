@@ -1,5 +1,4 @@
-﻿using BN.Views.Window;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,10 +25,5 @@ namespace BN
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            JurnalWindow jw = new JurnalWindow();
-            jw.Show(); 
-        }
     }
 }
