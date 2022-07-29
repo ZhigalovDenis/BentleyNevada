@@ -891,8 +891,8 @@ namespace BN.ViewModels.Base
                                             ArchData_st6.AchivingJurnal(ArrOFStatus, NewArrOfStatus, KKS, Path1);
                                         }
                                         ArrOFStatus.CopyTo(NewArrOfStatus, 0);
-                                        string Path2 = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\";
-                                        Jurnal_st6 = ArchData_st6.ReadLastFile(Path2);
+                                       /* string Path2 = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\";
+                                        Jurnal_st6 = ArchData_st6.ReadLastFile(Path2);*/
                                     }
 
 

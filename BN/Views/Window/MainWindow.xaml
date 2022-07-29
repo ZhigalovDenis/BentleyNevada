@@ -106,9 +106,8 @@
                     <Label Content="{Binding Prm_10MKA20CY040}" Style="{StaticResource Child_1_LabelOnImage}" Margin="1028,251,0,0" ToolTip="10MKA20CY040"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="ГТ-7">
+            <TabItem Header="ГТ-7" Visibility="Hidden">
                 <Grid>
-                    <ListBox ItemsSource="{ Binding Jurnal_st6}"></ListBox>
                 </Grid>
             </TabItem>
             <TabItem Header="ГТ-8" Visibility="Hidden"/>
