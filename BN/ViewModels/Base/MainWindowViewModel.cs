@@ -663,14 +663,14 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-      /*  #region Обработанный журнал
+       #region Обработанный журнал
         private string[] _jurnal_st6;
         public string[] Jurnal_st6
         {
             get =>_jurnal_st6;
             set => Set(ref _jurnal_st6, value);
         }
-        #endregion*/
+        #endregion*
 
         #region Комманды
         public RelayCommand Cmd_ConToRack_st6 { get; set; }
@@ -891,8 +891,10 @@ namespace BN.ViewModels.Base
                                             ArchData_st6.AchivingJurnal(ArrOFStatus, NewArrOfStatus, KKS, Path1);
                                         }
                                         ArrOFStatus.CopyTo(NewArrOfStatus, 0);
-                                       /* string Path2 = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\";
-                                        Jurnal_st6 = ArchData_st6.ReadLastFile(Path2);*/
+                                        string Path2 = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\";
+                                        ReadJurnal readJurnal = new ReadJurnal();
+                                        var ttt = readJurnal.ReadLastFile2(Path2);
+                                        /*Jurnal_st6 = ArchData_st6.ReadLastFile(Path2);*/
                                     }
 
 

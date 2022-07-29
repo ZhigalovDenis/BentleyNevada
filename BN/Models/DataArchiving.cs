@@ -15,6 +15,8 @@ namespace BN.Models
         private const int AllowedFreeSpace = 1000; // Размер в Мб
         public string DirToCreate { get; set; }
 
+
+
         /// <summary>
         /// Проверяет кол-во свободного места на диске. 
         /// </summary>
@@ -198,33 +200,7 @@ namespace BN.Models
                
             }
         }
-        /// <summary>
-        /// Получение последнего созданного файла
-        /// </summary>
-        /// <param name="Path"></param>
-        /// <returns></returns>
-        private string GetLastFile(string Path)
-        {
-            DirectoryInfo directory = new DirectoryInfo(Path);
-            FileInfo LastFile = directory.GetFiles()
-                         .OrderByDescending(f => f.LastWriteTime)
-                        .First();
-            string PathLastFile = Path + LastFile;
-            return PathLastFile;
-        }
-        /// <summary>
-        /// Чтение последнего созданного файла
-        /// </summary>
-        /// <param name="Path"></param>
-        /// <returns></returns>
-        public string[] ReadLastFile(string Path)
-        {
-             String LastPath = GetLastFile(Path);
-             using (StreamReader reader = new StreamReader(LastPath))
-             {
-                return reader.ReadToEnd().Split('\n');
-             }
-        }
+
 
     }
 }
