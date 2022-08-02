@@ -109,7 +109,26 @@
             <TabItem Header="ГТ-7">
                 <Grid>
                     <DataGrid x:Name="test" ItemsSource="{Binding Jurnal_st6}" AutoGenerateColumns="False">
-                        <DataGrid.Columns>
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding  STS}" Value="Норма">
+                                        <Setter Property="Background" Value="LightGreen"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding  STS}" Value="Сработала предупредительная граница">
+                                        <Setter Property="Background" Value="#FFF3D94B"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding  STS}" Value="Сработала аварийная граница">
+                                        <Setter Property="Background" Value="LightCoral"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding  STS}" Value="Неисправность">
+                                        <Setter Property="Background" Value="LightBlue"/>
+                                    </DataTrigger>
+
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+                            <DataGrid.Columns>
                                 <DataGridTextColumn Header="Дата/Время" Binding="{Binding DT}"/>
                                 <DataGridTextColumn Header="KKS код" Binding="{Binding KKS}"/>
                                 <DataGridTextColumn Header="Статус" Binding="{Binding STS}"/>
