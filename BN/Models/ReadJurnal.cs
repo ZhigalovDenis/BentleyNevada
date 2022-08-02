@@ -32,7 +32,7 @@ namespace BN.Models
             string LastPath = GetLastFile(Path);
             string[] file = File.ReadAllLines(LastPath);
             List<RJString> fileaslist = new List<RJString>();  
-                for (int i = 0; i < file.Length; i++)
+                for (int i = 1; i < file.Length; i++)
                 {
                     string[] lineoffile = file[i].Split(';');
                     var rjstring = new RJString() 
