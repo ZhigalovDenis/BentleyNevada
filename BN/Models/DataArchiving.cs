@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Windows;
 
 namespace BN.Models
@@ -196,7 +197,33 @@ namespace BN.Models
                
             }
         }
-
+        /// <summary>
+        /// Получение последнего созданного файла
+        /// </summary>
+        /// <param name="Path"></param>
+        /// <returns></returns>
+        private string GetLastFile(string Path)
+        {
+            DirectoryInfo directory = new DirectoryInfo(Path);
+            FileInfo LastFile = directory.GetFiles()
+                         .OrderByDescending(f => f.LastWriteTime)
+                        .First();
+            string PathLastFile = Path + LastFile;
+            return PathLastFile;
+        }
+        /// <summary>
+        /// Чтение последнего созданного файла
+        /// </summary>
+        /// <param name="Path"></param>
+        /// <returns></returns>
+        public string[] ReadLastFile(string Path)
+        {
+             String LastPath = GetLastFile(Path);
+             using (StreamReader reader = new StreamReader(LastPath))
+             {
+                return reader.ReadToEnd().Split('\n');
+             }
+        }
 
     }
 }
