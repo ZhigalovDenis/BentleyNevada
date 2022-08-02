@@ -10,7 +10,13 @@
         <vm:JurnalWindowViewModel/>
     </Window.DataContext>
     <Grid>
-        <DataGrid ItemsSource="{Binding Jurnal_st6}" AutoGenerateColumns="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="KKS фильр:"/>
+        <TextBox Text="{Binding KKSFilter_st6, UpdateSourceTrigger=PropertyChanged}"  Width="150" Height="20" HorizontalAlignment="Left" Margin="68,5,0,5"/>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding  JurnalFilter_st6}" AutoGenerateColumns="False">
             <DataGrid.RowStyle>
                 <Style TargetType="DataGridRow">
                     <Style.Triggers>
