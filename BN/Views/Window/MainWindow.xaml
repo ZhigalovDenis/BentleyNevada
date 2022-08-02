@@ -32,7 +32,7 @@
                             <CheckBox Content="Архивация" IsChecked="{Binding Chbx_Arch_st6}" IsEnabled="{Binding Chbx_ArchAct_st6}"/>
                         </StatusBarItem>
                         <StatusBarItem>
-                            <Button Content="Журнал" Command="{Binding OpenJurnalWindow_st6}" IsEnabled="{Binding Chbx_Arch_st6}"/>
+                            <Button Content="Журнал" Command="{Binding OpenJurnalWindow_st6}" IsEnabled="{Binding Bt_JurnalAct_st6}"/>
                         </StatusBarItem>
                     </StatusBar>
                     <Border Style="{StaticResource BorderForLabel}"  Margin="26,193,0,0" Background="{Binding Bckgrd_10MAD10CG010}"/>

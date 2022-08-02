@@ -381,6 +381,15 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
+        #region Активность кнопки "Журнал" для ПТ-6 
+        private bool _bt_JurnalAct_st6 = false;
+        public bool Bt_JurnalAct_st6
+        {
+            get => _bt_JurnalAct_st6;
+            set => Set(ref _bt_JurnalAct_st6, value);
+        }
+        #endregion
+
         #region Кнопка "Отключить" для ПТ-6
         private bool _bt_Discon_st6;
         public bool Bt_Discon_st6
@@ -872,6 +881,8 @@ namespace BN.ViewModels.Base
                                         ArchData_st6.CreateDirectory();
                                         ArchData_st6.DirToCreate = "\\Archive\\Jurnal\\";
                                         ArchData_st6.CreateDirectory();
+                                        Bt_JurnalAct_st6 = true;
+
 
                                         if (ArchData_st6.CheckSizeOfFile(Path0) == true)
                                         {
@@ -893,8 +904,7 @@ namespace BN.ViewModels.Base
                                             ArchData_st6.AchivingJurnal(ArrOFStatus, NewArrOfStatus, KKS, Path1);
                                         }
                                         ArrOFStatus.CopyTo(NewArrOfStatus, 0);
-                                       /* string Path2 = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\";
-                                        Jurnal_st6 = ArchData_st6.ReadLastFile(Path2);*/
+
                                     }
 
 
