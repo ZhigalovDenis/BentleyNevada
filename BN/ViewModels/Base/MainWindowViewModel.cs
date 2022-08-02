@@ -1,11 +1,12 @@
 ﻿using BN.Infrostructure.Commands;
 using BN.Models;
+using BN.Views.Window;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Windows;
 using System.Windows.Threading;
+
 namespace BN.ViewModels.Base
 {
     internal class MainWindowViewModel : ViewModel
@@ -675,6 +676,7 @@ namespace BN.ViewModels.Base
         #region Комманды
         public RelayCommand Cmd_ConToRack_st6 { get; set; }
         public RelayCommand Cmd_DisconFromRack_st6 { get; set; }
+        public RelayCommand OpenJurnalWindow_st6 { get; set; }
         #endregion
 
         public MainWindowViewModel()
@@ -948,6 +950,11 @@ namespace BN.ViewModels.Base
 
             });
 
+            OpenJurnalWindow_st6 = new RelayCommand(o =>
+            {
+                JurnalWindow jurnalWindow = new JurnalWindow();
+                jurnalWindow.Show();
+            });
 
         }
     }
