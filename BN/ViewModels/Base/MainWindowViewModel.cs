@@ -673,15 +673,6 @@ namespace BN.ViewModels.Base
         }
         #endregion
 
-      /*  #region Обработанный журнал
-        private string[] _jurnal_st6;
-        public string[] Jurnal_st6
-        {
-            get =>_jurnal_st6;
-            set => Set(ref _jurnal_st6, value);
-        }
-        #endregion*/
-
         #region Комманды
         public RelayCommand Cmd_ConToRack_st6 { get; set; }
         public RelayCommand Cmd_DisconFromRack_st6 { get; set; }
