@@ -36,9 +36,9 @@
                 </Style>
             </DataGrid.RowStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Дата/Время" Binding="{Binding DT}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="KKS код" Binding="{Binding KKS}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Статус" Binding="{Binding STS}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Дата/Время" Binding="{Binding DT}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="KKS код" Binding="{Binding KKS}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding STS}" IsReadOnly="True" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
