@@ -169,7 +169,7 @@ namespace BN.Models
                 {
                     using (var sw = new StreamWriter(Path, true))  
                     {
-                        sw.WriteLine("Дата/Время    Параметр    Статус");
+                        sw.WriteLine("Дата/Время;Параметр;Статус");
                     }
                 }
 
@@ -182,16 +182,16 @@ namespace BN.Models
                             switch (ArrOfStatus[i])
                             {
                                 case "#e5e5e5":
-                                    sw.WriteLine(DateTime.Now + "   " + KKS[i] + "  " + "Норма");
+                                    sw.WriteLine(DateTime.Now + ";" + KKS[i] + ";" + "Норма");
                                     break;
                                 case "Yellow":
-                                    sw.WriteLine(DateTime.Now + "   " + KKS[i] + "  " + "Сработала предупредительная граница");
+                                    sw.WriteLine(DateTime.Now + ";" + KKS[i] + ";" + "Сработала предупредительная граница");
                                     break;
                                 case "#FFFF4D39":
-                                    sw.WriteLine(DateTime.Now + "   " + KKS[i] + "  " + "Сработала аварийная граница");
+                                    sw.WriteLine(DateTime.Now + ";" + KKS[i] + ";" + "Сработала аварийная граница");
                                     break;
                                 case "Blue":
-                                    sw.WriteLine(DateTime.Now + "   " + KKS[i] + "  " + "Неисправность");
+                                    sw.WriteLine(DateTime.Now + ";" + KKS[i] + ";" + "Неисправность");
                                     break;
                             }
                         }

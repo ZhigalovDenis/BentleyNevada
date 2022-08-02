@@ -664,8 +664,8 @@ namespace BN.ViewModels.Base
         #endregion
 
        #region Обработанный журнал
-        private string[] _jurnal_st6;
-        public string[] Jurnal_st6
+        private List<RJString> _jurnal_st6;
+        public List<RJString> Jurnal_st6
         {
             get =>_jurnal_st6;
             set => Set(ref _jurnal_st6, value);
@@ -893,8 +893,7 @@ namespace BN.ViewModels.Base
                                         ArrOFStatus.CopyTo(NewArrOfStatus, 0);
                                         string Path2 = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\";
                                         ReadJurnal readJurnal = new ReadJurnal();
-                                        var ttt = readJurnal.ReadLastFile2(Path2);
-                                        /*Jurnal_st6 = ArchData_st6.ReadLastFile(Path2);*/
+                                        Jurnal_st6 = readJurnal.ReadLastFile(Path2);                                      
                                     }
 
 

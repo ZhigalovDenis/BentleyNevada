@@ -1,19 +1,13 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Documents;
+
 
 namespace BN.Models
 {
     internal class ReadJurnal
     {
-
-
-
-
         /// <summary>
         /// Получение последнего созданного файла
         /// </summary>
@@ -33,52 +27,24 @@ namespace BN.Models
         /// </summary>
         /// <param name="Path"></param>
         /// <returns></returns>
-        public string[] ReadLastFile(string Path)
+        public  List<RJString> ReadLastFile(string Path)
         {
             string LastPath = GetLastFile(Path);
-            using (StreamReader reader = new StreamReader(LastPath))
-            {
-                return reader.ReadToEnd().Split('\n');
-            }
-        }
-
-        public List<string> ReadLastFile1(string Path)
-        {
-            string LastPath = GetLastFile(Path);
-            using (StreamReader reader = new StreamReader(LastPath))
-            {
-                string[] strs = reader.ReadToEnd().Split('\n');
-                //string[] strs2 = st;   
-                List<string> ppp = new List<string>();
-                for (int i = 0; i < strs.Length; i++)
+            string[] file = File.ReadAllLines(LastPath);
+            List<RJString> fileaslist = new List<RJString>();  
+                for (int i = 0; i < file.Length; i++)
                 {
-                    ppp.Add(strs[i]);
-                }
-                return ppp;
-            }
-        }
-
-        public  List<RJString> ReadLastFile2(string Path)
-        {
-            string LastPath = GetLastFile(Path);
-            var lines = File.ReadAllLines(LastPath);
-            var list = new List<RJString>();  
-                for (int i = 0; i < lines.Length; i++)
-                {
-                    var line = lines[i].Split('\t');
-                    var rjs = new RJString() 
+                    string[] lineoffile = file[i].Split(';');
+                    var rjstring = new RJString() 
                     {
-                        DT = line[0],
-                        KKS = line[1],
-                        STS = line[2]
-                    };   
-                
-                    list.Add(rjs);          
+                        DT = lineoffile[0],
+                        KKS = lineoffile[1],
+                        STS = lineoffile[2]
+                    };
+
+                fileaslist.Add(rjstring);          
                 }
-                return list;
+                return fileaslist;
         }
-
-
-
     }
 }
