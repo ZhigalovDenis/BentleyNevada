@@ -892,11 +892,7 @@ namespace BN.ViewModels.Base
                                             Path1 = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\" + str_dt2 + ".txt";
                                             ArchData_st6.AchivingJurnal(ArrOFStatus, NewArrOfStatus, KKS, Path1);
                                         }
-                                        ArrOFStatus.CopyTo(NewArrOfStatus, 0);
-
-                                        string Path2 = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\";
-                                        ReadJurnal readJurnal = new ReadJurnal();
-                                        Jurnal_st6 = readJurnal.ReadLastFile(Path2);                                      
+                                        ArrOFStatus.CopyTo(NewArrOfStatus, 0);                                 
                                     }
 
 
