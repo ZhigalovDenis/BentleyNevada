@@ -1,8 +1,9 @@
 ﻿
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
-
+using System.Windows.Data;
 
 namespace BN.Models
 {
@@ -27,7 +28,7 @@ namespace BN.Models
         /// </summary>
         /// <param name="Path"></param>
         /// <returns></returns>
-        public  List<ColumnsToReadJurnal> ReadLastFile(string Path)
+        private  List<ColumnsToReadJurnal> ReadLastFile(string Path)
         {
             string LastPath = GetLastFile(Path);
             string[] file = File.ReadAllLines(LastPath);
@@ -45,6 +46,13 @@ namespace BN.Models
                 fileaslist.Add(rjstring);          
                 }
                 return fileaslist;
+        }
+
+        public ICollectionView GetJurnal(string Path)
+        {
+            List<ColumnsToReadJurnal> Jurnal = ReadLastFile(Path);
+            ICollectionView JurnalToFilter = CollectionViewSource.GetDefaultView(Jurnal);
+            return JurnalToFilter;
         }
 
     }
