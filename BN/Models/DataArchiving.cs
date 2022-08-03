@@ -95,7 +95,7 @@ namespace BN.Models
 
             FileInfo info = new FileInfo(Path);
             long SizeOfFile = (info.Length/1024)/1024; //Размер в МБ 
-            if(SizeOfFile < 1) 
+            if(SizeOfFile < 10) 
             {
                 return true;
             }
