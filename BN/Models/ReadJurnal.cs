@@ -27,15 +27,15 @@ namespace BN.Models
         /// </summary>
         /// <param name="Path"></param>
         /// <returns></returns>
-        public  List<RJString> ReadLastFile(string Path)
+        public  List<ColumnsToReadJurnal> ReadLastFile(string Path)
         {
             string LastPath = GetLastFile(Path);
             string[] file = File.ReadAllLines(LastPath);
-            List<RJString> fileaslist = new List<RJString>();  
+            List<ColumnsToReadJurnal> fileaslist = new List<ColumnsToReadJurnal>();  
                 for (int i = 1; i < file.Length; i++)
                 {
                     string[] lineoffile = file[i].Split(';');
-                    var rjstring = new RJString() 
+                    var rjstring = new ColumnsToReadJurnal() 
                     {
                         DT = lineoffile[0],
                         KKS = lineoffile[1],

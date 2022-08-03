@@ -93,7 +93,7 @@
     <Compile Include="Models\BNRack.cs" />
     <Compile Include="Models\DataArchiving.cs" />
     <Compile Include="Models\ReadJurnal.cs" />
-    <Compile Include="Models\RJString.cs" />
+    <Compile Include="Models\ColumnsToReadJurnal.cs" />
     <Compile Include="Models\VisualEffects.cs" />
     <Compile Include="ViewModels\Base\JurnalWindowViewModel.cs" />
     <Compile Include="ViewModels\Base\MainWindowViewModel.cs" />

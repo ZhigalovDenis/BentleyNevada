@@ -10,8 +10,8 @@ namespace BN.ViewModels.Base
     internal class JurnalWindowViewModel : ViewModel
     {
         #region Обработанный журнал
-        private List<RJString> _jurnal_st6;
-        public List<RJString> Jurnal_st6
+        private List<ColumnsToReadJurnal> _jurnal_st6;
+        public List<ColumnsToReadJurnal> Jurnal_st6
         {
             get => _jurnal_st6;
             set => Set(ref _jurnal_st6, value);
@@ -53,7 +53,7 @@ namespace BN.ViewModels.Base
         {
             if (!string.IsNullOrEmpty(KKSFilter_st6))
             {
-                var detail = o as RJString;
+                var detail = o as ColumnsToReadJurnal;
                 return detail != null && detail.KKS.ToLower().Contains(KKSFilter_st6);
             }
             return true;
