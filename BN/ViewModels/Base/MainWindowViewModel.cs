@@ -708,8 +708,12 @@ namespace BN.ViewModels.Base
                                         "10MAD10CG010","10MAD10CG011","10MAD10CG012","10MAD10CY020","10MAD10CY030","10MAD20CY030","10MAD10CY040","10MAD20CY040",
                                         "10MKA10CY030","10MKA20CY030","10MAD20CY020","10MKA20CY020","10MKA10CY020","10MKA10CY040","10MAK10CY020","10MAK10CY040",
                                         "10MKA20CY040","10MAK10CY030","10MAD20CG010"};
+                        string Header = ("Дата/Время;10MAD10CY011;10MAD10CY012;10MAD20CY011;10MAD20CY012;10MAD30CY011;10MAD30CY012;10MAD40CY011;10MAD40CY012;" +
+                                        "10MAD50CY011;10MAD50CY012;10MAD60CY011;10MAD60CY012;10MKA10CY011;10MKA10CY012;10MKA20CY011;10MKA20CY012;10MAD10CG010;" +
+                                        "10MAD10CG011;10MAD10CG012;10MAD10CY020;10MAD10CY030;10MAD20CY030;10MAD10CY040;10MAD20CY040;10MKA10CY030;10MKA20CY030;" +
+                                        "10MAD20CY020;10MKA20CY020;10MKA10CY020;10MKA10CY040;10MAK10CY020;10MAK10CY040;10MKA20CY040;10MAK10CY030;10MAD20CG010");
 
-                        var timer_st6 = new DispatcherTimer(DispatcherPriority.Render);
+            var timer_st6 = new DispatcherTimer(DispatcherPriority.Render);
                         timer_st6.Interval = TimeSpan.FromSeconds(1);
                         timer_st6.Tick += (sender, args) =>
                         {
@@ -877,12 +881,12 @@ namespace BN.ViewModels.Base
 
                                         if (ArchData_st6.CheckSizeOfFile(Path0) == true)
                                         {
-                                            ArchData_st6.ArchivingData(rtrn_prm_st6_arch, Path0);
+                                            ArchData_st6.ArchivingData(rtrn_prm_st6_arch, Path0, Header);
                                         }
                                         else
                                         {
                                             Path0 = Directory.GetCurrentDirectory() + "\\Archive\\Data\\" + str_dt2 + ".txt";
-                                            ArchData_st6.ArchivingData(rtrn_prm_st6_arch, Path0);
+                                            ArchData_st6.ArchivingData(rtrn_prm_st6_arch, Path0, Header);
                                         }
 
                                         if (ArchData_st6.CheckSizeOfFile(Path1) == true)

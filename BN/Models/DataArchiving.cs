@@ -109,7 +109,7 @@ namespace BN.Models
         /// </summary>
         /// <param name="prm_arch"></param>
         /// <param name="Path"></param>
-        public void ArchivingData(double[] ArrOfPrm, string Path)
+        public void ArchivingData(double[] ArrOfPrm, string Path, string Header)
         {
             if (CreateDirectory() == true)
             {
@@ -128,10 +128,7 @@ namespace BN.Models
                 {
                     if (FirstLine == null) // Если файл пустой то записать заголовок
                     {
-                        sw.WriteLine("Дата/Время;10MAD10CY011;10MAD10CY012;10MAD20CY011;10MAD20CY012;10MAD30CY011;10MAD30CY012;10MAD40CY011;10MAD40CY012;" +
-                                     "10MAD50CY011;10MAD50CY012;10MAD60CY011;10MAD60CY012;10MKA10CY011;10MKA10CY012;10MKA20CY011;10MKA20CY012;10MAD10CG010;" +
-                                     "10MAD10CG011;10MAD10CG012;10MAD10CY020;10MAD10CY030;10MAD20CY030;10MAD10CY040;10MAD20CY040;10MKA10CY030;10MKA20CY030;" +
-                                     "10MAD20CY020;10MKA20CY020;10MKA10CY020;10MKA10CY040;10MAK10CY020;10MAK10CY040;10MKA20CY040;10MAK10CY030;10MAD20CG010");
+                        sw.WriteLine(Header);
                     }
                     else // Если файл не пустой заполнять массивом
                     {
@@ -145,7 +142,13 @@ namespace BN.Models
                 }
             }
         }              
-
+        /// <summary>
+        /// Архивация журнала
+        /// </summary>
+        /// <param name="ArrOfStatus"></param>
+        /// <param name="NewArrOfStatus"></param>
+        /// <param name="KKS"></param>
+        /// <param name="Path"></param>
         public void AchivingJurnal(string[] ArrOfStatus, string[] NewArrOfStatus, string[] KKS, string Path)
         {
             if (CreateDirectory() == true)
@@ -197,33 +200,5 @@ namespace BN.Models
                
             }
         }
-        /// <summary>
-        /// Получение последнего созданного файла
-        /// </summary>
-        /// <param name="Path"></param>
-        /// <returns></returns>
-        private string GetLastFile(string Path)
-        {
-            DirectoryInfo directory = new DirectoryInfo(Path);
-            FileInfo LastFile = directory.GetFiles()
-                         .OrderByDescending(f => f.LastWriteTime)
-                        .First();
-            string PathLastFile = Path + LastFile;
-            return PathLastFile;
-        }
-        /// <summary>
-        /// Чтение последнего созданного файла
-        /// </summary>
-        /// <param name="Path"></param>
-        /// <returns></returns>
-        public string[] ReadLastFile(string Path)
-        {
-             String LastPath = GetLastFile(Path);
-             using (StreamReader reader = new StreamReader(LastPath))
-             {
-                return reader.ReadToEnd().Split('\n');
-             }
-        }
-
     }
 }
