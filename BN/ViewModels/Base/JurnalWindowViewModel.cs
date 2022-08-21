@@ -43,9 +43,9 @@ namespace BN.ViewModels.Base
             if (!string.IsNullOrEmpty(KKSFilter_st6))
             {
                 var detail = o as ColumnsToReadJurnal;
-                return detail != null && detail.KKS.ToLower().Contains(KKSFilter_st6);
+                return detail != null && detail.KKS.Contains(KKSFilter_st6);
             }
-            return true;
+
         }
     }
 }
