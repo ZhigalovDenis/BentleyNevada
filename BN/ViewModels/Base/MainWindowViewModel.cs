@@ -685,8 +685,8 @@ namespace BN.ViewModels.Base
             {
                 Bt_Discon_st6 = false;
 
-                string Path0 = Directory.GetCurrentDirectory() + "\\Archive\\Data\\" + "Data.txt";
-                string Path1 = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\" + "Jurnal.txt";
+                string Path0 = Directory.GetCurrentDirectory() + "\\Archive\\Data\\10CJJ20_CJJ\\" + "Data.txt";
+                string Path1 = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\10CJJ20_CJJ\\" + "Jurnal.txt";
 
 
                 var bnRack_st6 = new BNRack();
@@ -872,9 +872,9 @@ namespace BN.ViewModels.Base
                                         string str_dt2 = str_dt1.Replace(':', '_');
 
                                         DataArchiving ArchData_st6 = new DataArchiving();
-                                        ArchData_st6.DirToCreate = "\\Archive\\Data\\";
+                                        ArchData_st6.DirToCreate = "\\Archive\\Data\\10CJJ20_CJJ\\";
                                         ArchData_st6.CreateDirectory();
-                                        ArchData_st6.DirToCreate = "\\Archive\\Jurnal\\";
+                                        ArchData_st6.DirToCreate = "\\Archive\\Jurnal\\10CJJ20_CJJ\\";
                                         ArchData_st6.CreateDirectory();
                                         Bt_JurnalAct_st6 = true;
 
@@ -885,7 +885,7 @@ namespace BN.ViewModels.Base
                                         }
                                         else
                                         {
-                                            Path0 = Directory.GetCurrentDirectory() + "\\Archive\\Data\\" + str_dt2 + ".txt";
+                                            Path0 = Directory.GetCurrentDirectory() + "\\Archive\\Data\\10CJJ20_CJJ\\" + str_dt2 + ".txt";
                                             ArchData_st6.ArchivingData(rtrn_prm_st6_arch, Path0, Header);
                                         }
 
@@ -895,7 +895,7 @@ namespace BN.ViewModels.Base
                                         }
                                         else
                                         {
-                                            Path1 = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\" + str_dt2 + ".txt";
+                                            Path1 = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\10CJJ20_CJJ\\" + str_dt2 + ".txt";
                                             ArchData_st6.AchivingJurnal(ArrOFStatus, NewArrOfStatus, KKS, Path1);
                                         }
                                         ArrOFStatus.CopyTo(NewArrOfStatus, 0);

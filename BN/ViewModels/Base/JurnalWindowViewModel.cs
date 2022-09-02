@@ -32,7 +32,7 @@ namespace BN.ViewModels.Base
 
         public JurnalWindowViewModel()
         {
-            string Path = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\";
+            string Path = Directory.GetCurrentDirectory() + "\\Archive\\Jurnal\\10CJJ20_CJJ\\";
             ReadJurnal readJurnal = new ReadJurnal();
             Jurnal_st6 = readJurnal.GetJurnal(Path);
             Jurnal_st6.Filter = FilterKKS;
